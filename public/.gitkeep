@@ -1,0 +1,4 @@
+# This file ensures the public directory is tracked by git
+# Store your images directly here (e.g., logo.png, hero.jpg, etc.)
+# Access them in your code like: /logo.png or /hero.jpg
+
