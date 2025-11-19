@@ -53,7 +53,7 @@ export default function OurProducts() {
   ]
 
   return (
-    <div id="our-products" className="w-full bg-white py-12 lg:py-16">
+    <div id="our-products" className="w-full py-12 lg:py-16" style={{ backgroundColor: '#f5f0ff' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title Section */}
         <div className="mb-10 lg:mb-12 text-center">
@@ -86,7 +86,7 @@ export default function OurProducts() {
               </div>
 
               {/* Product Details */}
-              <div>
+              <div className="p-5 lg:p-6">
                 {/* Product Name */}
                 <h3 
                   className="text-xl lg:text-2xl font-semibold mb-4"
