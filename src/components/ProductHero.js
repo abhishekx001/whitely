@@ -6,10 +6,11 @@ import { useState } from 'react'
 export default function ProductHero() {
   const [currentPage, setCurrentPage] = useState(0)
   
-  // Using images from public folder - grouped in pairs (only 2 pairs)
+  // Using images from public folder - grouped in pairs (3 pairs)
   const imagePairs = [
-    ['/beautycream2.jpg', '/bodylotion2.jpg'],
-    ['/lipbalm.jpg', '/handlotion.jpg']
+    ['/beautycream 4.jpg', '/skinprob.jpg'],
+    ['/handlotion.jpg', '/handcream.jpg'],
+    ['/lipbalm.jpg', '/lipapply.jpg']
   ]
 
   const totalPages = imagePairs.length

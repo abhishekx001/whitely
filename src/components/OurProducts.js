@@ -73,7 +73,8 @@ export default function OurProducts() {
           {products.map((product) => (
             <div 
               key={product.id} 
-              className="bg-white rounded-lg overflow-hidden w-full max-w-sm"
+              className="rounded-lg overflow-hidden w-full max-w-sm"
+              style={{ backgroundColor: '#f5f0ff' }}
             >
               {/* Product Image */}
               <div className="relative w-full h-[280px] sm:h-[320px] lg:h-[350px] bg-gray-50 mb-6">
