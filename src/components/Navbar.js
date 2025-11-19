@@ -56,6 +56,9 @@ export default function Navbar() {
               <a href="#our-products" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
                 Products
               </a>
+              <a href="#reviews" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
+                Reviews
+              </a>
               <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
                 Contact Us
               </a>
@@ -176,6 +179,13 @@ export default function Navbar() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Products
+                </a>
+                <a 
+                  href="#reviews"
+                  className="font-normal py-2.5 px-3 transition-all duration-200 rounded text-white bg-[#5a3a8a] hover:bg-[#6b4a9a]"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Reviews
                 </a>
                 <a 
                   href={instagramUrl}
