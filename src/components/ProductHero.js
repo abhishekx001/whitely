@@ -8,8 +8,8 @@ export default function ProductHero() {
   
   // Using images from public folder - grouped in pairs (only 2 pairs)
   const imagePairs = [
-    ['/lipbalm.jpg', '/beautycream1.jpg'],
-    ['/handlotion.jpg', '/photo_2025-11-17_22-30-26.jpg']
+    ['/beautycream2.jpg', '/bodylotion2.jpg'],
+    ['/lipbalm.jpg', '/handlotion.jpg']
   ]
 
   const totalPages = imagePairs.length
@@ -38,7 +38,7 @@ export default function ProductHero() {
                 alt="Whitely Product"
                 fill
                 className="object-cover transition-opacity duration-300"
-                priority={currentPage === 1}
+                priority={currentPage === 0}
               />
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function ProductHero() {
                 alt="Whitely Product"
                 fill
                 className="object-cover transition-opacity duration-300"
-                priority={currentPage === 1}
+                priority={currentPage === 0}
               />
             </div>
           </div>
