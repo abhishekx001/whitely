@@ -5,10 +5,13 @@ import OurProducts from '../components/OurProducts'
 import BestSkincare from '../components/BestSkincare'
 import InstagramFeed from '../components/InstagramFeed'
 import Footer from '../components/Footer'
+import LoadingScreen from '../components/LoadingScreen'
+import WhatsAppButton from '../components/WhatsAppButton'
 
 export default function Home() {
   return (
     <>
+      <LoadingScreen />
       <Navbar />
       <ProductHero />
       <FeaturedProducts />
@@ -16,6 +19,7 @@ export default function Home() {
       <BestSkincare />
       <InstagramFeed />
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }

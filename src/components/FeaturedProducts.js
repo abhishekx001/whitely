@@ -130,7 +130,10 @@ export default function FeaturedProducts() {
                   >
                     See product details
                   </button>
-                  <button 
+                  <a
+                    href="https://wa.me/918921193021?text=product%20details%20or%20enquiry"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-5 py-2 lg:px-6 lg:py-2.5 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 shadow-md ml-auto"
                     style={{ 
                       backgroundColor: '#3f2265',
@@ -140,7 +143,7 @@ export default function FeaturedProducts() {
                     onMouseLeave={(e) => e.target.style.backgroundColor = '#3f2265'}
                   >
                     Buy Now
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

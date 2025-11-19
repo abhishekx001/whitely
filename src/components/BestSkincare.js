@@ -44,7 +44,10 @@ export default function BestSkincare() {
 
         {/* Centered Buy Now Button */}
         <div className="flex justify-center mt-10 lg:mt-12">
-          <button 
+          <a
+            href="https://wa.me/918921193021?text=product%20details%20or%20enquiry"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-2.5 lg:px-7 lg:py-3 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 shadow-md"
             style={{ 
               backgroundColor: '#3f2265',
@@ -54,7 +57,7 @@ export default function BestSkincare() {
             onMouseLeave={(e) => e.target.style.backgroundColor = '#3f2265'}
           >
             Buy Now
-          </button>
+          </a>
         </div>
       </div>
     </div>
