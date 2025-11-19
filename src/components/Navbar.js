@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true)
   const lastScrollY = useRef(0)
   const instagramUrl = 'https://www.instagram.com/whitely.beauty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
-  const whatsappUrl = 'https://wa.me/918921193021?text=product%20details%20or%20enquiry'
+  const whatsappUrl = 'https://wa.me/918921193021?text=product%20details'
 
   useEffect(() => {
     const handleScroll = () => {
