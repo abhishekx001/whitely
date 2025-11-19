@@ -1,51 +1,79 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const lastScrollY = useRef(0)
+  const instagramUrl = 'https://www.instagram.com/whitely.beauty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+
+      if (currentScrollY < 10) {
+        // Show navbar at the top
+        setIsVisible(true)
+      } else if (currentScrollY > lastScrollY.current) {
+        // Scrolling down - hide navbar
+        setIsVisible(false)
+      } else {
+        // Scrolling up - show navbar
+        setIsVisible(true)
+      }
+
+      lastScrollY.current = currentScrollY
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <>
       {/* Main Navigation Bar */}
-      <nav className="bg-white shadow-sm sticky top-0 z-50">
+      <nav 
+        className={`shadow-sm sticky top-0 z-50 transition-all duration-300 ease-in-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
+        }`}
+        style={{ backgroundColor: '#f5f0ff' }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <span className="text-3xl font-bold" style={{ fontFamily: 'var(--font-playfair)', letterSpacing: '0.5px', color: '#2a1a45' }}>whiteLy</span>
+              <Link href="/" className="flex flex-col items-center">
+                <span className="text-3xl font-bold" style={{ fontFamily: 'var(--font-playfair)', letterSpacing: '0.5px', color: '#3a2a55' }}>whiteLy</span>
+                <span className="text-xs uppercase tracking-wider font-semibold -mt-1" style={{ fontFamily: 'var(--font-poppins)', color: '#3a2a55' }}>beauty</span>
               </Link>
             </div>
 
             {/* Navigation Links - Desktop */}
             <div className="hidden lg:flex items-center space-x-6" style={{ fontFamily: 'var(--font-poppins)' }}>
-              <Link href="/" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
-                Home
-              </Link>
-              <Link href="/about" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
-                About Us
-              </Link>
-              <Link href="/contact" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
+              <a href="#our-products" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
+                Products
+              </a>
+              <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
                 Contact Us
-              </Link>
+              </a>
               <Link href="/how-to-use" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
                 How To Use
               </Link>
-              <Link href="/products" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
-                Products
-              </Link>
-              <Link href="/blog" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
-                Blog
+              <Link href="/about" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
+                About Us
               </Link>
             </div>
 
             {/* Right Icons */}
             <div className="flex items-center space-x-4">
-              {/* Buy Now Button */}
-              <button 
-                className="px-4 py-2 rounded-full text-white font-semibold transition-all hover:scale-105 shadow-md"
+              {/* Get in Touch Button */}
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-none text-white text-sm font-semibold transition-all hover:scale-105 shadow-md"
                 style={{ 
                   backgroundColor: '#3f2265',
                   fontFamily: 'var(--font-poppins)'
@@ -53,8 +81,8 @@ export default function Navbar() {
                 onMouseEnter={(e) => e.target.style.backgroundColor = '#5a3a8a'}
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#3f2265'}
               >
-                Buy Now
-              </button>
+                Order Now
+              </a>
 
               {/* Mobile Menu Button */}
               <button
@@ -138,27 +166,22 @@ export default function Navbar() {
 
               {/* Menu Items */}
               <div className="flex flex-col space-y-2 overflow-y-auto flex-1" style={{ fontFamily: 'var(--font-poppins)' }}>
-                <Link 
-                  href="/" 
+                <a 
+                  href="#our-products"
                   className="font-normal py-2.5 px-3 transition-all duration-200 rounded text-white hover:bg-[#5a3a8a]"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Home
-                </Link>
-                <Link 
-                  href="/about" 
-                  className="font-normal py-2.5 px-3 transition-all duration-200 rounded text-white hover:bg-[#5a3a8a]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  About Us
-                </Link>
-                <Link 
-                  href="/contact" 
+                  Products
+                </a>
+                <a 
+                  href={instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-normal py-2.5 px-3 transition-all duration-200 rounded text-white hover:bg-[#5a3a8a]"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact Us
-                </Link>
+                </a>
                 <Link 
                   href="/how-to-use" 
                   className="font-normal py-2.5 px-3 transition-all duration-200 rounded text-white hover:bg-[#5a3a8a]"
@@ -167,18 +190,11 @@ export default function Navbar() {
                   How To Use
                 </Link>
                 <Link 
-                  href="/products" 
+                  href="/about" 
                   className="font-normal py-2.5 px-3 transition-all duration-200 rounded text-white hover:bg-[#5a3a8a]"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Products
-                </Link>
-                <Link 
-                  href="/blog" 
-                  className="font-normal py-2.5 px-3 transition-all duration-200 rounded text-white hover:bg-[#5a3a8a]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Blog
+                  About Us
                 </Link>
               </div>
             </div>
@@ -187,7 +203,12 @@ export default function Navbar() {
       </nav>
 
       {/* Promotional Banner */}
-      <div className="py-2 px-4" style={{ backgroundColor: '#d3ccd1' }}>
+      <div 
+        className={`py-2 px-4 transition-all duration-300 ease-in-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
+        }`}
+        style={{ backgroundColor: '#d3ccd1' }}
+      >
         <div className="max-w-7xl mx-auto flex items-center space-x-2 text-sm" style={{ fontFamily: 'var(--font-poppins)', color: '#3f2265' }}>
           <span className="text-lg">🍃</span>
           <span className="flex-1">New Launch! Whitely Products – 100% Natural | Visible Results Guaranteed</span>

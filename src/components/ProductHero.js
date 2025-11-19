@@ -4,12 +4,12 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 export default function ProductHero() {
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(0)
   
   // Using images from public folder - grouped in pairs (only 2 pairs)
   const imagePairs = [
-    ['/photo_2025-11-17_22-30-14.jpg', '/photo_2025-11-17_22-30-16.jpg'],
-    ['/photo_2025-11-17_22-30-18.jpg', '/photo_2025-11-17_22-30-19.jpg']
+    ['/lipbalm.jpg', '/beautycream1.jpg'],
+    ['/handlotion.jpg', '/photo_2025-11-17_22-30-26.jpg']
   ]
 
   const totalPages = imagePairs.length

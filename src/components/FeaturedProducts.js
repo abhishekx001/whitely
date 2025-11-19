@@ -6,27 +6,30 @@ export default function FeaturedProducts() {
   const products = [
     {
       id: 1,
-      name: 'Beauty Cream',
+      name: 'Brightening Cream',
       category: 'Beauty Cream',
       description: 'Vitamin C cream for visibly brighter, more even-toned skin.',
-      price: '₹799',
-      image: '/photo_2025-11-17_22-30-24.jpg'
+      price: '₹1,499.00',
+      originalPrice: '₹1,799.00',
+      image: '/beautycream1.jpg'
     },
     {
       id: 2,
-      name: 'Hand Brightening Lotion',
+      name: 'Brightening Body Lotion',
       category: 'Lotion',
       description: 'Lightweight lotion to visibly improve radiance.',
-      price: '₹649',
-      image: '/photo_2025-11-17_22-30-26.jpg'
+      price: '₹999.00',
+      originalPrice: '₹1,200.00',
+      image: '/bodylotion2.jpg'
     },
     {
       id: 3,
-      name: 'Beauty Cream',
-      category: 'Cream',
+      name: 'Lip Mask',
+      category: 'Lip Care',
       description: 'Moisturizer for smooth, supple skin that feels nourished.',
-      price: '₹899',
-      image: '/photo_2025-11-17_22-30-27.jpg'
+      price: '₹599.00',
+      originalPrice: '₹799.00',
+      image: '/lipbalm.jpg'
     }
   ]
 
@@ -93,15 +96,24 @@ export default function FeaturedProducts() {
                 </p>
 
                 {/* Price */}
-                <div className="mb-4">
+                <div className="mb-4 flex items-center gap-3">
                   <span 
-                    className="text-xl lg:text-2xl font-normal"
+                    className="text-xl lg:text-2xl font-semibold"
                     style={{ 
                       color: '#2a1a45',
                       fontFamily: 'var(--font-poppins)'
                     }}
                   >
                     {product.price}
+                  </span>
+                  <span 
+                    className="text-base lg:text-lg line-through opacity-60"
+                    style={{ 
+                      color: '#2a1a45',
+                      fontFamily: 'var(--font-poppins)'
+                    }}
+                  >
+                    {product.originalPrice}
                   </span>
                 </div>
 

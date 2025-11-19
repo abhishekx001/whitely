@@ -6,40 +6,57 @@ export default function OurProducts() {
   const products = [
     {
       id: 1,
-      name: 'Vitamin C Facewash',
+      name: 'Brightening Cream',
       benefits: [
-        'Deep Cleansing',
-        'Brighten Skin Tone',
-        'Antioxidant Protection'
+        'Deep Hydration for soft, smooth skin',
+        'Brightens and evens out skin tone',
+        'Helps reduce dark spots & dullness',
+        'Lightweight, non-greasy formula',
+        'Suitable for all skin types'
       ],
-      image: '/photo_2025-11-17_22-30-29.jpg'
+      image: '/beautycream1.jpg'
     },
     {
       id: 2,
-      name: 'Whitening Cream',
+      name: 'Brightening Body Lotion',
       benefits: [
-        'Whitens Skin',
-        'Removes Acne',
-        'Removes Dark Spot'
+        'Bright hands, soft touch ✨',
+        'Glow at your fingertips 💎',
+        'Whitely hands that shine 🌸',
+        'Brighten every touch with Whitely 🌿',
+        'Soft. Bright. Beautiful. 💫'
       ],
-      image: '/photo_2025-11-17_22-30-21.jpg'
+      image: '/bodylotion2.jpg'
     },
     {
       id: 3,
-      name: 'Vitamin E Sunscreen + Moisturizer',
+      name: 'Lip Mask',
       benefits: [
-        'Daily Defense',
-        'Non-Greasy Formula'
+        'Hydrated lips look smoother and more "plumped" or supple',
+        'Regular use can help maintain a healthy lip color and prevent peeling or flaking',
+        'Balms can double as a primer for lipsticks, helping makeup go on more smoothly'
       ],
-      image: '/photo_2025-11-17_22-30-23.jpg'
+      image: '/lipbalm.jpg'
+    },
+    {
+      id: 4,
+      name: 'Whitely Brightening Soap',
+      benefits: [
+        'Deep cleansing for brighter, clearer skin',
+        'Gentle exfoliation removes dead skin cells',
+        'Brightens and evens out skin tone',
+        'Natural ingredients for all skin types',
+        'Leaves skin feeling fresh and rejuvenated'
+      ],
+      image: '/brightening soap.jpg'
     }
   ]
 
   return (
-    <div className="w-full bg-white py-12 lg:py-16">
+    <div id="our-products" className="w-full bg-white py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title Section */}
-        <div className="mb-10 lg:mb-12">
+        <div className="mb-10 lg:mb-12 text-center">
           <h2 
             className="text-3xl lg:text-4xl font-bold"
             style={{ 
@@ -52,11 +69,11 @@ export default function OurProducts() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 justify-items-center">
           {products.map((product) => (
             <div 
               key={product.id} 
-              className="bg-white rounded-lg overflow-hidden"
+              className="bg-white rounded-lg overflow-hidden w-full max-w-sm"
             >
               {/* Product Image */}
               <div className="relative w-full h-[280px] sm:h-[320px] lg:h-[350px] bg-gray-50 mb-6">
@@ -72,7 +89,7 @@ export default function OurProducts() {
               <div>
                 {/* Product Name */}
                 <h3 
-                  className="text-xl lg:text-2xl font-bold mb-4"
+                  className="text-xl lg:text-2xl font-semibold mb-4"
                   style={{ 
                     color: '#2a1a45',
                     fontFamily: 'var(--font-poppins)'
@@ -80,6 +97,19 @@ export default function OurProducts() {
                 >
                   {product.name}
                 </h3>
+
+                {/* Face Benefits Title - Only for Brightening Cream */}
+                {product.id === 1 && (
+                  <h4 
+                    className="text-lg lg:text-xl font-semibold mb-3 mt-2"
+                    style={{ 
+                      color: '#2a1a45',
+                      fontFamily: 'var(--font-poppins)'
+                    }}
+                  >
+                    Face Benefits:
+                  </h4>
+                )}
 
                 {/* Benefits List */}
                 <ul className="space-y-2">
@@ -107,7 +137,7 @@ export default function OurProducts() {
                           fontFamily: 'var(--font-poppins)'
                         }}
                       >
-                        {benefit}.
+                        {benefit}
                       </span>
                     </li>
                   ))}
