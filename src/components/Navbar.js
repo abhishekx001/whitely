@@ -1,35 +1,17 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const lastScrollY = useRef(0)
   const instagramUrl = 'https://www.instagram.com/whitely.beauty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
   const whatsappUrl = 'https://wa.me/918921193021?text=product%20details'
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-
-      if (currentScrollY < 10) {
-        // Show navbar at the top
-        setIsVisible(true)
-      } else if (currentScrollY > lastScrollY.current) {
-        // Scrolling down - hide navbar
-        setIsVisible(false)
-      } else {
-        // Scrolling up - show navbar
-        setIsVisible(true)
-      }
-
-      lastScrollY.current = currentScrollY
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    // Navbar always visible - no fade out on scroll
+    setIsVisible(true)
   }, [])
 
   return (

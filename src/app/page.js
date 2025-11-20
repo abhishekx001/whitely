@@ -39,6 +39,13 @@ export default function Home() {
       name: "Riya Mehta",
       role: "Customer",
       videoSrc: "/review3.mp4"
+    },
+    {
+      id: 5,
+      quote: "Absolutely love Whitely products! The quality is outstanding and the results speak for themselves.",
+      name: "Customer",
+      role: "Customer",
+      videoSrc: "/video4.mp4"
     }
   ]
 
