@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
+import { Volume2, VolumeX } from 'lucide-react'
 
 export default function TestimonialSection({
   title,
@@ -12,6 +13,8 @@ export default function TestimonialSection({
   const scrollContainerRef = useRef(null)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(true)
+  const [unmutedVideoId, setUnmutedVideoId] = useState(null)
+  const videoRefs = useRef({})
   const instagramUrl = 'https://www.instagram.com/whitely.beauty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
 
   const scroll = (direction) => {
@@ -68,6 +71,32 @@ export default function TestimonialSection({
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [testimonials])
+
+  const toggleMute = (testimonialId) => {
+    // If this video is currently unmuted, mute it
+    if (unmutedVideoId === testimonialId) {
+      setUnmutedVideoId(null)
+      const video = videoRefs.current[testimonialId]
+      if (video) {
+        video.muted = true
+      }
+    } else {
+      // Mute the previously unmuted video (if any)
+      if (unmutedVideoId !== null) {
+        const previousVideo = videoRefs.current[unmutedVideoId]
+        if (previousVideo) {
+          previousVideo.muted = true
+        }
+      }
+      
+      // Unmute the clicked video
+      setUnmutedVideoId(testimonialId)
+      const video = videoRefs.current[testimonialId]
+      if (video) {
+        video.muted = false
+      }
+    }
+  }
 
   // Animation variants for the container to orchestrate staggered children animations
   const containerVariants = {
@@ -181,14 +210,31 @@ export default function TestimonialSection({
               >
                 <div className="relative h-[350px] sm:h-[400px] lg:h-[450px] w-full">
                   {testimonial.videoSrc ? (
-                    <video
-                      src={testimonial.videoSrc}
-                      className="h-full w-full object-cover"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    />
+                    <>
+                      <video
+                        ref={(el) => {
+                          if (el) videoRefs.current[testimonial.id] = el
+                        }}
+                        src={testimonial.videoSrc}
+                        className="h-full w-full object-cover"
+                        autoPlay
+                        loop
+                        muted={unmutedVideoId !== testimonial.id}
+                        playsInline
+                      />
+                      {/* Sound Toggle Button */}
+                      <button
+                        onClick={() => toggleMute(testimonial.id)}
+                        className="absolute bottom-3 right-3 z-10 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full p-2 transition-all duration-200 hover:scale-110"
+                        aria-label={unmutedVideoId === testimonial.id ? "Mute video" : "Unmute video"}
+                      >
+                        {unmutedVideoId === testimonial.id ? (
+                          <Volume2 className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                        ) : (
+                          <VolumeX className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                        )}
+                      </button>
+                    </>
                   ) : (
                     <Image
                       src={testimonial.imageSrc}

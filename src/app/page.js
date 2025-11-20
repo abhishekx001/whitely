@@ -13,18 +13,11 @@ import WhatsAppButton from '../components/WhatsAppButton'
 export default function Home() {
   const testimonials = [
     {
-      id: 1,
-      quote: "Amazing results! My skin has never looked better. The brightening cream is a game changer.",
-      name: "Priya Sharma",
+      id: 5,
+      quote: "Absolutely love Whitely products! The quality is outstanding and the results speak for themselves.",
+      name: "Customer",
       role: "Customer",
-      videoSrc: "/review1.mp4"
-    },
-    {
-      id: 2,
-      quote: "Love the body lotion! It keeps my skin soft and glowing all day long. Highly recommend!",
-      name: "Anjali Patel",
-      role: "Customer",
-      videoSrc: "/review2.mp4"
+      videoSrc: "/video4.mp4"
     },
     {
       id: 3,
@@ -34,18 +27,25 @@ export default function Home() {
       videoSrc: "/review4.mp4"
     },
     {
+      id: 2,
+      quote: "Love the body lotion! It keeps my skin soft and glowing all day long. Highly recommend!",
+      name: "Anjali Patel",
+      role: "Customer",
+      videoSrc: "/review2.mp4"
+    },
+    {
+      id: 1,
+      quote: "Amazing results! My skin has never looked better. The brightening cream is a game changer.",
+      name: "Priya Sharma",
+      role: "Customer",
+      videoSrc: "/review1.mp4"
+    },
+    {
       id: 4,
       quote: "The lip mask is incredible! My lips are so smooth and hydrated. Best product ever!",
       name: "Riya Mehta",
       role: "Customer",
       videoSrc: "/review3.mp4"
-    },
-    {
-      id: 5,
-      quote: "Absolutely love Whitely products! The quality is outstanding and the results speak for themselves.",
-      name: "Customer",
-      role: "Customer",
-      videoSrc: "/video4.mp4"
     }
   ]
 
