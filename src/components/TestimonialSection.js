@@ -12,6 +12,7 @@ export default function TestimonialSection({
   const scrollContainerRef = useRef(null)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(true)
+  const instagramUrl = 'https://www.instagram.com/whitely.beauty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
 
   const scroll = (direction) => {
     const container = scrollContainerRef.current
@@ -120,35 +121,53 @@ export default function TestimonialSection({
           {showLeftArrow && (
             <button
               onClick={() => scroll('left')}
-              className="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 sm:p-3 shadow-lg transition-all duration-200 hover:scale-110"
-              style={{ color: '#3f2265', display: showLeftArrow ? 'block' : 'none' }}
+              className="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 backdrop-blur-sm hover:bg-white/80 rounded-full p-1.5 sm:p-2 shadow-md transition-all duration-200 hover:scale-105"
+              style={{ color: '#3f2265', filter: 'blur(0.5px)', display: showLeftArrow ? 'block' : 'none' }}
               aria-label="Scroll left"
             >
-              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
           )}
 
-          {/* Right Arrow */}
+          {/* Right Arrow - Show scroll arrow when not at end */}
           {showRightArrow && (
             <button
               onClick={() => scroll('right')}
-              className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 sm:p-3 shadow-lg transition-all duration-200 hover:scale-110"
-              style={{ color: '#3f2265' }}
+              className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 backdrop-blur-sm hover:bg-white/80 rounded-full p-1.5 sm:p-2 shadow-md transition-all duration-200 hover:scale-105"
+              style={{ color: '#3f2265', filter: 'blur(0.5px)' }}
               aria-label="Scroll right"
             >
-              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
+          )}
+
+          {/* View More Button - Show when at the end */}
+          {!showRightArrow && (
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 backdrop-blur-sm hover:bg-white/80 rounded-full px-2 py-1 sm:px-3 sm:py-1.5 shadow-md transition-all duration-200 hover:scale-105 flex items-center gap-1"
+              style={{ color: '#3f2265', filter: 'blur(0.5px)' }}
+            >
+              <span className="text-xs sm:text-sm font-normal opacity-80" style={{ fontFamily: 'var(--font-poppins)' }}>
+                View More
+              </span>
+              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           )}
 
           {/* Scrollable Container */}
           <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
-            className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth pb-4 px-2 sm:px-0 snap-x snap-mandatory"
+            className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth pb-4 px-2 sm:px-0 snap-x snap-mandatory w-full"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {testimonials.map((testimonial, index) => (

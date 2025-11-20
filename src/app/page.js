@@ -3,6 +3,7 @@ import ProductHero from '../components/ProductHero'
 import FeaturedProducts from '../components/FeaturedProducts'
 import OurProducts from '../components/OurProducts'
 import BestSkincare from '../components/BestSkincare'
+import HowToUse from '../components/HowToUse'
 import TestimonialSection from '../components/TestimonialSection'
 import InstagramFeed from '../components/InstagramFeed'
 import Footer from '../components/Footer'
@@ -49,6 +50,7 @@ export default function Home() {
       <FeaturedProducts />
       <OurProducts />
       <BestSkincare />
+      <HowToUse />
       <TestimonialSection
         title="What Our Customers Say"
         subtitle="Real reviews from real customers who love Whitely products"

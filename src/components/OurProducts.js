@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function OurProducts() {
   const products = [
@@ -52,11 +53,37 @@ export default function OurProducts() {
     }
   ]
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  }
+
   return (
     <div id="our-products" className="w-full py-12 lg:py-16" style={{ backgroundColor: '#f5f0ff' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title Section */}
-        <div className="mb-10 lg:mb-12 text-center">
+        <motion.div 
+          className="mb-10 lg:mb-12 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
           <h2 
             className="text-3xl lg:text-4xl font-bold"
             style={{ 
@@ -66,14 +93,21 @@ export default function OurProducts() {
           >
             Our Products
           </h2>
-        </div>
+        </motion.div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 justify-items-center">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 justify-items-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+        >
           {products.map((product) => (
-            <div 
+            <motion.div 
               key={product.id} 
               className="bg-white rounded-lg overflow-hidden w-full max-w-sm"
+              variants={fadeInUp}
             >
               {/* Product Image */}
               <div className="relative w-full h-[280px] sm:h-[320px] lg:h-[350px] bg-gray-50 mb-6">
@@ -143,12 +177,18 @@ export default function OurProducts() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Centered Buy Now Button */}
-        <div className="flex justify-center mt-10 lg:mt-12">
+        <motion.div 
+          className="flex justify-center mt-10 lg:mt-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
           <a
             href="https://wa.me/918921193021?text=product%20details"
             target="_blank"
@@ -163,7 +203,7 @@ export default function OurProducts() {
           >
             Buy Now
           </a>
-        </div>
+        </motion.div>
       </div>
     </div>
   )

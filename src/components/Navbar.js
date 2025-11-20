@@ -34,6 +34,21 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Marquee Banner */}
+      <div 
+        className="w-full py-1 overflow-hidden relative"
+        style={{ backgroundColor: '#3f2265' }}
+      >
+        <div className="marquee-container flex items-center">
+          <div className="marquee-content flex items-center whitespace-nowrap">
+            <span className="text-white font-medium text-xs sm:text-sm uppercase flex items-center" style={{ fontFamily: 'var(--font-poppins)' }}>
+              <span className="mr-2">🚀</span>
+              ORDER NOW ONLINE TO GET GREAT DISCOUNT
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Main Navigation Bar */}
       <nav 
         className={`shadow-sm sticky top-0 z-50 transition-all duration-300 ease-in-out ${
@@ -62,12 +77,9 @@ export default function Navbar() {
               <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
                 Contact Us
               </a>
-              <Link href="/how-to-use" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
+              <a href="#how-to-use" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
                 How To Use
-              </Link>
-              <Link href="/about" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
-                About Us
-              </Link>
+              </a>
             </div>
 
             {/* Right Icons */}
@@ -153,7 +165,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Sidebar */}
       <div 
-        className={`lg:hidden fixed top-0 right-0 h-3/4 w-64 z-[70] transform transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-0 right-0 h-2/3 w-64 z-[70] transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
         }`}
         style={{ backgroundColor: '#4d2d73', pointerEvents: isMenuOpen ? 'auto' : 'none' }}
@@ -196,35 +208,28 @@ export default function Navbar() {
                 >
                   Contact Us
                 </a>
-                <Link 
-                  href="/how-to-use" 
+                <a 
+                  href="#how-to-use" 
                   className="font-normal py-2.5 px-3 transition-all duration-200 rounded text-white bg-[#5a3a8a] hover:bg-[#6b4a9a]"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   How To Use
-                </Link>
-                <Link 
-                  href="/about" 
-                  className="font-normal py-2.5 px-3 transition-all duration-200 rounded text-white bg-[#5a3a8a] hover:bg-[#6b4a9a]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  About Us
-                </Link>
+                </a>
               </div>
             </div>
           </div>
 
       {/* Promotional Banner */}
       <div 
-        className={`py-2 px-4 transition-all duration-300 ease-in-out ${
+        className={`py-2 px-4 transition-all duration-300 ease-in-out overflow-hidden ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
         }`}
         style={{ backgroundColor: '#d3ccd1' }}
       >
-        <div className="max-w-7xl mx-auto flex items-center space-x-2 text-sm" style={{ fontFamily: 'var(--font-poppins)', color: '#3f2265' }}>
-          <span className="text-lg">🍃</span>
-          <span className="flex-1">New Launch! Whitely Products – 100% Natural | Visible Results Guaranteed</span>
-          <span>→</span>
+        <div className="max-w-7xl mx-auto flex items-center space-x-2 text-xs sm:text-sm" style={{ fontFamily: 'var(--font-poppins)', color: '#3f2265' }}>
+          <span className="text-lg flex-shrink-0">🍃</span>
+          <span className="flex-1 min-w-0 truncate">New Launch! Whitely Products – 100% Natural | Visible Results Guaranteed</span>
+          <span className="flex-shrink-0">→</span>
         </div>
       </div>
     </>

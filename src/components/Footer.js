@@ -1,18 +1,63 @@
 'use client'
 
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function Footer() {
   const instagramUrl = 'https://www.instagram.com/whitely.beauty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+
+  // Animation variants
+  const slideInLeft = {
+    hidden: { opacity: 0, x: -30 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  }
+
+  const slideInRight = {
+    hidden: { opacity: 0, x: 30 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  }
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  }
 
   return (
     <footer className="w-full border-t border-gray-200 py-12 lg:py-16" style={{ backgroundColor: '#f5f0ff' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 lg:mb-12">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 lg:mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+        >
           
           {/* Quick Links Column */}
-          <div>
+          <motion.div variants={slideInLeft}>
             <h3 
               className="text-lg lg:text-xl font-bold mb-4"
               style={{ 
@@ -56,10 +101,10 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Info Column */}
-          <div>
+          <motion.div variants={fadeInUp}>
             <h3 
               className="text-lg lg:text-xl font-bold mb-4"
               style={{ 
@@ -103,10 +148,10 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Our Promise Column */}
-          <div>
+          <motion.div variants={slideInRight}>
             <h3 
               className="text-lg lg:text-xl font-bold mb-4"
               style={{ 
@@ -124,11 +169,17 @@ export default function Footer() {
                 We offer 100% results on all skin types.
               </p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Social Media Icons and Bottom Section */}
-        <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-gray-200">
+        <motion.div 
+          className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-gray-200"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
           <div className="mb-4 sm:mb-0">
             <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-poppins)' }}>
               © {new Date().getFullYear()} Whitely. All rights reserved.
@@ -136,7 +187,10 @@ export default function Footer() {
           </div>
           
           {/* Social Media Icons */}
-          <div className="flex items-center space-x-4">
+          <motion.div 
+            className="flex items-center space-x-4"
+            variants={fadeInUp}
+          >
             {/* Facebook */}
             <a
               href="https://www.facebook.com"
@@ -172,8 +226,8 @@ export default function Footer() {
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </footer>
   )

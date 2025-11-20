@@ -20,8 +20,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${poppins.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${playfair.variable} ${poppins.variable} overflow-x-hidden`}>
+      <body className="overflow-x-hidden">{children}</body>
     </html>
   )
 }
