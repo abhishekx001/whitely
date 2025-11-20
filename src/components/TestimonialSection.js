@@ -11,6 +11,8 @@ export default function TestimonialSection({
   testimonials,
 }) {
   const scrollContainerRef = useRef(null)
+  const sectionRef = useRef(null)
+  const cardRefs = useRef({})
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(true)
   const [unmutedVideoId, setUnmutedVideoId] = useState(null)
@@ -72,6 +74,46 @@ export default function TestimonialSection({
     return () => window.removeEventListener('resize', handleResize)
   }, [testimonials])
 
+  // Intersection Observer to mute videos when they scroll out of view
+  useEffect(() => {
+    const observerOptions = {
+      root: null, // Use viewport as root
+      rootMargin: '0px',
+      threshold: 0.1 // Trigger when 10% of the element is visible
+    }
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        const testimonialId = parseInt(entry.target.dataset.testimonialId)
+        const video = videoRefs.current[testimonialId]
+        
+        if (!video) return
+
+        // If video is not visible in viewport, mute it
+        if (!entry.isIntersecting) {
+          if (unmutedVideoId === testimonialId) {
+            // If this was the unmuted video, mute it and clear the state
+            setUnmutedVideoId(null)
+          }
+          video.muted = true
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+    // Observe all testimonial cards
+    Object.values(cardRefs.current).forEach((card) => {
+      if (card) {
+        observer.observe(card)
+      }
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [testimonials, unmutedVideoId])
+
   const toggleMute = (testimonialId) => {
     // If this video is currently unmuted, mute it
     if (unmutedVideoId === testimonialId) {
@@ -122,7 +164,7 @@ export default function TestimonialSection({
   }
 
   return (
-    <section id="reviews" className="w-full bg-white py-16 sm:py-24">
+    <section ref={sectionRef} id="reviews" className="w-full bg-white py-16 sm:py-24">
       <div className="container mx-auto max-w-6xl px-4 text-center">
         {/* Section Header */}
         <h2 
@@ -202,6 +244,10 @@ export default function TestimonialSection({
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
+                ref={(el) => {
+                  if (el) cardRefs.current[testimonial.id] = el
+                }}
+                data-testimonial-id={testimonial.id}
                 className="testimonial-card relative overflow-hidden rounded-lg bg-white shadow-sm flex-shrink-0 w-[90%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] snap-start"
                 variants={itemVariants}
                 initial="hidden"

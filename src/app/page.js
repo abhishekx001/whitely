@@ -13,6 +13,13 @@ import WhatsAppButton from '../components/WhatsAppButton'
 export default function Home() {
   const testimonials = [
     {
+      id: 6,
+      quote: "Excellent products! Highly satisfied with the results and quality.",
+      name: "Customer",
+      role: "Customer",
+      videoSrc: "/video5.mp4"
+    },
+    {
       id: 5,
       quote: "Absolutely love Whitely products! The quality is outstanding and the results speak for themselves.",
       name: "Customer",
