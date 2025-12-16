@@ -1,7 +1,7 @@
 'use client'
 
 export default function WhatsAppButton() {
-  const whatsappUrl = 'https://wa.me/918921193021?text=product%20details'
+  const whatsappUrl = 'https://wa.me/917306633619?text=product%20details'
 
   return (
     <a
