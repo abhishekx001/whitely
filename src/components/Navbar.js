@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const instagramUrl = 'https://www.instagram.com/whitely.beauty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
-  const whatsappUrl = 'https://wa.me/918921193021?text=product%20details'
+  const whatsappUrl = 'https://wa.me/917306633619?text=product%20details'
 
   useEffect(() => {
     // Navbar always visible - no fade out on scroll

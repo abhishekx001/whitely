@@ -45,7 +45,7 @@ export default function BestSkincare() {
         {/* Centered Buy Now Button */}
         <div className="flex justify-center mt-10 lg:mt-12">
           <a
-            href="https://wa.me/918921193021?text=product%20details"
+            href="https://wa.me/917306633619?text=product%20details"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2.5 lg:px-7 lg:py-3 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 shadow-md"
