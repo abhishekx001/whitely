@@ -48,13 +48,11 @@ export default function BestSkincare() {
             href="https://wa.me/917306633619?text=product%20details"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2.5 lg:px-7 lg:py-3 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 shadow-md"
+            className="px-6 py-2.5 lg:px-7 lg:py-3 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 hover:bg-[#5a3a8a] shadow-md"
             style={{ 
               backgroundColor: '#3f2265',
               fontFamily: 'var(--font-poppins)'
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = '#5a3a8a'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = '#3f2265'}
           >
             Buy Now
           </a>

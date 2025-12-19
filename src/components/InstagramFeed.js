@@ -36,13 +36,11 @@ export default function InstagramFeed() {
         <div className="flex justify-center">
           <button 
             onClick={handleClick}
-            className="px-6 py-2.5 lg:px-7 lg:py-3 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 shadow-md flex items-center gap-2"
+            className="px-6 py-2.5 lg:px-7 lg:py-3 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 hover:bg-[#5a3a8a] shadow-md flex items-center gap-2"
             style={{ 
               backgroundColor: '#3f2265',
               fontFamily: 'var(--font-poppins)'
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = '#5a3a8a'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = '#3f2265'}
           >
             <svg 
               className="w-5 h-5" 

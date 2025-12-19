@@ -50,16 +50,16 @@ export default function Navbar() {
 
             {/* Navigation Links - Desktop */}
             <div className="hidden lg:flex items-center space-x-6" style={{ fontFamily: 'var(--font-poppins)' }}>
-              <a href="#our-products" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
+              <a href="#our-products" className="nav-link font-normal pb-1 transition-colors hover:opacity-80" style={{ color: '#3f2265' }}>
                 Products
               </a>
-              <a href="#reviews" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
+              <a href="#reviews" className="nav-link font-normal pb-1 transition-colors hover:opacity-80" style={{ color: '#3f2265' }}>
                 Reviews
               </a>
-              <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
+              <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="nav-link font-normal pb-1 transition-colors hover:opacity-80" style={{ color: '#3f2265' }}>
                 Contact Us
               </a>
-              <a href="#how-to-use" className="nav-link font-normal pb-1 transition-colors" style={{ color: '#3f2265' }} onMouseEnter={(e) => e.target.style.color = '#5a3a8a'} onMouseLeave={(e) => e.target.style.color = '#3f2265'}>
+              <a href="#how-to-use" className="nav-link font-normal pb-1 transition-colors hover:opacity-80" style={{ color: '#3f2265' }}>
                 How To Use
               </a>
             </div>
@@ -71,13 +71,11 @@ export default function Navbar() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-none text-white text-sm font-semibold transition-all hover:scale-105 shadow-md"
+                className="px-3 py-1.5 rounded-none text-white text-sm font-semibold transition-all hover:scale-105 hover:bg-[#5a3a8a] shadow-md"
                 style={{ 
                   backgroundColor: '#3f2265',
                   fontFamily: 'var(--font-poppins)'
                 }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#5a3a8a'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = '#3f2265'}
               >
                 Order Now
               </a>
@@ -85,10 +83,8 @@ export default function Navbar() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden ml-2 transition-all duration-300"
+                className="lg:hidden ml-2 transition-all duration-300 hover:opacity-80"
                 style={{ color: '#3f2265' }}
-                onMouseEnter={(e) => e.target.style.color = '#5a3a8a'}
-                onMouseLeave={(e) => e.target.style.color = '#3f2265'}
               >
                 <svg 
                   className={`w-6 h-6 transition-all duration-300 ${isMenuOpen ? 'rotate-90' : 'rotate-0'}`}

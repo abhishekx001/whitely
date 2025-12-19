@@ -21,6 +21,7 @@ export default function Error({ error, reset }) {
       </h2>
       <button
         onClick={() => reset()}
+        className="transition-colors hover:bg-[#5a3a8a]"
         style={{
           padding: '0.75rem 1.5rem',
           backgroundColor: '#3f2265',
@@ -31,8 +32,6 @@ export default function Error({ error, reset }) {
           fontSize: '1rem',
           fontWeight: '600'
         }}
-        onMouseEnter={(e) => e.target.style.backgroundColor = '#5a3a8a'}
-        onMouseLeave={(e) => e.target.style.backgroundColor = '#3f2265'}
       >
         Try again
       </button>
