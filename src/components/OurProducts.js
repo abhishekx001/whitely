@@ -176,33 +176,27 @@ export default function OurProducts() {
                     </li>
                   ))}
                 </ul>
+
+                {/* Buy Now Button */}
+                <div className="flex justify-center mt-6">
+                  <a
+                    href={`https://wa.me/917306633619?text=${encodeURIComponent(`Product: ${product.name}\nDescription: ${product.benefits.join(', ')}\n\nProduct Details`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2.5 lg:px-7 lg:py-3 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 shadow-md"
+                    style={{ 
+                      backgroundColor: '#3f2265',
+                      fontFamily: 'var(--font-poppins)'
+                    }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = '#5a3a8a'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = '#3f2265'}
+                  >
+                    Buy Now
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Centered Buy Now Button */}
-        <motion.div 
-          className="flex justify-center mt-10 lg:mt-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInUp}
-        >
-          <a
-            href="https://wa.me/917306633619?text=product%20details"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2.5 lg:px-7 lg:py-3 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 shadow-md"
-            style={{ 
-              backgroundColor: '#3f2265',
-              fontFamily: 'var(--font-poppins)'
-            }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = '#5a3a8a'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = '#3f2265'}
-          >
-            Buy Now
-          </a>
         </motion.div>
       </div>
     </div>

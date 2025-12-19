@@ -120,7 +120,7 @@ export default function FeaturedProducts() {
                 {/* Buy Now Button */}
                 <div className="flex justify-center">
                   <a
-                    href="https://wa.me/917306633619?text=product%20details"
+                    href={`https://wa.me/917306633619?text=${encodeURIComponent(`Product: ${product.name}\nDescription: ${product.description}\n\nProduct Details`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-5 py-2 lg:px-6 lg:py-2.5 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 shadow-md"
