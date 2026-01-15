@@ -16,6 +16,12 @@ const poppins = Poppins({
 export const metadata = {
   title: 'Whitely Pro',
   description: 'Whitely Pro Application',
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+  },
 }
 
 export default function RootLayout({ children }) {
