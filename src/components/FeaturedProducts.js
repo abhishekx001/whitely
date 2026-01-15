@@ -29,7 +29,7 @@ export default function FeaturedProducts() {
       description: 'Moisturizer for smooth, supple skin that feels nourished.',
       price: '₹599.00',
       originalPrice: '₹799.00',
-      image: '/lipbalm.jpg'
+      image: '/newpic.jpeg'
     }
   ]
 

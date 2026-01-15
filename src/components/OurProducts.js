@@ -37,7 +37,7 @@ export default function OurProducts() {
         'Regular use can help maintain a healthy lip color and prevent peeling or flaking',
         'Balms can double as a primer for lipsticks, helping makeup go on more smoothly'
       ],
-      image: '/lipbalm.jpg'
+      image: '/newpic.jpeg'
     },
     {
       id: 4,
