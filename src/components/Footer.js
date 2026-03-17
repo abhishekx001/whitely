@@ -193,7 +193,7 @@ export default function Footer() {
           >
             {/* Facebook */}
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/share/181UEASokN/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-[#3f2265] transition-colors"
@@ -217,7 +217,7 @@ export default function Footer() {
 
             {/* YouTube */}
             <a
-              href="https://www.youtube.com"
+              href="https://youtube.com/@whitelybeauty?si=IeTY0_8lf6nfdntG"
               target="_blank"
               rel="noopener noreferrer"
               className="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-[#3f2265] transition-colors"
