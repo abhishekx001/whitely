@@ -30,6 +30,15 @@ export default function FeaturedProducts() {
       price: '₹599.00',
       originalPrice: '₹799.00',
       image: '/newpic.jpeg'
+    },
+    {
+      id: 4,
+      name: 'Sunscreen',
+      category: 'Sun Care',
+      description: 'SPF 50 ++++ for maximum UV protection. Enriched with Vitamin C.',
+      price: '₹599.00',
+      originalPrice: '₹799.00',
+      image: '/sunscreen1.PNG'
     }
   ]
 
@@ -47,7 +56,7 @@ export default function FeaturedProducts() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {products.map((product) => (
             <div 
               key={product.id} 
