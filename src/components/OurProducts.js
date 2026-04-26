@@ -50,6 +50,18 @@ export default function OurProducts() {
         'Leaves skin feeling fresh and rejuvenated'
       ],
       image: '/brightening soap.jpg'
+    },
+    {
+      id: 5,
+      name: 'Sunscreen',
+      benefits: [
+        'SPF 50 ++++ for maximum UV protection',
+        'Enriched with Vitamin C for radiant skin',
+        'Ultra hydrating & lightweight formula',
+        'Leaves no white cast behind',
+        'Perfect for daily use & all skin types'
+      ],
+      image: '/sunscreen1.PNG'
     }
   ]
 
