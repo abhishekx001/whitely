@@ -6,12 +6,21 @@ export default function FeaturedProducts() {
   const products = [
     {
       id: 1,
-      name: 'Brightening Cream',
+      name: 'Brightening Cream (80g)',
       category: 'Beauty Cream',
       description: 'Vitamin C cream for visibly brighter, more even-toned skin.',
-      price: '₹1,499.00',
-      originalPrice: '₹1,799.00',
+      price: '₹1,299.00',
+      originalPrice: '₹1,599.00',
       image: '/beautycream1.jpg'
+    },
+    {
+      id: 5,
+      name: 'Brightening Cream (40g)',
+      category: 'Beauty Cream',
+      description: 'Travel-friendly size for visibly brighter, more even-toned skin.',
+      price: '₹999.00',
+      originalPrice: '₹1,200.00',
+      image: '/beauty-cream 40g.jpeg'
     },
     {
       id: 2,
@@ -29,7 +38,7 @@ export default function FeaturedProducts() {
       description: 'Moisturizer for smooth, supple skin that feels nourished.',
       price: '₹599.00',
       originalPrice: '₹799.00',
-      image: '/newpic.jpeg'
+      image: '/lipbalm-new.jpeg'
     },
     {
       id: 4,
@@ -38,7 +47,7 @@ export default function FeaturedProducts() {
       description: 'SPF 50 ++++ for maximum UV protection. Enriched with Vitamin C.',
       price: '₹599.00',
       originalPrice: '₹799.00',
-      image: '/sunscreen1.PNG'
+      image: '/sunscreen-new.jpeg'
     }
   ]
 

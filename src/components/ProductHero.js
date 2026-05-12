@@ -10,8 +10,8 @@ export default function ProductHero() {
   const imagePairs = [
     ['/beautycream 4.jpg', '/skinprob.jpg'],
     ['/handlotion.jpg', '/handcream.jpg'],
-    ['/newpic.jpeg', '/lipapply.jpg'],
-    ['/sunscreen1.PNG', '/sunscreen2.PNG']
+    ['/lipbalm-new.jpeg', '/lipapply.jpg'],
+    ['/sunscreen-new.jpeg', '/sunscreen2.PNG']
   ]
 
   const totalPages = imagePairs.length

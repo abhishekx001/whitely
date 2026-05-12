@@ -7,7 +7,7 @@ export default function OurProducts() {
   const products = [
     {
       id: 1,
-      name: 'Brightening Cream',
+      name: 'Brightening Cream (80g)',
       benefits: [
         'Deep Hydration for soft, smooth skin',
         'Brightens and evens out skin tone',
@@ -16,6 +16,18 @@ export default function OurProducts() {
         'Suitable for all skin types'
       ],
       image: '/beautycream1.jpg'
+    },
+    {
+      id: 6,
+      name: 'Brightening Cream (40g)',
+      benefits: [
+        'Deep Hydration for soft, smooth skin',
+        'Brightens and evens out skin tone',
+        'Helps reduce dark spots & dullness',
+        'Lightweight, non-greasy formula',
+        'Suitable for all skin types'
+      ],
+      image: '/beauty-cream 40g.jpeg'
     },
     {
       id: 2,
@@ -37,7 +49,7 @@ export default function OurProducts() {
         'Regular use can help maintain a healthy lip color and prevent peeling or flaking',
         'Balms can double as a primer for lipsticks, helping makeup go on more smoothly'
       ],
-      image: '/newpic.jpeg'
+      image: '/lipbalm-new.jpeg'
     },
     {
       id: 4,
@@ -49,7 +61,7 @@ export default function OurProducts() {
         'Natural ingredients for all skin types',
         'Leaves skin feeling fresh and rejuvenated'
       ],
-      image: '/brightening soap.jpg'
+      image: '/soap-new.jpeg'
     },
     {
       id: 5,
@@ -61,7 +73,7 @@ export default function OurProducts() {
         'Leaves no white cast behind',
         'Perfect for daily use & all skin types'
       ],
-      image: '/sunscreen1.PNG'
+      image: '/sunscreen-new.jpeg'
     }
   ]
 
@@ -145,7 +157,7 @@ export default function OurProducts() {
                 </h3>
 
                 {/* Face Benefits Title - Only for Brightening Cream */}
-                {product.id === 1 && (
+                {(product.id === 1 || product.id === 6) && (
                   <h4 
                     className="text-lg lg:text-xl font-semibold mb-3 mt-2"
                     style={{ 
