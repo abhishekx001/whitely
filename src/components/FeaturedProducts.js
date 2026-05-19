@@ -48,6 +48,15 @@ export default function FeaturedProducts() {
       price: '₹599.00',
       originalPrice: '₹799.00',
       image: '/sunscreen-new.jpeg'
+    },
+    {
+      id: 6,
+      name: 'Brightening Soap',
+      category: 'Soap',
+      description: 'Gentle cleansing soap for a brighter complexion.',
+      price: '₹299.00',
+      originalPrice: '₹399.00',
+      image: '/soap-new.jpeg'
     }
   ]
 
