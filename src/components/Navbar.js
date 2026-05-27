@@ -189,6 +189,17 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+
+      {/* Secondary Announcement Bar - Under Navbar */}
+      <a href="#our-products" className="block w-full bg-[#EAE8F0] border-b border-brand-lavender/50 py-2.5 px-4 relative cursor-pointer hover:bg-[#DFDBE8] transition-colors group">
+        <div className="max-w-[1400px] mx-auto w-full flex items-center justify-between">
+          <div className="flex items-center text-brand-navy font-medium text-xs sm:text-sm font-sans tracking-wide pl-2 sm:pl-12">
+            <span className="mr-2 text-base">🍃</span>
+            New Launch! Whitely Products &ndash; 100% Natural | Visible Results Guaranteed
+          </div>
+          <span className="text-brand-navy font-medium transition-transform group-hover:translate-x-1 pr-2 sm:pr-12">→</span>
+        </div>
+      </a>
     </>
   )
 }
