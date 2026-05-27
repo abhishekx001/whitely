@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
-import { Volume2, VolumeX } from 'lucide-react'
+import { Volume2, VolumeX, Star } from 'lucide-react'
 
 export default function TestimonialSection({
   title,
@@ -23,16 +23,12 @@ export default function TestimonialSection({
     const container = scrollContainerRef.current
     if (!container) return
 
-    // Get the first card to calculate dimensions
     const firstCard = container.querySelector('.testimonial-card')
     if (!firstCard) return
 
-    // Calculate scroll amount: card width + gap
     const cardWidth = firstCard.offsetWidth
-    const gap = 32 // gap-8 = 2rem = 32px
+    const gap = 32
     const scrollAmount = cardWidth + gap
-
-    // Get current scroll position
     const currentScroll = container.scrollLeft
     const newScrollLeft = direction === 'left' 
       ? currentScroll - scrollAmount
@@ -48,11 +44,9 @@ export default function TestimonialSection({
     const container = scrollContainerRef.current
     if (!container) return
 
-    // Hide left arrow when at the start (with a small threshold for better UX)
     const isAtStart = container.scrollLeft <= 10
     setShowLeftArrow(!isAtStart)
     
-    // Hide right arrow when at the end
     const isAtEnd = container.scrollLeft >= container.scrollWidth - container.clientWidth - 10
     setShowRightArrow(!isAtEnd)
   }
@@ -61,25 +55,22 @@ export default function TestimonialSection({
     const container = scrollContainerRef.current
     if (!container) return
 
-    // Check initial scroll position - ensure left arrow is hidden at start
     setShowLeftArrow(false)
     handleScroll()
 
-    // Check on window resize
     const handleResize = () => {
-      setTimeout(() => handleScroll(), 100) // Small delay to ensure layout is updated
+      setTimeout(() => handleScroll(), 100)
     }
 
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [testimonials])
 
-  // Intersection Observer to mute videos when they scroll out of view
   useEffect(() => {
     const observerOptions = {
-      root: null, // Use viewport as root
+      root: null,
       rootMargin: '0px',
-      threshold: 0.1 // Trigger when 10% of the element is visible
+      threshold: 0.5
     }
 
     const observerCallback = (entries) => {
@@ -89,202 +80,137 @@ export default function TestimonialSection({
         
         if (!video) return
 
-        // If video is not visible in viewport, mute it
         if (!entry.isIntersecting) {
           if (unmutedVideoId === testimonialId) {
-            // If this was the unmuted video, mute it and clear the state
             setUnmutedVideoId(null)
           }
           video.muted = true
+          video.pause()
+        } else {
+          video.play().catch((e) => console.log("Video play failed:", e))
         }
       })
     }
 
     const observer = new IntersectionObserver(observerCallback, observerOptions)
 
-    // Observe all testimonial cards
     Object.values(cardRefs.current).forEach((card) => {
-      if (card) {
-        observer.observe(card)
-      }
+      if (card) observer.observe(card)
     })
 
-    return () => {
-      observer.disconnect()
-    }
+    return () => observer.disconnect()
   }, [testimonials, unmutedVideoId])
 
   const toggleMute = (testimonialId) => {
-    // If this video is currently unmuted, mute it
     if (unmutedVideoId === testimonialId) {
       setUnmutedVideoId(null)
       const video = videoRefs.current[testimonialId]
-      if (video) {
-        video.muted = true
-      }
+      if (video) video.muted = true
     } else {
-      // Mute the previously unmuted video (if any)
       if (unmutedVideoId !== null) {
         const previousVideo = videoRefs.current[unmutedVideoId]
-        if (previousVideo) {
-          previousVideo.muted = true
-        }
+        if (previousVideo) previousVideo.muted = true
       }
-      
-      // Unmute the clicked video
       setUnmutedVideoId(testimonialId)
       const video = videoRefs.current[testimonialId]
-      if (video) {
-        video.muted = false
-      }
+      if (video) video.muted = false
     }
   }
 
-  // Animation variants for the container to orchestrate staggered children animations
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  // Animation variants for each testimonial card
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
   }
 
   return (
-    <section ref={sectionRef} id="reviews" className="w-full bg-white py-16 sm:py-24">
-      <div className="container mx-auto max-w-6xl px-4 text-center">
+    <section ref={sectionRef} id="reviews" className="w-full bg-brand-pale py-16 sm:py-24">
+      <div className="container mx-auto max-w-7xl px-4">
         {/* Section Header */}
-        <h2 
-          className="text-3xl font-bold tracking-tight sm:text-4xl"
-          style={{ 
-            color: '#2a1a45',
-            fontFamily: 'var(--font-playfair)'
-          }}
-        >
-          {title}
-        </h2>
-        <p 
-          className="mx-auto mt-4 max-w-2xl text-lg"
-          style={{ 
-            color: '#2a1a45',
-            fontFamily: 'var(--font-poppins)'
-          }}
-        >
-          {subtitle}
-        </p>
+        <div className="text-center mb-16">
+          <div className="flex justify-center gap-1 mb-4">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star key={star} className="w-6 h-6 fill-brand-periwinkle text-brand-periwinkle" />
+            ))}
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold font-serif text-brand-navy mb-4">
+            What Our Customers Say
+          </h2>
+          <p className="max-w-2xl mx-auto text-lg text-brand-steel font-sans">
+            {subtitle}
+          </p>
+        </div>
 
         {/* Testimonials Carousel */}
-        <div className="mt-12 relative">
-          {/* Left Arrow - Hidden on first video */}
+        <div className="relative group">
           {showLeftArrow && (
             <button
               onClick={() => scroll('left')}
-              className="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 backdrop-blur-sm hover:bg-white/80 rounded-full p-1.5 sm:p-2 shadow-md transition-all duration-200 hover:scale-105"
-              style={{ color: '#3f2265', filter: 'blur(0.5px)', display: showLeftArrow ? 'block' : 'none' }}
-              aria-label="Scroll left"
+              className="absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-md hover:bg-white rounded-full p-2.5 shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-all duration-300 hover:scale-110 border border-white/60"
             >
-              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg className="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
           )}
 
-          {/* Right Arrow - Show scroll arrow when not at end */}
           {showRightArrow && (
             <button
               onClick={() => scroll('right')}
-              className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 backdrop-blur-sm hover:bg-white/80 rounded-full p-1.5 sm:p-2 shadow-md transition-all duration-200 hover:scale-105"
-              style={{ color: '#3f2265', filter: 'blur(0.5px)' }}
-              aria-label="Scroll right"
+              className="absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-md hover:bg-white rounded-full p-2.5 shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-all duration-300 hover:scale-110 border border-white/60"
             >
-              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg className="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
               </svg>
             </button>
           )}
 
-          {/* View More Button - Show when at the end */}
-          {!showRightArrow && (
-            <a
-              href={instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 backdrop-blur-sm hover:bg-white/80 rounded-full px-2 py-1 sm:px-3 sm:py-1.5 shadow-md transition-all duration-200 hover:scale-105 flex items-center gap-1"
-              style={{ color: '#3f2265', filter: 'blur(0.5px)' }}
-            >
-              <span className="text-xs sm:text-sm font-normal opacity-80" style={{ fontFamily: 'var(--font-poppins)' }}>
-                View More
-              </span>
-              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          )}
-
-          {/* Scrollable Container */}
           <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
-            className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth pb-4 px-2 sm:px-0 snap-x snap-mandatory w-full"
+            className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-8 pt-4 snap-x snap-mandatory"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial) => (
               <motion.div
                 key={testimonial.id}
-                ref={(el) => {
-                  if (el) cardRefs.current[testimonial.id] = el
-                }}
+                ref={(el) => { if (el) cardRefs.current[testimonial.id] = el }}
                 data-testimonial-id={testimonial.id}
-                className="testimonial-card relative overflow-hidden rounded-lg bg-white shadow-sm flex-shrink-0 w-[90%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] snap-start"
+                className="testimonial-card relative rounded-2xl bg-white shadow-sm flex-shrink-0 w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(112,145,230,0.3)] border-2 border-transparent hover:border-brand-navy overflow-hidden"
                 variants={itemVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
               >
-                <div className="relative h-[350px] sm:h-[400px] lg:h-[450px] w-full">
+                <div className="relative h-[450px] w-full bg-gray-100">
                   {testimonial.videoSrc ? (
                     <>
                       <video
-                        ref={(el) => {
-                          if (el) videoRefs.current[testimonial.id] = el
-                        }}
+                        ref={(el) => { if (el) videoRefs.current[testimonial.id] = el }}
                         src={testimonial.videoSrc}
                         className="h-full w-full object-cover"
-                        autoPlay
                         loop
                         muted={unmutedVideoId !== testimonial.id}
                         playsInline
                       />
-                      {/* Sound Toggle Button */}
                       <button
                         onClick={() => toggleMute(testimonial.id)}
-                        className="absolute bottom-3 right-3 z-10 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full p-2 transition-all duration-200 hover:scale-110"
-                        aria-label={unmutedVideoId === testimonial.id ? "Mute video" : "Unmute video"}
+                        className="absolute bottom-4 right-4 z-10 bg-black/40 hover:bg-brand-navy backdrop-blur-md rounded-full p-3 transition-all duration-300 shadow-lg"
                       >
                         {unmutedVideoId === testimonial.id ? (
-                          <Volume2 className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                          <Volume2 className="w-5 h-5 text-white" />
                         ) : (
-                          <VolumeX className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                          <VolumeX className="w-5 h-5 text-white" />
                         )}
                       </button>
                     </>
                   ) : (
                     <Image
                       src={testimonial.imageSrc}
-                      alt={testimonial.name}
+                      alt={testimonial.name || 'Testimonial'}
                       fill
                       className="object-cover"
                     />
@@ -298,4 +224,3 @@ export default function TestimonialSection({
     </section>
   )
 }
-

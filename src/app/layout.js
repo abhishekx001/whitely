@@ -1,16 +1,9 @@
 import './globals.css'
-import { Playfair_Display, Poppins } from 'next/font/google'
+import { Raleway } from 'next/font/google'
 
-const playfair = Playfair_Display({
+const raleway = Raleway({
   subsets: ['latin'],
-  weight: ['700'],
-  variable: '--font-playfair',
-})
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-poppins',
+  variable: '--font-raleway',
 })
 
 export const metadata = {
@@ -26,8 +19,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${poppins.variable} overflow-x-hidden`}>
-      <body className="overflow-x-hidden">{children}</body>
+    <html lang="en" className={`${raleway.variable} overflow-x-hidden text-brand-steel bg-brand-pale`}>
+      <body className="overflow-x-hidden font-sans">{children}</body>
     </html>
   )
 }

@@ -96,124 +96,102 @@ export default function OurProducts() {
       }
     }
   }
+  const generateId = (name) => `product-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`
 
   return (
-    <div id="our-products" className="w-full py-12 lg:py-16" style={{ backgroundColor: '#f5f0ff' }}>
+    <div id="full-products" className="w-full py-16 lg:py-24 bg-white relative">
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#EDE9FE] to-transparent"></div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title Section */}
         <motion.div 
-          className="mb-10 lg:mb-12 text-center"
+          className="mb-16 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUp}
         >
-          <h2 
-            className="text-3xl lg:text-4xl font-bold"
-            style={{ 
-              color: '#2a1a45',
-              fontFamily: 'var(--font-playfair)'
-            }}
-          >
-            Our Products
+          <h2 className="text-4xl lg:text-5xl font-bold font-serif text-brand-navy inline-block relative">
+            Complete Collection
+            <span className="absolute -bottom-2 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-brand-periwinkle to-transparent"></span>
           </h2>
         </motion.div>
 
         {/* Products Grid */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 justify-items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
           {products.map((product) => (
             <motion.div 
               key={product.id} 
-              className="bg-white rounded-lg overflow-hidden w-full max-w-sm"
+              id={generateId(product.name)}
+              className="group bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 transition-all duration-300 hover:shadow-[0_10px_40px_-10px_rgba(112,145,230,0.15)] hover:border-brand-lavender flex flex-col sm:flex-row"
               variants={fadeInUp}
             >
-              {/* Product Image */}
-              <div className="relative w-full h-[280px] sm:h-[320px] lg:h-[350px] bg-gray-50 mb-6">
+              {/* Product Image - Left side */}
+              <div className="relative w-full sm:w-2/5 h-[300px] sm:h-auto overflow-hidden bg-brand-pale">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
-              {/* Product Details */}
-              <div className="p-5 lg:p-6">
+              {/* Product Details - Right side */}
+              <div className="p-8 sm:w-3/5 flex flex-col">
                 {/* Product Name */}
-                <h3 
-                  className="text-xl lg:text-2xl font-semibold mb-4"
-                  style={{ 
-                    color: '#2a1a45',
-                    fontFamily: 'var(--font-poppins)'
-                  }}
-                >
+                <h3 className="text-2xl font-bold mb-4 font-serif text-brand-navy">
                   {product.name}
                 </h3>
 
                 {/* Face Benefits Title - Only for Brightening Cream */}
                 {(product.id === 1 || product.id === 6) && (
-                  <h4 
-                    className="text-lg lg:text-xl font-semibold mb-3 mt-2"
-                    style={{ 
-                      color: '#2a1a45',
-                      fontFamily: 'var(--font-poppins)'
-                    }}
-                  >
-                    Face Benefits:
+                  <h4 className="text-lg font-semibold mb-3 text-brand-periwinkle font-sans tracking-wide">
+                    Face Benefits
                   </h4>
                 )}
 
                 {/* Benefits List */}
-                <ul className="space-y-2">
+                <ul className="space-y-3 mb-8 flex-grow">
                   {product.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start">
                       {/* Checkmark Icon */}
-                      <svg 
-                        className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                        style={{ color: '#3f2265' }}
-                      >
-                        <path 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round" 
-                          strokeWidth={2} 
-                          d="M5 13l4 4L19 7" 
-                        />
-                      </svg>
-                      <span 
-                        className="text-base lg:text-lg font-normal"
-                        style={{ 
-                          color: '#2a1a45',
-                          fontFamily: 'var(--font-poppins)'
-                        }}
-                      >
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-brand-pale flex items-center justify-center mr-3 mt-0.5">
+                        <svg 
+                          className="w-3 h-3 text-brand-periwinkle" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            strokeWidth={3} 
+                            d="M5 13l4 4L19 7" 
+                          />
+                        </svg>
+                      </div>
+                      <span className="text-[15px] leading-relaxed text-brand-steel font-sans">
                         {benefit}
                       </span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Buy Now Button */}
-                <div className="flex justify-center mt-6">
+                {/* Buy Now Button - Outlined Variant */}
+                <div className="mt-auto">
                   <a
                     href={`https://wa.me/917306633619?text=${encodeURIComponent(`Product: ${product.name}\nDescription: ${product.benefits.join(', ')}\n\nProduct Details`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-2.5 lg:px-7 lg:py-3 rounded-full text-white font-semibold text-sm lg:text-base transition-all hover:scale-105 hover:bg-[#5a3a8a] shadow-md"
-                    style={{ 
-                      backgroundColor: '#3f2265',
-                      fontFamily: 'var(--font-poppins)'
-                    }}
+                    className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-3 rounded-xl border-2 border-brand-navy text-brand-navy font-semibold text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-brand-periwinkle hover:to-brand-navy hover:text-white hover:border-transparent"
                   >
-                    Buy Now
+                    View Details
                   </a>
                 </div>
               </div>
@@ -224,4 +202,3 @@ export default function OurProducts() {
     </div>
   )
 }
-
