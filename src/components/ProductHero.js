@@ -91,8 +91,8 @@ export default function ProductHero() {
 
               {/* Stat badge — bottom left */}
               <div className="absolute bottom-[10px] left-3 z-10 bg-white/90 backdrop-blur-sm px-2.5 py-1.5 rounded-xl border border-brand-lavender shadow-sm">
-                <p className="text-sm font-bold text-brand-navy leading-none">100+</p>
-                <p className="text-[9px] text-brand-steel mt-0.5 font-semibold uppercase">Happy Users</p>
+                <p className="text-sm font-bold text-brand-navy leading-none">1000+</p>
+                <p className="text-[9px] text-brand-steel mt-0.5 font-semibold uppercase">Happy Reviews</p>
               </div>
 
               {/* Soft glow blob */}
@@ -158,8 +158,8 @@ export default function ProductHero() {
 
             {/* Small stat badge — bottom right */}
             <div className="absolute bottom-6 right-0 sm:-right-4 z-20 bg-white/80 backdrop-blur-md px-4 sm:px-5 py-2 sm:py-3 rounded-2xl text-center border border-brand-lavender shadow-sm hidden sm:block hover:bg-white transition-colors cursor-default">
-              <p className="text-xl sm:text-2xl font-bold text-brand-navy">100+</p>
-              <p className="text-[10px] sm:text-xs font-semibold text-brand-steel uppercase tracking-wider mt-0.5">Happy Users</p>
+              <p className="text-xl sm:text-2xl font-bold text-brand-navy">1000+</p>
+              <p className="text-[10px] sm:text-xs font-semibold text-brand-steel uppercase tracking-wider mt-0.5">Happy Reviews</p>
             </div>
             
             {/* Carousel Dots */}

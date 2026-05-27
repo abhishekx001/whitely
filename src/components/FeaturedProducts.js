@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { Star } from 'lucide-react'
 
 export default function FeaturedProducts() {
   const products = [
@@ -77,15 +78,15 @@ export default function FeaturedProducts() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8">
           {products.map((product) => (
             <div 
               key={product.id} 
               id={generateId(product.name)}
-              className="group bg-white rounded-2xl overflow-hidden border border-brand-lavender transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_10px_40px_-10px_rgba(112,145,230,0.2)] flex flex-col h-full"
+              className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-brand-lavender transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_10px_40px_-10px_rgba(112,145,230,0.2)] flex flex-col h-full"
             >
               {/* Product Image */}
-              <div className="relative w-full aspect-[4/5] bg-brand-pale overflow-hidden">
+              <div className="relative w-full aspect-square sm:aspect-[4/5] bg-brand-pale overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -95,29 +96,39 @@ export default function FeaturedProducts() {
               </div>
 
               {/* Product Details */}
-              <div className="p-6 flex flex-col flex-grow">
+              <div className="p-3 sm:p-6 flex flex-col flex-grow">
                 {/* Category Badge */}
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 bg-brand-pale text-brand-periwinkle self-start font-sans tracking-wide">
+                <span className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-xs font-semibold mb-2 sm:mb-4 bg-brand-pale text-brand-periwinkle self-start font-sans tracking-wide">
                   {product.category}
                 </span>
 
                 {/* Product Name */}
-                <h3 className="text-xl font-bold mb-2 font-serif text-brand-navy line-clamp-1">
+                <h3 className="text-sm sm:text-xl font-bold mb-1 sm:mb-1.5 font-serif text-brand-navy line-clamp-2 sm:line-clamp-1 leading-tight sm:leading-normal">
                   {product.name}
                 </h3>
 
+                {/* Reviews */}
+                <div className="flex items-center gap-1 mb-2 sm:mb-3">
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star key={star} className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <span className="text-[9px] sm:text-[11px] text-brand-steel font-medium">300+ reviews</span>
+                </div>
+
                 {/* Description */}
-                <p className="text-sm text-brand-steel mb-6 font-sans leading-relaxed line-clamp-2 flex-grow">
+                <p className="text-[11px] sm:text-sm text-brand-steel mb-3 sm:mb-6 font-sans leading-relaxed line-clamp-2 flex-grow">
                   {product.description}
                 </p>
 
                 {/* Price & Action */}
                 <div className="mt-auto">
-                  <div className="flex items-center gap-3 mb-5">
-                    <span className="text-2xl font-bold text-brand-periwinkle font-sans">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3 mb-3 sm:mb-5">
+                    <span className="text-sm sm:text-2xl font-bold text-brand-periwinkle font-sans">
                       {product.price}
                     </span>
-                    <span className="text-sm font-medium text-gray-400 line-through font-sans">
+                    <span className="text-[10px] sm:text-sm font-medium text-gray-400 line-through font-sans">
                       {product.originalPrice}
                     </span>
                   </div>
@@ -127,10 +138,10 @@ export default function FeaturedProducts() {
                     href={`https://wa.me/917306633619?text=${encodeURIComponent(`Product: ${product.name}\nDescription: ${product.description}\n\nProduct Details`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center px-6 py-3 rounded-xl text-white font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy hover:shadow-[0_0_15px_rgba(112,145,230,0.4)]"
+                    className="w-full flex items-center justify-center px-2 py-2 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl text-white font-semibold text-[11px] sm:text-sm transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy hover:shadow-[0_0_15px_rgba(112,145,230,0.4)]"
                   >
                     <svg 
-                      className="w-5 h-5 mr-2" 
+                      className="w-3 h-3 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" 
                       fill="currentColor" 
                       viewBox="0 0 24 24" 
                       xmlns="http://www.w3.org/2000/svg"
