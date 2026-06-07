@@ -8,7 +8,8 @@ const raleway = Raleway({
 })
 
 export const metadata = {
-  title: 'Whitely Pro',
+  title: "Whitely Beauty", 
+  manifest: "/manifest.json",
   description: 'Whitely Pro Application',
   icons: {
     icon: [
