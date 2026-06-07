@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useWhatsApp } from '../hooks/useWhatsApp'
+import DualPrice from './DualPrice'
 
 export default function OurProducts() {
   const { openWhatsAppModal } = useWhatsApp()
@@ -17,6 +18,9 @@ export default function OurProducts() {
         'Lightweight, non-greasy formula',
         'Suitable for all skin types'
       ],
+      indiaPrice: '1,499',
+      indiaMRP: '1,800',
+      qatarPrice: '90',
       image: '/beautycream-80g.jpeg'
     },
     {
@@ -29,6 +33,9 @@ export default function OurProducts() {
         'Lightweight, non-greasy formula',
         'Suitable for all skin types'
       ],
+      indiaPrice: '999',
+      indiaMRP: '1,200',
+      qatarPrice: '70',
       image: '/beauty-cream 40g.jpeg'
     },
     {
@@ -41,6 +48,9 @@ export default function OurProducts() {
         'Brighten every touch with Whitely 🌿',
         'Soft. Bright. Beautiful. 💫'
       ],
+      indiaPrice: '999',
+      indiaMRP: '1,200',
+      qatarPrice: '70',
       image: '/bodylotion2.jpg'
     },
     {
@@ -51,6 +61,9 @@ export default function OurProducts() {
         'Regular use can help maintain a healthy lip color and prevent peeling or flaking',
         'Balms can double as a primer for lipsticks, helping makeup go on more smoothly'
       ],
+      indiaPrice: '599',
+      indiaMRP: '799',
+      qatarPrice: '50',
       image: '/lipbalm-new.jpeg'
     },
     {
@@ -63,6 +76,8 @@ export default function OurProducts() {
         'Natural ingredients for all skin types',
         'Leaves skin feeling fresh and rejuvenated'
       ],
+      indiaPrice: '299',
+      indiaMRP: '399',
       image: '/soap-new.jpeg'
     },
     {
@@ -75,6 +90,9 @@ export default function OurProducts() {
         'Leaves no white cast behind',
         'Perfect for daily use & all skin types'
       ],
+      indiaPrice: '599',
+      indiaMRP: '799',
+      qatarPrice: '50',
       image: '/sunscreen-new.jpeg'
     }
   ]
@@ -184,6 +202,14 @@ export default function OurProducts() {
                     </li>
                   ))}
                 </ul>
+
+                <div className="mb-4">
+                  <DualPrice 
+                    indiaPrice={product.indiaPrice} 
+                    indiaMRP={product.indiaMRP} 
+                    qatarPrice={product.qatarPrice} 
+                  />
+                </div>
 
                 {/* Buy Now Button - Outlined Variant */}
                 <div className="mt-auto">

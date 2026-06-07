@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Star } from 'lucide-react'
 import { useWhatsApp } from '../hooks/useWhatsApp'
+import DualPrice from './DualPrice'
 
 export default function FeaturedProducts() {
   const { openWhatsAppModal } = useWhatsApp()
@@ -12,8 +13,9 @@ export default function FeaturedProducts() {
       name: 'Brightening Cream (80g)',
       category: 'Beauty Cream',
       description: 'Vitamin C cream for visibly brighter, more even-toned skin.',
-      price: '₹1,599.00',
-      originalPrice: '₹1,800.00',
+      indiaPrice: '1,499',
+      indiaMRP: '1,800',
+      qatarPrice: '90',
       image: '/beautycream-80g.jpeg'
     },
     {
@@ -21,8 +23,9 @@ export default function FeaturedProducts() {
       name: 'Brightening Cream (40g)',
       category: 'Beauty Cream',
       description: 'Travel-friendly size for visibly brighter, more even-toned skin.',
-      price: '₹999.00',
-      originalPrice: '₹1,200.00',
+      indiaPrice: '999',
+      indiaMRP: '1,200',
+      qatarPrice: '70',
       image: '/beauty-cream 40g.jpeg'
     },
     {
@@ -30,8 +33,9 @@ export default function FeaturedProducts() {
       name: 'Brightening Body Lotion',
       category: 'Lotion',
       description: 'Lightweight lotion to visibly improve radiance.',
-      price: '₹999.00',
-      originalPrice: '₹1,200.00',
+      indiaPrice: '999',
+      indiaMRP: '1,200',
+      qatarPrice: '70',
       image: '/bodylotion2.jpg'
     },
     {
@@ -39,8 +43,9 @@ export default function FeaturedProducts() {
       name: 'Lip Mask',
       category: 'Lip Care',
       description: 'Moisturizer for smooth, supple skin that feels nourished.',
-      price: '₹599.00',
-      originalPrice: '₹799.00',
+      indiaPrice: '599',
+      indiaMRP: '799',
+      qatarPrice: '50',
       image: '/lipbalm-new.jpeg'
     },
     {
@@ -48,8 +53,9 @@ export default function FeaturedProducts() {
       name: 'Sunscreen',
       category: 'Sun Care',
       description: 'SPF 50 ++++ for maximum UV protection. Enriched with Vitamin C.',
-      price: '₹599.00',
-      originalPrice: '₹799.00',
+      indiaPrice: '599',
+      indiaMRP: '799',
+      qatarPrice: '50',
       image: '/sunscreen-new.jpeg'
     },
     {
@@ -57,8 +63,8 @@ export default function FeaturedProducts() {
       name: 'Brightening Soap',
       category: 'Soap',
       description: 'Gentle cleansing soap for a brighter complexion.',
-      price: '₹299.00',
-      originalPrice: '₹399.00',
+      indiaPrice: '299',
+      indiaMRP: '399',
       image: '/soap-new.jpeg'
     }
   ]
@@ -126,13 +132,12 @@ export default function FeaturedProducts() {
 
                 {/* Price & Action */}
                 <div className="mt-auto">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3 mb-3 sm:mb-5">
-                    <span className="text-sm sm:text-2xl font-bold text-brand-periwinkle font-sans">
-                      {product.price}
-                    </span>
-                    <span className="text-[10px] sm:text-sm font-medium text-gray-400 line-through font-sans">
-                      {product.originalPrice}
-                    </span>
+                  <div className="mb-3 sm:mb-5">
+                    <DualPrice 
+                      indiaPrice={product.indiaPrice} 
+                      indiaMRP={product.indiaMRP} 
+                      qatarPrice={product.qatarPrice} 
+                    />
                   </div>
 
                   {/* Buy Now Button */}
