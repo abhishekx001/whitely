@@ -2,8 +2,10 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useWhatsApp } from '../hooks/useWhatsApp'
 
 export default function OurProducts() {
+  const { openWhatsAppModal } = useWhatsApp()
   const products = [
     {
       id: 1,
@@ -15,7 +17,7 @@ export default function OurProducts() {
         'Lightweight, non-greasy formula',
         'Suitable for all skin types'
       ],
-      image: '/beautycream1.jpg'
+      image: '/beautycream-80g.jpeg'
     },
     {
       id: 6,
@@ -185,14 +187,12 @@ export default function OurProducts() {
 
                 {/* Buy Now Button - Outlined Variant */}
                 <div className="mt-auto">
-                  <a
-                    href={`https://wa.me/917306633619?text=${encodeURIComponent(`Product: ${product.name}\nDescription: ${product.benefits.join(', ')}\n\nProduct Details`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-3 rounded-xl border-2 border-brand-navy text-brand-navy font-semibold text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-brand-periwinkle hover:to-brand-navy hover:text-white hover:border-transparent"
+                  <button
+                    onClick={() => openWhatsAppModal(`Product: ${product.name}\nDescription: ${product.benefits.join(', ')}\n\nProduct Details`)}
+                    className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-3 rounded-xl border-2 border-brand-navy text-brand-navy font-semibold text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-brand-periwinkle hover:to-brand-navy hover:text-white hover:border-transparent cursor-pointer"
                   >
                     View Details
-                  </a>
+                  </button>
                 </div>
               </div>
             </motion.div>

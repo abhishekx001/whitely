@@ -1,6 +1,9 @@
 'use client'
 
+import { useWhatsApp } from '../hooks/useWhatsApp'
+
 export default function BestSkincare() {
+  const { openWhatsAppModal } = useWhatsApp()
   const stats = [
     { number: '1000+', label: 'Happy Reviews' },
     { number: '300+', label: 'Products Sold' }
@@ -66,13 +69,10 @@ export default function BestSkincare() {
           </div>
         </div>
 
-        {/* Centered Buy Now Button */}
         <div className="flex justify-center mt-12">
-          <a
-            href="https://wa.me/917306633619?text=product%20details"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy rounded-full hover:scale-105 hover:shadow-[0_0_25px_rgba(112,145,230,0.4)]"
+          <button
+            onClick={() => openWhatsAppModal('product details')}
+            className="group inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy rounded-full hover:scale-105 hover:shadow-[0_0_25px_rgba(112,145,230,0.4)] cursor-pointer"
           >
             Buy Now
             <svg 
@@ -83,7 +83,7 @@ export default function BestSkincare() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </div>

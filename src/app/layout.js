@@ -1,5 +1,6 @@
 import './globals.css'
 import { Raleway } from 'next/font/google'
+import WhatsAppProvider from '../components/WhatsAppProvider'
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -20,7 +21,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${raleway.variable} overflow-x-hidden text-brand-steel bg-brand-pale`}>
-      <body className="overflow-x-hidden font-sans">{children}</body>
+      <body className="overflow-x-hidden font-sans">
+        <WhatsAppProvider>
+          {children}
+        </WhatsAppProvider>
+      </body>
     </html>
   )
 }

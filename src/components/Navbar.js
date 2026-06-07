@@ -3,15 +3,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { useWhatsApp } from '../hooks/useWhatsApp'
 
 export default function Navbar() {
+  const { openWhatsAppModal } = useWhatsApp()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearch, setShowSearch] = useState(false)
 
   const productsList = [
-    { name: 'Brightening Cream (80g)', image: '/beautycream1.jpg' },
+    { name: 'Brightening Cream (80g)', image: '/beautycream-80g.jpeg' },
     { name: 'Brightening Cream (40g)', image: '/beauty-cream 40g.jpeg' },
     { name: 'Brightening Body Lotion', image: '/bodylotion2.jpg' },
     { name: 'Lip Mask', image: '/lipbalm-new.jpeg' },
@@ -24,7 +26,6 @@ export default function Navbar() {
   const filteredProducts = productsList.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()))
 
   const instagramUrl = 'https://www.instagram.com/whitely.beauty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
-  const whatsappUrl = 'https://wa.me/917306633619?text=product%20details'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -143,14 +144,12 @@ export default function Navbar() {
 
             {/* Right CTA / Mobile Menu */}
             <div className="flex items-center flex-shrink-0">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:inline-flex px-6 py-2.5 rounded-full text-white text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy hover:scale-105 hover:shadow-[0_0_15px_rgba(112,145,230,0.4)]"
+              <button
+                onClick={() => openWhatsAppModal('product details')}
+                className="hidden sm:inline-flex px-6 py-2.5 rounded-full text-white text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy hover:scale-105 hover:shadow-[0_0_15px_rgba(112,145,230,0.4)] cursor-pointer"
               >
                 Order Now
-              </a>
+              </button>
 
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -182,9 +181,15 @@ export default function Navbar() {
             <a href="#how-to-use" className="block text-center font-medium py-3 px-4 rounded-xl text-brand-steel hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" onClick={() => setIsMenuOpen(false)}>How To Use</a>
             
             <div className="pt-6 pb-2 px-2 flex justify-center">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center w-[200px] px-6 py-3 rounded-full text-white text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle shadow-md" onClick={() => setIsMenuOpen(false)}>
+              <button 
+                className="inline-flex justify-center w-[200px] px-6 py-3 rounded-full text-white text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle shadow-md cursor-pointer" 
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  openWhatsAppModal('product details');
+                }}
+              >
                 Order Now
-              </a>
+              </button>
             </div>
           </div>
         </div>

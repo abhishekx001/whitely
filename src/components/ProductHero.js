@@ -2,8 +2,10 @@
 
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { useWhatsApp } from '../hooks/useWhatsApp'
 
 export default function ProductHero() {
+  const { openWhatsAppModal } = useWhatsApp()
   const [currentPage, setCurrentPage] = useState(0)
   
   // Using images from public folder - grouped in pairs (4 pairs)
@@ -16,7 +18,6 @@ export default function ProductHero() {
 
   const totalPages = imagePairs.length
   const currentPair = imagePairs[currentPage]
-  const whatsappUrl = 'https://wa.me/917306633619?text=product%20details'
 
   const nextPage = () => {
     setCurrentPage((prev) => (prev + 1) % totalPages)
@@ -101,13 +102,10 @@ export default function ProductHero() {
               </div>
             </div>
 
-            {/* CTA Button */}
             <div className="flex justify-center md:justify-start w-full mt-3 md:mt-0">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-auto inline-flex items-center justify-center px-8 py-3.5 md:px-8 md:py-4 text-sm md:text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy rounded-full md:hover:scale-105 shadow-md hover:shadow-[0_0_20px_rgba(112,145,230,0.5)]"
+              <button
+                onClick={() => openWhatsAppModal('product details')}
+                className="group w-auto inline-flex items-center justify-center px-8 py-3.5 md:px-8 md:py-4 text-sm md:text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy rounded-full md:hover:scale-105 shadow-md hover:shadow-[0_0_20px_rgba(112,145,230,0.5)] cursor-pointer"
               >
                 Shop The Collection
                 <svg 
@@ -118,7 +116,7 @@ export default function ProductHero() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
 
