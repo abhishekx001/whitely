@@ -13,7 +13,7 @@ export default function FeaturedProducts() {
       name: 'Brightening Cream (80g)',
       category: 'Beauty Cream',
       description: 'Vitamin C cream for visibly brighter, more even-toned skin.',
-      indiaPrice: '1,499',
+      indiaPrice: '1,599',
       indiaMRP: '1,800',
       qatarPrice: '90',
       image: '/beautycream-80g.jpeg'

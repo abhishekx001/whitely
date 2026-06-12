@@ -18,7 +18,7 @@ export default function OurProducts() {
         'Lightweight, non-greasy formula',
         'Suitable for all skin types'
       ],
-      indiaPrice: '1,499',
+      indiaPrice: '1,599',
       indiaMRP: '1,800',
       qatarPrice: '90',
       image: '/beautycream-80g.jpeg'
