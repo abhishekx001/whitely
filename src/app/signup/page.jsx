@@ -1,12 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { createClient } from '../../lib/supabase/client'
 
-export default function SignupPage() {
+function SignupContent() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   
@@ -94,5 +94,13 @@ export default function SignupPage() {
         </div>
       </motion.div>
     </div>
+  )
+}
+
+export default function SignupPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-brand-pale flex items-center justify-center">Loading...</div>}>
+      <SignupContent />
+    </Suspense>
   )
 }
