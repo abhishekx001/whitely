@@ -4,6 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useWhatsApp } from '../hooks/useWhatsApp'
+import { useAuth } from '../context/AuthContext'
+import { useCart } from '../context/CartContext'
 
 export default function Navbar() {
   const { openWhatsAppModal } = useWhatsApp()
@@ -11,6 +13,16 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearch, setShowSearch] = useState(false)
+  const [showUserMenu, setShowUserMenu] = useState(false)
+  
+  const { user, supabase } = useAuth()
+  const { cart } = useCart()
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0)
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut()
+    setShowUserMenu(false)
+  }
 
   const productsList = [
     { name: 'Brightening Cream (80g)', image: '/beautycream-80g.jpeg' },
@@ -76,18 +88,21 @@ export default function Navbar() {
 
             {/* Navigation Links - Desktop */}
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8 font-sans flex-shrink-0 lg:ml-12 xl:ml-24">
-              <a href="#our-products" className="nav-link font-medium text-brand-steel hover:text-brand-navy transition-colors">
+              <Link href="/#our-products" className="nav-link font-medium text-brand-steel hover:text-brand-navy transition-colors">
                 Products
-              </a>
-              <a href="#reviews" className="nav-link font-medium text-brand-steel hover:text-brand-navy transition-colors">
+              </Link>
+              <Link href="/benefits" className="nav-link font-medium text-brand-steel hover:text-brand-navy transition-colors">
+                Benefits
+              </Link>
+              <Link href="/#reviews" className="nav-link font-medium text-brand-steel hover:text-brand-navy transition-colors">
                 Reviews
-              </a>
+              </Link>
               <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="nav-link font-medium text-brand-steel hover:text-brand-navy transition-colors">
                 Contact Us
               </a>
-              <a href="#how-to-use" className="nav-link font-medium text-brand-steel hover:text-brand-navy transition-colors">
+              <Link href="/#how-to-use" className="nav-link font-medium text-brand-steel hover:text-brand-navy transition-colors">
                 How To Use
-              </a>
+              </Link>
             </div>
 
             {/* Search Bar - Desktop (Placed in between Nav Links and CTA) */}
@@ -143,13 +158,53 @@ export default function Navbar() {
             </div>
 
             {/* Right CTA / Mobile Menu */}
-            <div className="flex items-center flex-shrink-0">
-              <button
-                onClick={() => openWhatsAppModal('product details')}
-                className="hidden sm:inline-flex px-6 py-2.5 rounded-full text-white text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy hover:scale-105 hover:shadow-[0_0_15px_rgba(112,145,230,0.4)] cursor-pointer"
-              >
-                Order Now
-              </button>
+            <div className="flex items-center flex-shrink-0 gap-2 sm:gap-4">
+              {/* Cart Icon */}
+              <Link href="/cart" className="relative p-2 text-brand-navy hover:text-brand-periwinkle transition-colors">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                {cartItemCount > 0 && (
+                  <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-[10px] font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-brand-periwinkle rounded-full">
+                    {cartItemCount}
+                  </span>
+                )}
+              </Link>
+
+              {/* User Menu / Login */}
+              <div className="hidden sm:block relative">
+                {user ? (
+                  <div className="relative">
+                    <button 
+                      onClick={() => setShowUserMenu(!showUserMenu)}
+                      className="flex items-center justify-center w-9 h-9 rounded-full bg-brand-lavender text-brand-navy font-bold font-serif hover:bg-brand-periwinkle hover:text-white transition-colors"
+                    >
+                      {user.user_metadata?.full_name?.charAt(0) || user.email?.charAt(0) || 'U'}
+                    </button>
+                    {showUserMenu && (
+                      <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-brand-lavender py-2 z-[100]">
+                        <div className="px-4 py-2 border-b border-brand-lavender/50">
+                          <p className="text-sm font-bold text-brand-navy truncate">
+                            {user.user_metadata?.full_name || 'User'}
+                          </p>
+                          <p className="text-xs text-brand-steel truncate">{user.email}</p>
+                        </div>
+                        <button
+                          onClick={handleLogout}
+                          className="w-full text-left px-4 py-2 text-sm text-brand-navy hover:bg-brand-pale transition-colors"
+                        >
+                          Sign out
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link href="/login" className="text-sm font-semibold text-brand-navy hover:text-brand-periwinkle transition-colors">
+                    Sign In
+                  </Link>
+                )}
+              </div>
+
 
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -175,22 +230,34 @@ export default function Navbar() {
         >
           <div className="flex flex-col space-y-1 px-4 py-6 font-sans">
 
-            <a href="#our-products" className="block text-center font-medium py-3 px-4 rounded-xl text-brand-steel hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" onClick={() => setIsMenuOpen(false)}>Products</a>
-            <a href="#reviews" className="block text-center font-medium py-3 px-4 rounded-xl text-brand-steel hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" onClick={() => setIsMenuOpen(false)}>Reviews</a>
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="block text-center font-medium py-3 px-4 rounded-xl text-brand-steel hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
-            <a href="#how-to-use" className="block text-center font-medium py-3 px-4 rounded-xl text-brand-steel hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" onClick={() => setIsMenuOpen(false)}>How To Use</a>
+            <Link href="/#our-products" className="block text-center font-medium py-3 px-4 rounded-none text-brand-steel hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" onClick={() => setIsMenuOpen(false)}>Products</Link>
+            <Link href="/benefits" className="block text-center font-medium py-3 px-4 rounded-none text-brand-steel hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" onClick={() => setIsMenuOpen(false)}>Benefits</Link>
+            <Link href="/#reviews" className="block text-center font-medium py-3 px-4 rounded-none text-brand-steel hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" onClick={() => setIsMenuOpen(false)}>Reviews</Link>
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="block text-center font-medium py-3 px-4 rounded-none text-brand-steel hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
+            <Link href="/#how-to-use" className="block text-center font-medium py-3 px-4 rounded-none text-brand-steel hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" onClick={() => setIsMenuOpen(false)}>How To Use</Link>
             
-            <div className="pt-6 pb-2 px-2 flex justify-center">
+            <div className="border-t border-brand-lavender/50 my-2"></div>
+            
+            {user ? (
               <button 
-                className="inline-flex justify-center w-[200px] px-6 py-3 rounded-full text-white text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle shadow-md cursor-pointer" 
                 onClick={() => {
+                  handleLogout();
                   setIsMenuOpen(false);
-                  openWhatsAppModal('product details');
                 }}
+                className="block w-full text-center font-medium py-3 px-4 rounded-none text-brand-navy hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors"
               >
-                Order Now
+                Sign Out ({user.user_metadata?.full_name || 'User'})
               </button>
-            </div>
+            ) : (
+              <Link 
+                href="/login" 
+                className="block text-center font-medium py-3 px-4 rounded-none text-brand-navy hover:text-brand-periwinkle hover:bg-brand-lavender transition-colors" 
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sign In / Register
+              </Link>
+            )}
+            
           </div>
         </div>
       </nav>

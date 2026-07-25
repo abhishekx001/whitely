@@ -1,22 +1,56 @@
 'use client'
 
+import { useState } from 'react'
+
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useWhatsApp } from '../hooks/useWhatsApp'
 import DualPrice from './DualPrice'
+import { useAuth } from '../context/AuthContext'
+import { useCart } from '../context/CartContext'
+import { useRouter } from 'next/navigation'
 
 export default function OurProducts() {
   const { openWhatsAppModal } = useWhatsApp()
+  const { user } = useAuth()
+  const { addToCart } = useCart()
+  const router = useRouter()
+  const [addingToCart, setAddingToCart] = useState(null)
+  const [addedItem, setAddedItem] = useState(null)
+
+  const handleAddToCart = async (e, product) => {
+    e.preventDefault()
+    
+    if (!user) {
+      router.push('/login?redirect=/#our-products')
+      return
+    }
+
+    setAddingToCart(product.id)
+    const productSlug = product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+    const success = await addToCart({ ...product, slug: productSlug })
+    
+    if (success) {
+      setAddedItem(product.id)
+      setTimeout(() => setAddedItem(null), 2000)
+    }
+    setAddingToCart(null)
+  }
+
   const products = [
     {
       id: 1,
-      name: 'Brightening Cream (80g)',
+      name: 'Whitely Beauty Brightening Cream (80g)',
       benefits: [
-        'Deep Hydration for soft, smooth skin',
-        'Brightens and evens out skin tone',
-        'Helps reduce dark spots & dullness',
-        'Lightweight, non-greasy formula',
-        'Suitable for all skin types'
+        'Helps reduce pimples & acne',
+        'Fades dark spots & acne marks',
+        'Improves pigmentation & uneven skin tone',
+        'Removes sun tan & dullness',
+        'Controls blackheads & excess oil',
+        'Gives brighter, smoother skin',
+        'Deeply hydrates & nourishes skin',
+        'Supports clear, healthy glow'
       ],
       indiaPrice: '1,599',
       indiaMRP: '1,800',
@@ -25,13 +59,16 @@ export default function OurProducts() {
     },
     {
       id: 6,
-      name: 'Brightening Cream (40g)',
+      name: 'Whitely Beauty Brightening Cream (40g)',
       benefits: [
-        'Deep Hydration for soft, smooth skin',
-        'Brightens and evens out skin tone',
-        'Helps reduce dark spots & dullness',
-        'Lightweight, non-greasy formula',
-        'Suitable for all skin types'
+        'Helps reduce pimples & acne',
+        'Fades dark spots & acne marks',
+        'Improves pigmentation & uneven skin tone',
+        'Removes sun tan & dullness',
+        'Controls blackheads & excess oil',
+        'Gives brighter, smoother skin',
+        'Deeply hydrates & nourishes skin',
+        'Supports clear, healthy glow'
       ],
       indiaPrice: '999',
       indiaMRP: '1,200',
@@ -40,13 +77,14 @@ export default function OurProducts() {
     },
     {
       id: 2,
-      name: 'Brightening Body Lotion',
+      name: 'Whitely Beauty Brightening Body Lotion',
       benefits: [
-        'Bright hands, soft touch ✨',
-        'Glow at your fingertips 💎',
-        'Whitely hands that shine 🌸',
-        'Brighten every touch with Whitely 🌿',
-        'Soft. Bright. Beautiful. 💫'
+        'Removes sun tan & dark sun damage',
+        'Reduces black tanning & uneven skin tone',
+        'Deeply brightens dull hands',
+        'Helps fade pigmentation & dark patches',
+        'Smoothens rough and dry skin',
+        'Gives soft, hydrated, glowing hands'
       ],
       indiaPrice: '999',
       indiaMRP: '1,200',
@@ -55,11 +93,14 @@ export default function OurProducts() {
     },
     {
       id: 3,
-      name: 'Lip Mask',
+      name: 'Whitely Beauty Lip Mask',
       benefits: [
-        'Hydrated lips look smoother and more "plumped" or supple',
-        'Regular use can help maintain a healthy lip color and prevent peeling or flaking',
-        'Balms can double as a primer for lipsticks, helping makeup go on more smoothly'
+        'Deeply moisturizes and repairs dry, cracked lips',
+        'Smoothens rough lip texture from first use',
+        'Helps remove dark pigmentation and tan on lips',
+        'Gradually gives a natural soft pink / red lip tone',
+        'Reduces lip lines and improves softness',
+        'Nourishes lips overnight for a healthy glow'
       ],
       indiaPrice: '599',
       indiaMRP: '799',
@@ -68,13 +109,12 @@ export default function OurProducts() {
     },
     {
       id: 4,
-      name: 'Whitely Brightening Soap',
+      name: 'Whitely Beauty Brightening Soap',
       benefits: [
-        'Deep cleansing for brighter, clearer skin',
-        'Gentle exfoliation removes dead skin cells',
-        'Brightens and evens out skin tone',
-        'Natural ingredients for all skin types',
-        'Leaves skin feeling fresh and rejuvenated'
+        'Week 1: Clean & Tan Removal',
+        'Week 2: Brightening Glow',
+        'Week 3: Repair & Anti-Aging',
+        'Week 4: Clear & Healthy Skin'
       ],
       indiaPrice: '299',
       indiaMRP: '399',
@@ -82,13 +122,14 @@ export default function OurProducts() {
     },
     {
       id: 5,
-      name: 'Sunscreen',
+      name: 'Whitely Beauty Sunscreen',
       benefits: [
-        'SPF 50 ++++ for maximum UV protection',
-        'Enriched with Vitamin C for radiant skin',
-        'Ultra hydrating & lightweight formula',
-        'Leaves no white cast behind',
-        'Perfect for daily use & all skin types'
+        'High Sun Protection (SPF 50++++)',
+        'Brightening with Vitamin C',
+        'Removes Sun Tan & Prevents Pigmentation',
+        'Ultra Hydrating Formula',
+        'Controls Oil & Sweat',
+        'Lightweight & Non-Sticky'
       ],
       indiaPrice: '599',
       indiaMRP: '799',
@@ -153,21 +194,23 @@ export default function OurProducts() {
               variants={fadeInUp}
             >
               {/* Product Image - Left side */}
-              <div className="relative w-full sm:w-2/5 h-[300px] sm:h-auto overflow-hidden bg-brand-pale">
+              <Link href={`/products/${product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`} className="relative w-full sm:w-2/5 h-[300px] sm:h-auto overflow-hidden bg-brand-pale block">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-              </div>
+              </Link>
 
               {/* Product Details - Right side */}
               <div className="p-8 sm:w-3/5 flex flex-col">
                 {/* Product Name */}
-                <h3 className="text-2xl font-bold mb-4 font-serif text-brand-navy">
-                  {product.name}
-                </h3>
+                <Link href={`/products/${product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}>
+                  <h3 className="text-2xl font-bold mb-4 font-serif text-brand-navy hover:text-brand-periwinkle transition-colors">
+                    {product.name}
+                  </h3>
+                </Link>
 
                 {/* Face Benefits Title - Only for Brightening Cream */}
                 {(product.id === 1 || product.id === 6) && (
@@ -211,13 +254,20 @@ export default function OurProducts() {
                   />
                 </div>
 
-                {/* Buy Now Button - Outlined Variant */}
-                <div className="mt-auto">
-                  <button
-                    onClick={() => openWhatsAppModal(`Product: ${product.name}\nDescription: ${product.benefits.join(', ')}\n\nProduct Details`)}
-                    className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-3 rounded-xl border-2 border-brand-navy text-brand-navy font-semibold text-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-brand-periwinkle hover:to-brand-navy hover:text-white hover:border-transparent cursor-pointer"
+                {/* Buttons Layout */}
+                <div className="mt-auto flex gap-3">
+                  <Link
+                    href={`/products/${product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+                    className="flex-1 inline-flex items-center justify-center px-4 py-3 rounded-xl border border-brand-lavender text-brand-navy font-semibold text-sm transition-all duration-300 hover:border-brand-periwinkle hover:text-brand-periwinkle cursor-pointer bg-white"
                   >
-                    View Details
+                    View
+                  </Link>
+                  <button
+                    onClick={(e) => handleAddToCart(e, product)}
+                    disabled={addingToCart === product.id || addedItem === product.id}
+                    className="flex-1 inline-flex items-center justify-center px-4 py-3 rounded-xl border border-transparent font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle text-white hover:from-brand-periwinkle hover:to-brand-navy cursor-pointer disabled:opacity-80 disabled:cursor-not-allowed"
+                  >
+                    {addedItem === product.id ? 'Added!' : addingToCart === product.id ? 'Adding...' : 'Add to Cart'}
                   </button>
                 </div>
               </div>

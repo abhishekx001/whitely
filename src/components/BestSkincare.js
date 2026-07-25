@@ -72,7 +72,7 @@ export default function BestSkincare() {
         <div className="flex justify-center mt-12">
           <button
             onClick={() => openWhatsAppModal('product details')}
-            className="group inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy rounded-full hover:scale-105 hover:shadow-[0_0_25px_rgba(112,145,230,0.4)] cursor-pointer"
+            className="group inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy rounded-none hover:scale-105 hover:shadow-[0_0_25px_rgba(112,145,230,0.4)] cursor-pointer"
           >
             Buy Now
             <svg 
