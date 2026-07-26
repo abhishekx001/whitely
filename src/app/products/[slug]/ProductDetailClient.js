@@ -288,6 +288,57 @@ export default function ProductDetailClient({ product }) {
 
       {/* Below the Fold Sections */}
 
+      {/* Ingredients & Promise Section */}
+      <div className="w-full mt-12 py-16 bg-brand-base relative border-t border-brand-ink/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            {/* Full Ingredients */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeInUp}
+            >
+              <h3 className="text-2xl font-normal font-serif text-brand-ink mb-6">Full Ingredients</h3>
+              <p className="text-sm text-brand-ink/70 font-sans leading-relaxed uppercase tracking-widest text-justify">
+                {Array.isArray(product.ingredients) ? product.ingredients.join(', ') : product.ingredients}
+              </p>
+            </motion.div>
+
+            {/* Key Ingredients & Promise */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainer}
+              className="flex flex-col gap-8"
+            >
+              <div>
+                <h3 className="text-2xl font-normal font-serif text-brand-ink mb-6">Key Ingredients</h3>
+                <div className="space-y-6">
+                  {product.keyIngredients && product.keyIngredients.map((ingredient, idx) => (
+                    <div key={idx} className="flex flex-col">
+                      <span className="font-bold font-sans uppercase tracking-wider text-sm text-brand-ink mb-1">{ingredient.name}</span>
+                      <span className="text-sm text-brand-ink/70 font-sans">{ingredient.description}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="pt-8 border-t border-brand-ink/10">
+                <h3 className="text-xl font-normal font-serif text-brand-ink mb-4">Our Promise</h3>
+                <div className="flex flex-col">
+                  <span className="font-bold font-sans uppercase tracking-wider text-sm text-brand-ink mb-1">Cruelty Free</span>
+                  <span className="text-sm text-brand-ink/70 font-sans">Never tested on animals. Always ethical.</span>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </div>
+
       {/* Benefits Section */}
       <div className="w-full mt-12 py-16 bg-brand-soft relative border-y border-brand-ink/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

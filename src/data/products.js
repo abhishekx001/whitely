@@ -26,7 +26,12 @@ export const products = [
       { step: 2, title: 'Dry', description: 'Pat dry your face with a clean towel.', image: '/use2.png' },
       { step: 3, title: 'Apply', description: 'Take required amount of Whitely Brightening Cream and apply evenly to your face. Massage gently.', image: '/use3.png' }
     ],
-    ingredients: ['Turmeric', 'Sandal Extraction', 'Niacinamide'],
+    ingredients: "Vitamin C, Vitamin E Jojoba Oil, Caprylic Triglyceride / Rosmarinús: Officinalis, Hyalauronic Acid Nacinamide, Titanum Dioxide, Gyceryl Strearate, Linoleic Acid, Myristyl Laurate, WILLOW BARK, SALICYLIC ACID, CLOVE BUD OIL, GREEN TEA EXTRACT, ORANGE EXTRACT, ROSEHIP OIL. VITAMIN C MULTOV, CURCUMIN EXT ALOE VERA EXT. LYCOPENE CARROT EXT, FRAGRANCE DIPALMITATE, NIACINAMIDE. HYDROQUINONE, KOJIC TRANEXAMIC.",
+    keyIngredients: [
+      { name: 'Vitamin C', description: 'Brightens and evens out skin tone naturally.' },
+      { name: 'Niacinamide', description: 'Strengthens the skin barrier and minimizes pores.' },
+      { name: 'Salicylic Acid', description: 'Unclogs pores and reduces acne breakouts.' }
+    ],
     reviews: [
       { name: 'Priya S.', rating: 5, text: 'Absolutely love this cream! It absorbs quickly and leaves my skin glowing all day.' },
       { name: 'Ayesha K.', rating: 4, text: 'Saw a visible difference in my dark spots within two weeks. Highly recommend.' },
@@ -60,7 +65,12 @@ export const products = [
       { step: 2, title: 'Dry', description: 'Pat dry your face with a clean towel.', image: '/use2.png' },
       { step: 3, title: 'Apply', description: 'Take required amount of Whitely Brightening Cream and apply evenly to your face. Massage gently.', image: '/use3.png' }
     ],
-    ingredients: ['Turmeric', 'Sandal Extraction', 'Niacinamide'],
+    ingredients: "Vitamin C, Vitamin E Jojoba Oil, Caprylic Triglyceride / Rosmarinús: Officinalis, Hyalauronic Acid Nacinamide, Titanum Dioxide, Gyceryl Strearate, Linoleic Acid, Myristyl Laurate, WILLOW BARK, SALICYLIC ACID, CLOVE BUD OIL, GREEN TEA EXTRACT, ORANGE EXTRACT, ROSEHIP OIL. VITAMIN C MULTOV, CURCUMIN EXT ALOE VERA EXT. LYCOPENE CARROT EXT, FRAGRANCE DIPALMITATE, NIACINAMIDE. HYDROQUINONE, KOJIC TRANEXAMIC.",
+    keyIngredients: [
+      { name: 'Vitamin C', description: 'Brightens and evens out skin tone naturally.' },
+      { name: 'Niacinamide', description: 'Strengthens the skin barrier and minimizes pores.' },
+      { name: 'Salicylic Acid', description: 'Unclogs pores and reduces acne breakouts.' }
+    ],
     reviews: [
       { name: 'Neha G.', rating: 5, text: 'Perfect size for carrying in my purse. Works like magic on dull skin.' },
       { name: 'Sara L.', rating: 4, text: 'Great for daily use. My skin feels so soft and hydrated.' }
@@ -91,7 +101,12 @@ export const products = [
       { step: 2, title: 'Dry', description: 'Gently pat your skin dry with a towel.', image: '/use2.png' },
       { step: 3, title: 'Apply', description: 'Massage the lotion generously all over your body.', image: '/use3.png' }
     ],
-    ingredients: ['Sandal Extraction', 'Niacinamide', 'Vitamin E'],
+    ingredients: "GLYCERYL STREATE, VITAMIN E PANTHENOL AQUA, MINERAL OIL, ISOPROPY PLAMITATE, FRAGRANCE, CARROT OIL, METHYPARABEN, PHENOXYETHANO.",
+    keyIngredients: [
+      { name: 'Vitamin E', description: 'Deeply moisturizes and protects the skin barrier.' },
+      { name: 'Panthenol', description: 'Soothes and hydrates dry, rough skin.' },
+      { name: 'Carrot Oil', description: 'Rich in antioxidants to rejuvenate and brighten skin.' }
+    ],
     reviews: [
       { name: 'Anjali T.', rating: 5, text: 'Smells amazing and leaves my skin feeling incredibly soft without any stickiness.' },
       { name: 'Kritika B.', rating: 5, text: 'My go-to body lotion! It really brightens up the skin over time.' },
@@ -124,6 +139,11 @@ export const products = [
       { step: 3, title: 'Apply', description: 'Apply a generous layer to your lips before bed or as needed.', image: '/use3.png' }
     ],
     ingredients: ['Shea Butter', 'Vitamin E', 'Natural Oils'],
+    keyIngredients: [
+      { name: 'Shea Butter', description: 'Deeply moisturizes and heals chapped lips.' },
+      { name: 'Vitamin E', description: 'Protects and softens the lips.' },
+      { name: 'Natural Oils', description: 'Nourishes and plumps the lip texture.' }
+    ],
     reviews: [
       { name: 'Maya P.', rating: 5, text: 'Cured my chapped lips in just two nights. A must-have!' },
       { name: 'Tanya V.', rating: 4, text: 'Very hydrating and acts as a great base before applying matte lipsticks.' }
@@ -152,7 +172,12 @@ export const products = [
       { step: 2, title: 'Lather', description: 'Create a rich lather with the soap.', image: '/use2.png' },
       { step: 3, title: 'Wash', description: 'Massage gently onto skin and rinse thoroughly.', image: '/use3.png' }
     ],
-    ingredients: ['Turmeric', 'Sandal Extraction', 'Glycerin'],
+    ingredients: "Pure Donkey Milk. Glycerin Sodium Lauryl sarcosinate Coconut oil. olive oil. Titanium dioxide. Dm water. costic soda Donkey milk powder.. Propylene glycol. Citric acid. Fragrance oil",
+    keyIngredients: [
+      { name: 'Donkey Milk', description: 'Deeply nourishes and hydrates for a soft, glowing complexion.' },
+      { name: 'Coconut Oil', description: 'Cleanses gently while locking in moisture.' },
+      { name: 'Olive Oil', description: 'Rich in vitamins to protect and repair the skin.' }
+    ],
     reviews: [
       { name: 'Kiran D.', rating: 5, text: 'Gentle on the skin and smells so natural. Clears up the complexion wonderfully.' },
       { name: 'Smriti K.', rating: 5, text: 'The only soap I use now. It does not dry out my skin like other commercial soaps.' },
@@ -185,6 +210,11 @@ export const products = [
       { step: 3, title: 'Apply', description: 'Apply evenly on face and neck 15 minutes before sun exposure.', image: '/use3.png' }
     ],
     ingredients: ['Vitamin C', 'Zinc Oxide', 'Niacinamide'],
+    keyIngredients: [
+      { name: 'Vitamin C', description: 'Brightens and evens out skin tone naturally.' },
+      { name: 'Zinc Oxide', description: 'Provides broad-spectrum UV protection.' },
+      { name: 'Niacinamide', description: 'Strengthens the skin barrier and minimizes pores.' }
+    ],
     reviews: [
       { name: 'Isha R.', rating: 5, text: 'Finally a sunscreen that leaves absolutely zero white cast! Love it.' },
       { name: 'Simran B.', rating: 5, text: 'Very lightweight and does not make my face greasy. Protects perfectly.' },

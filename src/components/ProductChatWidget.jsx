@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, X, Send, Sparkles } from 'lucide-react'
 import { products } from '../data/products'
 import { useWhatsApp } from '../hooks/useWhatsApp'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 const CHIPS = [
@@ -44,6 +45,21 @@ export default function ProductChatWidget() {
   const [inputValue, setInputValue] = useState('')
   const messagesEndRef = useRef(null)
   const { openWhatsAppModal } = useWhatsApp()
+  const pathname = usePathname()
+  const [showInHome, setShowInHome] = useState(false)
+
+  useEffect(() => {
+    if (pathname !== '/') return
+
+    const handleScroll = () => {
+      setShowInHome(window.scrollY > 400)
+    }
+    
+    handleScroll()
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [pathname])
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -193,6 +209,15 @@ export default function ProductChatWidget() {
     }
   }
 
+  if (pathname === '/login' || pathname === '/signup') {
+    return null
+  }
+
+  // If on homepage and haven't scrolled past hero, hide
+  if (pathname === '/' && !showInHome && !isOpen) {
+    return null
+  }
+
   return (
     <>
       <AnimatePresence>
@@ -213,7 +238,7 @@ export default function ProductChatWidget() {
               }
             }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-[96px] right-6 z-[80] w-14 h-14 rounded-full flex items-center justify-center shadow-lg bg-brand-pale border border-brand-ink/10 hover:bg-brand-deep hover:text-brand-base transition-colors duration-300 text-brand-ink cursor-pointer group"
+            className="fixed bottom-[160px] sm:bottom-[96px] right-6 z-[9999] w-14 h-14 rounded-full flex items-center justify-center shadow-lg bg-brand-pale border border-brand-ink/10 hover:bg-brand-deep hover:text-brand-base transition-colors duration-300 text-brand-ink cursor-pointer group"
             aria-label="Open product assistant"
           >
             <MessageCircle className="w-6 h-6 absolute transition-opacity duration-300 group-hover:opacity-0" />
@@ -229,7 +254,7 @@ export default function ProductChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className="fixed bottom-0 right-0 sm:bottom-[96px] sm:right-6 z-[90] w-full sm:w-[360px] h-[80vh] sm:h-[480px] bg-brand-base sm:rounded-sm shadow-2xl flex flex-col border border-brand-ink/10 overflow-hidden font-sans"
+            className="fixed bottom-0 right-0 sm:bottom-[96px] sm:right-6 z-[9999] w-full sm:w-[360px] h-[80vh] sm:h-[480px] bg-brand-base sm:rounded-sm shadow-2xl flex flex-col border border-brand-ink/10 overflow-hidden font-sans"
           >
             <div className="bg-brand-ink p-4 flex items-center justify-between text-brand-base shrink-0">
               <div className="flex items-center gap-2">

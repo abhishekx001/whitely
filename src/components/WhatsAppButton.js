@@ -1,14 +1,42 @@
 'use client'
 
 import { useWhatsApp } from '../hooks/useWhatsApp'
+import { usePathname } from 'next/navigation'
+import { useState, useEffect } from 'react'
 
 export default function WhatsAppButton() {
   const { openWhatsAppModal } = useWhatsApp()
+  const pathname = usePathname()
+  const [showInHome, setShowInHome] = useState(false)
+
+  useEffect(() => {
+    if (pathname !== '/') return
+
+    const handleScroll = () => {
+      // Show when scrolled past 400px (roughly past the hero)
+      setShowInHome(window.scrollY > 400)
+    }
+    
+    // Initial check
+    handleScroll()
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [pathname])
+
+  if (pathname === '/login' || pathname === '/signup') {
+    return null
+  }
+
+  // If on homepage and haven't scrolled past hero, hide
+  if (pathname === '/' && !showInHome) {
+    return null
+  }
 
   return (
     <button
       onClick={() => openWhatsAppModal('product details')}
-      className="lg:hidden fixed bottom-6 right-6 z-[80] w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-300 bg-brand-deep hover:bg-brand-ink cursor-pointer"
+      className="lg:hidden fixed bottom-24 right-6 z-[9999] w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-300 bg-brand-deep hover:bg-brand-ink cursor-pointer"
       aria-label="Contact us on WhatsApp"
     >
       <svg

@@ -88,21 +88,18 @@ export default function Navbar() {
 
             {/* Navigation Links - Desktop */}
             <div className="hidden lg:flex items-center space-x-8 xl:space-x-12 font-sans flex-shrink-0 lg:ml-8 xl:ml-16">
+              <Link href="/" className="nav-link text-sm uppercase tracking-wider text-brand-ink hover:text-brand-deep transition-colors">
+                Home
+              </Link>
               <Link href="/#our-products" className="nav-link text-sm uppercase tracking-wider text-brand-ink hover:text-brand-deep transition-colors">
                 Products
               </Link>
               <Link href="/benefits" className="nav-link text-sm uppercase tracking-wider text-brand-ink hover:text-brand-deep transition-colors">
                 Benefits
               </Link>
-              <Link href="/#reviews" className="nav-link text-sm uppercase tracking-wider text-brand-ink hover:text-brand-deep transition-colors">
-                Reviews
-              </Link>
               <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="nav-link text-sm uppercase tracking-wider text-brand-ink hover:text-brand-deep transition-colors">
                 Contact Us
               </a>
-              <Link href="/#how-to-use" className="nav-link text-sm uppercase tracking-wider text-brand-ink hover:text-brand-deep transition-colors">
-                How To Use
-              </Link>
             </div>
 
             {/* Search Bar - Desktop */}
@@ -220,63 +217,60 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile Menu - Slide-in from Right/Bottom Drawer Style */}
-        <div 
-          className={`lg:hidden fixed inset-0 z-40 bg-brand-ink/20 backdrop-blur-sm transition-opacity duration-300 ${
-            isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
-          onClick={() => setIsMenuOpen(false)}
-        />
-        <div 
-          className={`lg:hidden fixed top-0 right-0 h-full w-[280px] bg-brand-base shadow-2xl transition-transform duration-300 ease-in-out z-50 rounded-l-sm ${
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-        >
-          <div className="flex flex-col h-full bg-brand-base">
-            <div className="flex items-center justify-between p-5 border-b border-brand-ink/10">
-              <span className="font-serif text-xl text-brand-ink">Menu</span>
-              <button onClick={() => setIsMenuOpen(false)} className="text-brand-muted hover:text-brand-ink">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            
-            <div className="flex-1 overflow-y-auto py-4">
-              <div className="flex flex-col space-y-1 px-4 font-sans uppercase tracking-wider text-sm">
-                <Link href="/#our-products" className="py-3 px-2 text-brand-ink hover:bg-brand-soft rounded-sm transition-colors" onClick={() => setIsMenuOpen(false)}>Products</Link>
-                <Link href="/benefits" className="py-3 px-2 text-brand-ink hover:bg-brand-soft rounded-sm transition-colors" onClick={() => setIsMenuOpen(false)}>Benefits</Link>
-                <Link href="/#reviews" className="py-3 px-2 text-brand-ink hover:bg-brand-soft rounded-sm transition-colors" onClick={() => setIsMenuOpen(false)}>Reviews</Link>
-                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="py-3 px-2 text-brand-ink hover:bg-brand-soft rounded-sm transition-colors" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
-                <Link href="/#how-to-use" className="py-3 px-2 text-brand-ink hover:bg-brand-soft rounded-sm transition-colors" onClick={() => setIsMenuOpen(false)}>How To Use</Link>
-              </div>
-            </div>
-
-            <div className="p-4 border-t border-brand-ink/10 bg-brand-soft">
-              {user ? (
-                <button 
-                  onClick={() => {
-                    handleLogout();
-                    setIsMenuOpen(false);
-                  }}
-                  className="w-full text-center font-medium py-3 px-4 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-base rounded-sm transition-colors text-sm uppercase tracking-wider"
-                >
-                  Sign Out ({user.user_metadata?.full_name || 'User'})
-                </button>
-              ) : (
-                <Link 
-                  href="/login" 
-                  className="block w-full text-center font-medium py-3 px-4 bg-brand-deep text-brand-base hover:bg-brand-ink rounded-sm transition-colors text-sm uppercase tracking-wider" 
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Sign In / Register
-                </Link>
-              )}
-            </div>
+      {/* Mobile Menu - Slide-in from Right/Bottom Drawer Style */}
+      <div 
+        className={`lg:hidden fixed inset-0 z-[100] bg-brand-ink/20 backdrop-blur-sm transition-opacity duration-300 ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      />
+      <div 
+        className={`lg:hidden fixed top-0 right-0 h-full w-[280px] bg-brand-base shadow-2xl transition-transform duration-300 ease-in-out z-[101] rounded-l-sm flex flex-col ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex items-center justify-between p-5 border-b border-brand-ink/10 shrink-0">
+          <span className="font-serif text-xl text-brand-ink">Menu</span>
+          <button onClick={() => setIsMenuOpen(false)} className="text-brand-muted hover:text-brand-ink">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        
+        <div className="flex-1 overflow-y-auto py-4 bg-brand-base">
+          <div className="flex flex-col space-y-1 px-4 font-sans uppercase tracking-wider text-sm">
+            <Link href="/" className="py-3 px-2 text-brand-ink hover:bg-brand-soft rounded-sm transition-colors" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link href="/#our-products" className="py-3 px-2 text-brand-ink hover:bg-brand-soft rounded-sm transition-colors" onClick={() => setIsMenuOpen(false)}>Products</Link>
+            <Link href="/benefits" className="py-3 px-2 text-brand-ink hover:bg-brand-soft rounded-sm transition-colors" onClick={() => setIsMenuOpen(false)}>Benefits</Link>
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="py-3 px-2 text-brand-ink hover:bg-brand-soft rounded-sm transition-colors" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
           </div>
         </div>
-      </nav>
+
+        <div className="p-4 border-t border-brand-ink/10 bg-brand-soft shrink-0">
+          {user ? (
+            <button 
+              onClick={() => {
+                handleLogout();
+                setIsMenuOpen(false);
+              }}
+              className="w-full text-center font-medium py-3 px-4 border border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-base rounded-sm transition-colors text-sm uppercase tracking-wider"
+            >
+              Sign Out ({user.user_metadata?.full_name || 'User'})
+            </button>
+          ) : (
+            <Link 
+              href="/login" 
+              className="block w-full text-center font-medium py-3 px-4 bg-brand-deep text-brand-base hover:bg-brand-ink rounded-sm transition-colors text-sm uppercase tracking-wider" 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Sign In / Register
+            </Link>
+          )}
+        </div>
+      </div>
 
       {/* Secondary Announcement Bar */}
       <a href="#our-products" className="hidden sm:block w-full bg-brand-soft border-b border-brand-ink/10 py-2.5 px-4 relative cursor-pointer hover:bg-brand-pale transition-colors group">

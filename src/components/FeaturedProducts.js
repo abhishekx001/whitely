@@ -168,7 +168,7 @@ export default function FeaturedProducts() {
                       disabled={addingToCart === product.id || addedItem === product.id}
                       className="flex-1 inline-flex items-center justify-center px-2 py-2.5 sm:px-4 rounded-sm border border-transparent font-semibold text-xs sm:text-sm transition-colors duration-300 bg-brand-deep text-brand-base hover:bg-brand-ink cursor-pointer disabled:opacity-80 disabled:cursor-not-allowed"
                     >
-                      {addedItem === product.id ? 'Added!' : addingToCart === product.id ? 'Adding...' : 'Order'}
+                      {addedItem === product.id ? 'Added!' : addingToCart === product.id ? 'Adding...' : 'Add to Cart'}
                     </button>
                   </div>
                 </div>
