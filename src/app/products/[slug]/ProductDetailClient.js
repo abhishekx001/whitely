@@ -509,7 +509,7 @@ export default function ProductDetailClient({ product }) {
           { id: 6, quote: "Excellent products! Highly satisfied with the results and quality.", name: "Customer", role: "Customer", videoSrc: "/videos/vid2.mp4" },
           { id: 5, quote: "Absolutely love Whitely products! The quality is outstanding and the results speak for themselves.", name: "Customer", role: "Customer", videoSrc: "/videos/vid3.mp4" },
           { id: 3, quote: "Whitely products transformed my skincare routine. Visible results in just weeks!", name: "Sneha Reddy", role: "Customer", videoSrc: "/videos/vid4.mp4" },
-          { id: 2, quote: "Love the body lotion! It keeps my skin soft and glowing all day long. Highly recommend!", name: "Anjali Patel", role: "Customer", videoSrc: "/videos/vid5.mp4" }
+          { id: 2, quote: "I'm in love with Whitely! It keeps my skin soft and glowing all day long. Highly recommend!", name: "Anjali Patel", role: "Customer", videoSrc: "/videos/vid5.mp4" }
         ]}
       />
 

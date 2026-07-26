@@ -42,7 +42,7 @@ export default function Home() {
     },
     {
       id: 2,
-      quote: "Love the body lotion! It keeps my skin soft and glowing all day long. Highly recommend!",
+      quote: "I'm in love with Whitely! It keeps my skin soft and glowing all day long. Highly recommend!",
       name: "Anjali Patel",
       role: "Customer",
       videoSrc: "/videos/vid5.mp4"
