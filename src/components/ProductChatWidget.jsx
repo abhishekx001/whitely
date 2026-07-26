@@ -46,20 +46,7 @@ export default function ProductChatWidget() {
   const messagesEndRef = useRef(null)
   const { openWhatsAppModal } = useWhatsApp()
   const pathname = usePathname()
-  const [showInHome, setShowInHome] = useState(false)
 
-  useEffect(() => {
-    if (pathname !== '/') return
-
-    const handleScroll = () => {
-      setShowInHome(window.scrollY > 400)
-    }
-    
-    handleScroll()
-    
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [pathname])
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -210,11 +197,6 @@ export default function ProductChatWidget() {
   }
 
   if (pathname === '/login' || pathname === '/signup') {
-    return null
-  }
-
-  // If on homepage and haven't scrolled past hero, hide
-  if (pathname === '/' && !showInHome && !isOpen) {
     return null
   }
 

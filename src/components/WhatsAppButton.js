@@ -7,29 +7,7 @@ import { useState, useEffect } from 'react'
 export default function WhatsAppButton() {
   const { openWhatsAppModal } = useWhatsApp()
   const pathname = usePathname()
-  const [showInHome, setShowInHome] = useState(false)
-
-  useEffect(() => {
-    if (pathname !== '/') return
-
-    const handleScroll = () => {
-      // Show when scrolled past 400px (roughly past the hero)
-      setShowInHome(window.scrollY > 400)
-    }
-    
-    // Initial check
-    handleScroll()
-    
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [pathname])
-
   if (pathname === '/login' || pathname === '/signup') {
-    return null
-  }
-
-  // If on homepage and haven't scrolled past hero, hide
-  if (pathname === '/' && !showInHome) {
     return null
   }
 

@@ -55,19 +55,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Announcement bar above navbar */}
-      <div className="w-full py-2 overflow-hidden relative bg-brand-ink">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
-        <div className="marquee-container flex items-center">
-          <div className="marquee-content flex items-center whitespace-nowrap">
-            <span className="text-brand-base font-medium text-xs sm:text-sm uppercase flex items-center font-sans tracking-widest">
-              <span className="mr-2 opacity-80">✦</span>
-              ORDER NOW ONLINE TO GET GREAT DISCOUNT
-            </span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation Bar */}
       <nav 
         className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${
@@ -218,6 +205,19 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+
+      {/* Announcement bar below navbar */}
+      <div className="w-full py-2 overflow-hidden relative bg-brand-ink">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
+        <div className="marquee-container flex items-center">
+          <div className="marquee-content flex items-center whitespace-nowrap">
+            <span className="text-brand-base font-medium text-xs sm:text-sm uppercase flex items-center font-sans tracking-widest">
+              <span className="mr-2 opacity-80">✦</span>
+              ORDER NOW ONLINE TO GET GREAT DISCOUNT
+            </span>
+          </div>
+        </div>
+      </div>
 
       {/* Mobile Menu - Slide-in from Right/Bottom Drawer Style */}
       <div 

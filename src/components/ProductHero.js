@@ -59,15 +59,15 @@ export default function ProductHero() {
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-brand-ink/60 via-transparent to-transparent sm:hidden" />
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full relative z-20 h-full flex flex-col justify-start pt-28 sm:justify-center sm:pt-0 sm:pb-0">
-        <div className="w-full sm:w-2/3 lg:w-1/2 max-w-lg flex flex-col items-start gap-4">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full relative z-20 h-full flex flex-col justify-center pb-12 sm:pt-0 sm:pb-0">
+        <div className="w-full sm:w-2/3 lg:w-1/2 max-w-lg flex flex-col items-start gap-5">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-flex items-center px-3 py-1 bg-brand-base/10 backdrop-blur-md border border-brand-base/20 rounded-sm"
+            className="inline-flex items-center px-3 py-1.5 bg-brand-base/10 backdrop-blur-md border border-brand-base/20 rounded-sm"
           >
-            <span className="text-[9px] sm:text-[10px] font-bold tracking-widest text-brand-base uppercase font-sans">
+            <span className="text-[10px] sm:text-xs font-bold tracking-widest text-brand-base uppercase font-sans">
               100% Natural Ingredients
             </span>
           </motion.div>
@@ -79,7 +79,7 @@ export default function ProductHero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-base leading-[1.15]"
+              className="text-4xl sm:text-4xl lg:text-5xl font-serif text-brand-base leading-[1.15]"
             >
               {titles[currentPage]}
             </motion.h1>
@@ -89,7 +89,7 @@ export default function ProductHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-sm sm:text-base text-brand-base/90 max-w-sm font-sans leading-relaxed"
+            className="text-base sm:text-lg text-brand-base/90 max-w-sm font-sans leading-relaxed drop-shadow-sm"
           >
             Experience the luxury of premium, nature-infused skincare designed to rejuvenate, protect, and illuminate your skin.
           </motion.p>
