@@ -13,15 +13,15 @@ module.exports = {
       },
       colors: {
         brand: {
-          navy: '#3e2c61',
-          periwinkle: '#8169af',
-          steel: '#75658b',
-          lavender: '#e8e4f1',
-          pale: '#ffffff',
+          base: '#FFFFFF',
+          soft: '#FAF8FC',
+          pale: '#EDE7F6',
+          deep: '#6B4E9E',
+          ink: '#1A1625',
+          muted: '#9B92AC'
         }
       }
     },
   },
   plugins: [],
 }
-

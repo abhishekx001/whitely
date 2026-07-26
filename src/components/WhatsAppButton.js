@@ -8,11 +8,11 @@ export default function WhatsAppButton() {
   return (
     <button
       onClick={() => openWhatsAppModal('product details')}
-      className="lg:hidden fixed bottom-6 right-6 z-[80] w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy hover:shadow-[0_0_20px_rgba(112,145,230,0.5)] cursor-pointer"
+      className="lg:hidden fixed bottom-6 right-6 z-[80] w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-300 bg-brand-deep hover:bg-brand-ink cursor-pointer"
       aria-label="Contact us on WhatsApp"
     >
       <svg
-        className="w-6 h-6 text-white"
+        className="w-6 h-6 text-brand-base"
         fill="currentColor"
         viewBox="0 0 24 24"
       >
@@ -21,4 +21,3 @@ export default function WhatsAppButton() {
     </button>
   )
 }
-

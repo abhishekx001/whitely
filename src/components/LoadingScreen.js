@@ -23,30 +23,16 @@ export default function LoadingScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-500 bg-brand-base ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
-      style={{ backgroundColor: '#f5f0ff' }}
     >
       <div className="flex flex-col items-center">
-        <span 
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2"
-          style={{ 
-            fontFamily: 'var(--font-playfair)', 
-            letterSpacing: '0.5px', 
-            color: '#3a2a55' 
-          }}
-        >
-          whiteLy
+        <span className="text-4xl md:text-5xl lg:text-6xl font-normal mb-2 font-serif text-brand-ink tracking-tight">
+          Whitely
         </span>
-        <span 
-          className="text-sm md:text-base lg:text-lg uppercase tracking-wider font-semibold"
-          style={{ 
-            fontFamily: 'var(--font-poppins)', 
-            color: '#3a2a55' 
-          }}
-        >
-          beauty
+        <span className="text-[10px] md:text-xs lg:text-sm uppercase tracking-[0.3em] font-semibold text-brand-muted font-sans -mt-1">
+          Beauty
         </span>
       </div>
     </div>

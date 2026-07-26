@@ -3,25 +3,22 @@
 export default function InstagramFeed() {
   const instagramUrl = 'https://www.instagram.com/whitely.beauty?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
 
-  const handleClick = () => {
-    window.open(instagramUrl, '_blank', 'noopener,noreferrer')
-  }
-
   return (
-    <div className="w-full bg-gradient-to-b from-brand-lavender to-white py-12 sm:py-20 lg:py-28 relative overflow-hidden">
-      {/* Decorative blurred blobs */}
-      <div className="absolute -left-32 -top-32 w-64 h-64 bg-[#E0D4F5] rounded-full blur-[80px] opacity-60"></div>
-      <div className="absolute -right-32 -bottom-32 w-64 h-64 bg-[#E0D4F5] rounded-full blur-[80px] opacity-60"></div>
-
+    <div className="w-full bg-brand-soft py-16 sm:py-24 lg:py-32 relative overflow-hidden border-t border-brand-ink/10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-brand-pale/80 backdrop-blur-xl rounded-3xl sm:rounded-[2rem] p-6 sm:p-10 lg:p-16 shadow-[0_8px_30px_rgba(112,145,230,0.08)] border border-brand-lavender text-center">
+        <div className="bg-brand-base rounded-sm p-8 sm:p-12 lg:p-16 shadow-sm border border-brand-ink/10 text-center">
           {/* Title Section */}
-          <div className="mb-6 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 font-serif text-brand-navy">
+          <div className="mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal mb-4 font-serif text-brand-ink">
               Join Our Community
             </h2>
-            <p className="text-sm sm:text-lg lg:text-xl text-brand-steel font-sans px-2 sm:px-0">
-              Follow <span className="font-semibold text-brand-periwinkle">@whitely.beauty</span> for daily skincare tips, exclusive offers, and real results.
+            <div className="flex items-center justify-center mt-4 mb-6">
+              <div className="h-[1px] w-8 bg-brand-ink/20"></div>
+              <span className="mx-4 text-brand-ink/40 text-sm">✦</span>
+              <div className="h-[1px] w-8 bg-brand-ink/20"></div>
+            </div>
+            <p className="text-sm sm:text-base lg:text-lg text-brand-ink/80 font-sans px-2 sm:px-0">
+              Follow <span className="font-bold text-brand-ink">@whitely.beauty</span> for daily skincare tips, exclusive offers, and real results.
             </p>
           </div>
 
@@ -31,10 +28,10 @@ export default function InstagramFeed() {
               href={instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center w-auto px-6 py-3 sm:px-10 sm:py-4 rounded-none bg-white border-2 border-brand-navy text-brand-navy font-semibold text-sm sm:text-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-brand-periwinkle hover:to-brand-navy hover:text-white hover:border-transparent hover:shadow-[0_0_20px_rgba(112,145,230,0.3)]"
+              className="group flex items-center justify-center w-auto px-8 py-3 sm:px-12 sm:py-4 rounded-sm bg-brand-deep text-brand-base font-semibold text-sm sm:text-base tracking-wide transition-colors duration-300 hover:bg-brand-ink uppercase"
             >
               <svg 
-                className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 transition-transform duration-300 group-hover:scale-110" 
+                className="w-5 h-5 sm:w-6 sm:h-6 mr-3" 
                 fill="currentColor" 
                 viewBox="0 0 24 24"
               >

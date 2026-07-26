@@ -27,7 +27,7 @@ export default function TestimonialSection({
     if (!firstCard) return
 
     const cardWidth = firstCard.offsetWidth
-    const gap = 32
+    const gap = 24
     const scrollAmount = cardWidth + gap
     const currentScroll = container.scrollLeft
     const newScrollLeft = direction === 'left' 
@@ -127,19 +127,25 @@ export default function TestimonialSection({
   }
 
   return (
-    <section ref={sectionRef} id="reviews" className="w-full bg-brand-pale py-16 sm:py-24">
+    <section ref={sectionRef} id="reviews" className="w-full bg-brand-base py-16 sm:py-24">
       <div className="container mx-auto max-w-7xl px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="flex justify-center gap-1 mb-4">
+        <div className="text-center mb-16 relative">
+          <div className="flex justify-center gap-1 mb-6">
             {[1, 2, 3, 4, 5].map((star) => (
-              <Star key={star} className="w-6 h-6 fill-brand-periwinkle text-brand-periwinkle" />
+              <Star key={star} className="w-5 h-5 fill-brand-ink text-brand-ink" />
             ))}
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold font-serif text-brand-navy mb-4">
-            What Our Customers Say
+          <h2 className="text-4xl lg:text-5xl font-normal font-serif text-brand-ink inline-block">
+            {title}
           </h2>
-          <p className="max-w-2xl mx-auto text-lg text-brand-steel font-sans">
+          {/* Signature motif divider */}
+          <div className="flex items-center justify-center mt-6">
+            <div className="h-[1px] w-12 bg-brand-ink/20"></div>
+            <span className="mx-4 text-brand-ink/40 text-lg">✦</span>
+            <div className="h-[1px] w-12 bg-brand-ink/20"></div>
+          </div>
+          <p className="max-w-2xl mx-auto text-base text-brand-muted font-sans mt-6">
             {subtitle}
           </p>
         </div>
@@ -149,10 +155,10 @@ export default function TestimonialSection({
           {showLeftArrow && (
             <button
               onClick={() => scroll('left')}
-              className="absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-md hover:bg-white rounded-full p-2.5 shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-all duration-300 hover:scale-110 border border-white/60"
+              className="absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-20 bg-brand-base border border-brand-ink/10 rounded-sm p-3 shadow-md hover:bg-brand-soft transition-all duration-300"
             >
-              <svg className="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+              <svg className="w-5 h-5 text-brand-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
           )}
@@ -160,10 +166,10 @@ export default function TestimonialSection({
           {showRightArrow && (
             <button
               onClick={() => scroll('right')}
-              className="absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-md hover:bg-white rounded-full p-2.5 shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-all duration-300 hover:scale-110 border border-white/60"
+              className="absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-20 bg-brand-base border border-brand-ink/10 rounded-sm p-3 shadow-md hover:bg-brand-soft transition-all duration-300"
             >
-              <svg className="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              <svg className="w-5 h-5 text-brand-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
               </svg>
             </button>
           )}
@@ -179,13 +185,13 @@ export default function TestimonialSection({
                 key={testimonial.id}
                 ref={(el) => { if (el) cardRefs.current[testimonial.id] = el }}
                 data-testimonial-id={testimonial.id}
-                className="testimonial-card relative rounded-2xl bg-white shadow-sm flex-shrink-0 w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(112,145,230,0.3)] border-2 border-transparent hover:border-brand-navy overflow-hidden"
+                className="testimonial-card relative rounded-sm bg-brand-base shadow-sm flex-shrink-0 w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start transition-transform duration-300 hover:scale-[1.02] border border-brand-ink/10 overflow-hidden"
                 variants={itemVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
               >
-                <div className="relative h-[450px] w-full bg-gray-100">
+                <div className="relative h-[450px] w-full bg-brand-soft">
                   {testimonial.videoSrc ? (
                     <>
                       <video
@@ -197,15 +203,15 @@ export default function TestimonialSection({
                         playsInline
                       />
                       <button
-                        onClick={() => toggleMute(testimonial.id)}
-                        className="absolute bottom-4 right-4 z-10 bg-black/40 hover:bg-brand-navy backdrop-blur-md rounded-full p-3 transition-all duration-300 shadow-lg"
-                      >
-                        {unmutedVideoId === testimonial.id ? (
-                          <Volume2 className="w-5 h-5 text-white" />
-                        ) : (
-                          <VolumeX className="w-5 h-5 text-white" />
-                        )}
-                      </button>
+                         onClick={() => toggleMute(testimonial.id)}
+                         className="absolute bottom-4 right-4 z-10 bg-brand-ink/60 hover:bg-brand-ink backdrop-blur-sm rounded-sm p-3 transition-colors duration-300 shadow-lg"
+                       >
+                         {unmutedVideoId === testimonial.id ? (
+                           <Volume2 className="w-5 h-5 text-brand-base" />
+                         ) : (
+                           <VolumeX className="w-5 h-5 text-brand-base" />
+                         )}
+                       </button>
                     </>
                   ) : (
                     <Image
@@ -215,6 +221,11 @@ export default function TestimonialSection({
                       className="object-cover"
                     />
                   )}
+                  {/* Testimonial text overlay */}
+                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none flex flex-col justify-end min-h-[140px]">
+                    <p className="text-white font-serif italic text-sm mb-2 line-clamp-3">"{testimonial.quote}"</p>
+                    <p className="text-white/80 font-sans text-xs font-bold uppercase tracking-wider">{testimonial.name}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}

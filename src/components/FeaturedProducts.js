@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Star } from 'lucide-react'
 import DualPrice from './DualPrice'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
@@ -99,70 +98,56 @@ export default function FeaturedProducts() {
   const generateId = (name) => `product-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`
 
   return (
-    <div className="w-full bg-brand-pale py-16 lg:py-24" id="our-products">
+    <div className="w-full bg-brand-soft py-16 lg:py-24" id="our-products">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title Section */}
         <div className="text-center mb-16 relative">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4 font-serif text-brand-navy inline-block relative">
-            Featured facial products
-            {/* Thin violet underline accent */}
-            <span className="absolute -bottom-2 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-brand-periwinkle to-transparent"></span>
+          <h2 className="text-4xl lg:text-5xl font-normal mb-4 font-serif text-brand-ink inline-block">
+            Featured collection
           </h2>
-          <p className="text-lg text-brand-steel font-sans mt-4 max-w-2xl mx-auto">
-            Curated 2-3 step routine for hydrated, glowing skin.
-          </p>
+          {/* Signature motif divider */}
+          <div className="flex items-center justify-center mt-6">
+            <div className="h-[1px] w-12 bg-brand-ink/20"></div>
+            <span className="mx-4 text-brand-ink/40 text-lg">✦</span>
+            <div className="h-[1px] w-12 bg-brand-ink/20"></div>
+          </div>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {products.map((product) => (
             <div 
               key={product.id} 
               id={generateId(product.name)}
-              className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-brand-lavender transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_10px_40px_-10px_rgba(112,145,230,0.2)] flex flex-col h-full"
+              className="group bg-brand-base rounded-sm overflow-hidden border border-brand-ink/10 transition-transform duration-300 hover:scale-[1.02] hover:shadow-md flex flex-col h-full shadow-sm"
             >
               {/* Product Image */}
-              <Link href={`/products/${product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`} className="relative w-full aspect-square sm:aspect-[4/5] bg-brand-pale overflow-hidden block">
+              <Link href={`/products/${product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`} className="relative w-full aspect-[4/5] bg-brand-soft overflow-hidden block">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </Link>
 
               {/* Product Details */}
-              <div className="p-3 sm:p-6 flex flex-col flex-grow">
-                {/* Category Badge */}
-                <span className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-xs font-semibold mb-2 sm:mb-4 bg-brand-pale text-brand-periwinkle self-start font-sans tracking-wide">
-                  {product.category}
-                </span>
-
+              <div className="p-4 sm:p-5 flex flex-col flex-grow">
                 {/* Product Name */}
                 <Link href={`/products/${product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}>
-                  <h3 className="text-sm sm:text-lg font-bold mb-1 sm:mb-1.5 font-serif text-brand-navy leading-tight hover:text-brand-periwinkle transition-colors">
+                  <h3 className="text-lg sm:text-xl font-normal mb-2 font-serif text-brand-ink leading-snug hover:text-brand-deep transition-colors">
                     {product.name}
                   </h3>
                 </Link>
 
-                {/* Reviews */}
-                <div className="flex items-center gap-1 mb-2 sm:mb-3">
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <span className="text-[9px] sm:text-[11px] text-brand-steel font-medium">300+ reviews</span>
-                </div>
-
-                {/* Description */}
-                <p className="text-[11px] sm:text-sm text-brand-steel mb-3 sm:mb-6 font-sans leading-relaxed line-clamp-2 flex-grow">
+                {/* Single line benefit */}
+                <p className="text-xs sm:text-sm text-brand-muted mb-4 font-sans truncate">
                   {product.description}
                 </p>
 
                 {/* Price & Action */}
                 <div className="mt-auto">
-                  <div className="mb-3 sm:mb-5">
+                  <div className="mb-4">
                     <DualPrice 
                       indiaPrice={product.indiaPrice} 
                       indiaMRP={product.indiaMRP} 
@@ -174,16 +159,16 @@ export default function FeaturedProducts() {
                   <div className="flex gap-2">
                     <Link
                       href={`/products/${product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
-                      className="flex-[0.8] inline-flex items-center justify-center px-2 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl border border-brand-lavender text-brand-navy font-semibold text-[11px] sm:text-sm transition-all duration-300 hover:border-brand-periwinkle hover:text-brand-periwinkle cursor-pointer bg-white"
+                      className="flex-1 inline-flex items-center justify-center px-2 py-2.5 sm:px-4 rounded-sm border border-brand-ink/20 text-brand-ink font-semibold text-xs sm:text-sm transition-colors duration-300 hover:bg-brand-soft cursor-pointer bg-brand-base"
                     >
-                      View
+                      View Product
                     </Link>
                     <button
                       onClick={(e) => handleAddToCart(e, product)}
                       disabled={addingToCart === product.id || addedItem === product.id}
-                      className="flex-[1.2] inline-flex items-center justify-center px-2 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl border border-transparent font-semibold text-[11px] sm:text-sm transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle text-white hover:from-brand-periwinkle hover:to-brand-navy cursor-pointer disabled:opacity-80 disabled:cursor-not-allowed"
+                      className="flex-1 inline-flex items-center justify-center px-2 py-2.5 sm:px-4 rounded-sm border border-transparent font-semibold text-xs sm:text-sm transition-colors duration-300 bg-brand-deep text-brand-base hover:bg-brand-ink cursor-pointer disabled:opacity-80 disabled:cursor-not-allowed"
                     >
-                      {addedItem === product.id ? 'Added!' : addingToCart === product.id ? 'Adding...' : 'Add to Cart'}
+                      {addedItem === product.id ? 'Added!' : addingToCart === product.id ? 'Adding...' : 'Order'}
                     </button>
                   </div>
                 </div>

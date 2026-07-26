@@ -48,14 +48,14 @@ export default function CartPage() {
 
   if (!user) {
     return (
-      <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 bg-brand-pale">
-        <div className="bg-white p-8 rounded-3xl shadow-sm border border-brand-lavender/50 max-w-md w-full text-center">
-          <ShoppingBag className="w-16 h-16 text-brand-periwinkle mx-auto mb-4" />
-          <h2 className="text-2xl font-bold font-serif text-brand-navy mb-2">Sign in to view cart</h2>
-          <p className="text-brand-steel mb-6 font-sans">You need to be logged in to save and checkout your items.</p>
+      <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 bg-brand-soft">
+        <div className="bg-brand-base p-8 rounded-sm shadow-sm border border-brand-ink/10 max-w-md w-full text-center">
+          <ShoppingBag className="w-16 h-16 text-brand-ink mx-auto mb-4 opacity-50" />
+          <h2 className="text-2xl font-normal font-serif text-brand-ink mb-2">Sign in to view cart</h2>
+          <p className="text-brand-muted mb-6 font-sans">You need to be logged in to save and checkout your items.</p>
           <Link 
             href="/login?redirect=/cart"
-            className="inline-flex w-full justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy transition-all"
+            className="inline-flex w-full justify-center py-3 px-4 border border-brand-ink/20 rounded-sm shadow-sm text-sm font-semibold text-brand-base bg-brand-deep hover:bg-brand-ink transition-colors uppercase tracking-wider"
           >
             Sign In
           </Link>
@@ -65,26 +65,29 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-brand-pale py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-brand-soft py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold font-serif text-brand-navy mb-8">Your Cart</h1>
+        <div className="flex items-center gap-4 mb-8">
+          <h1 className="text-3xl md:text-4xl font-normal font-serif text-brand-ink">Your Cart</h1>
+          <span className="text-sm font-sans text-brand-muted mt-2 uppercase tracking-wider">{cartItems.length} items</span>
+        </div>
         
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <div className="w-10 h-10 border-4 border-brand-periwinkle border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-10 h-10 border-2 border-brand-ink border-t-transparent rounded-full animate-spin"></div>
           </div>
         ) : cartItems.length === 0 ? (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-3xl p-12 text-center border border-brand-lavender/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)]"
+            className="bg-brand-base rounded-sm p-12 text-center border border-brand-ink/10 shadow-sm"
           >
-            <ShoppingBag className="w-20 h-20 text-brand-lavender mx-auto mb-6" />
-            <h2 className="text-2xl font-bold font-serif text-brand-navy mb-3">Your cart is empty</h2>
-            <p className="text-brand-steel mb-8 font-sans">Looks like you haven't added any products yet.</p>
+            <ShoppingBag className="w-16 h-16 text-brand-ink/20 mx-auto mb-6" />
+            <h2 className="text-2xl font-normal font-serif text-brand-ink mb-3">Your cart is empty</h2>
+            <p className="text-brand-muted mb-8 font-sans">Looks like you haven't added any products yet.</p>
             <Link 
               href="/#our-products"
-              className="inline-flex px-8 py-3 rounded-none text-white font-semibold bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy transition-all"
+              className="inline-flex px-8 py-3 rounded-sm text-brand-base font-semibold bg-brand-deep hover:bg-brand-ink transition-colors uppercase tracking-wider text-sm shadow-sm"
             >
               Start Shopping
             </Link>
@@ -101,44 +104,44 @@ export default function CartPage() {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
                     transition={{ duration: 0.3 }}
-                    className="bg-white p-4 sm:p-6 rounded-3xl border border-brand-lavender/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row gap-6 items-center"
+                    className="bg-brand-base p-4 sm:p-6 rounded-sm border border-brand-ink/10 shadow-sm flex flex-col sm:flex-row gap-6 items-center"
                   >
                     {/* Product Image */}
-                    <Link href={`/products/${item.product_slug}`} className="relative w-24 h-24 sm:w-32 sm:h-32 bg-brand-pale rounded-2xl overflow-hidden flex-shrink-0">
+                    <Link href={`/products/${item.product_slug}`} className="relative w-24 h-24 sm:w-32 sm:h-32 bg-brand-soft rounded-sm overflow-hidden flex-shrink-0 border border-brand-ink/5">
                       <Image src={item.image} alt={item.product_name} fill className="object-cover" />
                     </Link>
                     
                     {/* Product Details */}
                     <div className="flex-1 text-center sm:text-left flex flex-col justify-between h-full w-full">
                       <Link href={`/products/${item.product_slug}`}>
-                        <h3 className="font-bold font-serif text-brand-navy text-lg hover:text-brand-periwinkle transition-colors">
+                        <h3 className="font-normal font-serif text-brand-ink text-lg hover:text-brand-deep transition-colors">
                           {item.product_name}
                         </h3>
                       </Link>
                       
-                      <div className="flex items-center justify-between sm:justify-start mt-4 sm:mt-auto gap-4">
-                        <div className="flex items-center border border-brand-lavender rounded-xl overflow-hidden bg-brand-pale/50">
+                      <div className="flex flex-col sm:flex-row items-center justify-between sm:justify-start mt-4 sm:mt-auto gap-4 sm:gap-8">
+                        <div className="flex items-center border border-brand-ink/20 rounded-sm overflow-hidden bg-brand-soft/50">
                           <button 
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="w-10 h-10 flex items-center justify-center text-brand-navy hover:bg-brand-lavender transition-colors"
+                            className="w-10 h-10 flex items-center justify-center text-brand-ink hover:bg-brand-ink hover:text-brand-base transition-colors"
                           >
                             <Minus className="w-4 h-4" />
                           </button>
-                          <span className="w-12 text-center font-bold text-brand-navy font-sans">
+                          <span className="w-12 text-center font-bold text-brand-ink font-sans bg-brand-base h-10 leading-[40px]">
                             {item.quantity}
                           </span>
                           <button 
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="w-10 h-10 flex items-center justify-center text-brand-navy hover:bg-brand-lavender transition-colors"
+                            className="w-10 h-10 flex items-center justify-center text-brand-ink hover:bg-brand-ink hover:text-brand-base transition-colors"
                           >
                             <Plus className="w-4 h-4" />
                           </button>
                         </div>
                         
-                        <div className="text-right">
-                          <p className="text-xl font-bold text-brand-navy">₹{item.price * item.quantity}</p>
+                        <div className="text-center sm:text-right">
+                          <p className="text-xl font-normal font-serif text-brand-ink">₹{item.price * item.quantity}</p>
                           {item.mrp > item.price && (
-                            <p className="text-xs text-brand-steel line-through">₹{item.mrp * item.quantity}</p>
+                            <p className="text-xs text-brand-muted line-through">₹{item.mrp * item.quantity}</p>
                           )}
                         </div>
                       </div>
@@ -147,7 +150,7 @@ export default function CartPage() {
                     {/* Remove Button */}
                     <button 
                       onClick={() => removeFromCart(item.id)}
-                      className="absolute top-4 right-4 sm:relative sm:top-0 sm:right-0 p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors"
+                      className="absolute top-4 right-4 sm:relative sm:top-0 sm:right-0 p-2 text-brand-muted hover:text-brand-base hover:bg-brand-ink rounded-sm transition-colors border border-transparent hover:border-brand-ink/20"
                       title="Remove item"
                     >
                       <Trash2 className="w-5 h-5" />
@@ -159,34 +162,34 @@ export default function CartPage() {
             
             {/* Order Summary */}
             <div className="w-full lg:w-80 flex-shrink-0">
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-brand-lavender/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] sticky top-28">
-                <h2 className="text-xl font-bold font-serif text-brand-navy mb-6">Order Summary</h2>
+              <div className="bg-brand-base rounded-sm p-6 sm:p-8 border border-brand-ink/10 shadow-sm sticky top-28">
+                <h2 className="text-xl font-normal font-serif text-brand-ink mb-6">Order Summary</h2>
                 
-                <div className="space-y-4 font-sans text-sm mb-6 pb-6 border-b border-brand-lavender/50">
-                  <div className="flex justify-between text-brand-steel">
+                <div className="space-y-4 font-sans text-sm mb-6 pb-6 border-b border-brand-ink/10">
+                  <div className="flex justify-between text-brand-ink/80">
                     <span>Subtotal</span>
-                    <span className="font-semibold text-brand-navy">₹{subtotal}</span>
+                    <span className="font-semibold text-brand-ink">₹{subtotal}</span>
                   </div>
-                  <div className="flex justify-between text-brand-steel">
+                  <div className="flex justify-between text-brand-ink/80">
                     <span>Shipping</span>
-                    <span className="text-green-600 font-medium">Calculated on WhatsApp</span>
+                    <span className="text-brand-ink font-medium">Calculated on WhatsApp</span>
                   </div>
                 </div>
                 
-                <div className="flex justify-between font-bold text-lg text-brand-navy mb-8 font-sans">
+                <div className="flex justify-between font-normal text-xl text-brand-ink mb-8 font-serif">
                   <span>Total</span>
                   <span>₹{subtotal}</span>
                 </div>
                 
                 <button 
                   onClick={handleCheckout}
-                  className="w-full flex items-center justify-center gap-2 py-4 px-4 rounded-none text-white font-semibold bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy transition-all hover:scale-[1.02] shadow-md"
+                  className="w-full flex items-center justify-center gap-2 py-4 px-4 rounded-sm text-brand-base font-semibold bg-brand-deep hover:bg-brand-ink transition-colors uppercase tracking-wider text-sm shadow-sm"
                 >
-                  Checkout via WhatsApp
-                  <ArrowRight className="w-5 h-5" />
+                  Checkout
+                  <ArrowRight className="w-4 h-4" />
                 </button>
                 
-                <p className="mt-4 text-xs text-center text-brand-steel font-sans leading-relaxed">
+                <p className="mt-4 text-[10px] text-center text-brand-muted font-sans leading-relaxed uppercase tracking-wider">
                   You will be redirected to WhatsApp to confirm availability, shipping details, and complete your order.
                 </p>
               </div>

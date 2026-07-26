@@ -4,79 +4,76 @@ import { useWhatsApp } from '../hooks/useWhatsApp'
 
 export default function BestSkincare() {
   const { openWhatsAppModal } = useWhatsApp()
-  const stats = [
-    { number: '1000+', label: 'Happy Reviews' },
-    { number: '300+', label: 'Products Sold' }
+  
+  const cards = [
+    { title: '1000+', subtitle: 'Happy Reviews', text: 'Real results from our growing community.' },
+    { title: '300+', subtitle: 'Products Sold', text: 'Trusted formulations delivered nationwide.' },
+    { title: 'Turmeric', subtitle: 'Key Ingredient', text: 'Brightens and evens out skin tone naturally.' },
+    { title: 'Sandalwood', subtitle: 'Key Ingredient', text: 'Soothes inflammation and reduces acne.' },
+    { title: 'Niacinamide', subtitle: 'Key Ingredient', text: 'Strengthens the skin barrier and minimizes pores.' },
+    { title: 'Cruelty Free', subtitle: 'Our Promise', text: 'Never tested on animals. Always ethical.' }
   ]
 
-  const ingredients = ['Turmeric', 'Sandal Extraction', 'Niacinamide']
-
   return (
-    <div className="w-full bg-gradient-to-b from-white to-brand-pale py-16 lg:py-24 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-violet-100 to-transparent"></div>
+    <div className="w-full bg-brand-soft py-16 lg:py-24 relative overflow-hidden">
+      {/* Decorative top border */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-brand-ink/10"></div>
       
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Heading */}
-        <div className="text-center mb-12">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-periwinkle mb-3 font-sans">
+        <div className="text-center mb-16">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-muted mb-4 font-sans">
             In India
           </p>
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold font-serif text-brand-navy leading-tight">
-            Best Skin Care Products
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-normal font-serif text-brand-ink leading-tight">
+            Premium Skin Care
           </h2>
+          {/* Signature motif divider */}
+          <div className="flex items-center justify-center mt-6">
+            <div className="h-[1px] w-12 bg-brand-ink/20"></div>
+            <span className="mx-4 text-brand-ink/40 text-lg">✦</span>
+            <div className="h-[1px] w-12 bg-brand-ink/20"></div>
+          </div>
         </div>
 
-        {/* Content Section */}
-        <div className="bg-brand-pale/60 backdrop-blur-xl rounded-3xl p-8 lg:p-12 shadow-[0_8px_30px_rgba(112,145,230,0.05)] border border-brand-lavender text-center max-w-4xl mx-auto">
-          <p className="text-lg lg:text-xl text-brand-steel leading-relaxed font-sans mb-8">
-            We believe healthy skin is achievable for everyone. A good skincare routine should be simple. A few things that help you in the long run - cleanse, moisturize, and protect.
+        {/* Intro Text */}
+        <div className="max-w-3xl mx-auto text-center mb-16 px-4">
+          <p className="text-base lg:text-lg text-brand-ink/80 leading-relaxed font-sans mb-6">
+            We believe healthy skin is achievable for everyone. A good skincare routine should be simple. A few things that help you in the long run &mdash; cleanse, moisturize, and protect.
           </p>
-
-          <p className="text-lg lg:text-xl text-brand-steel leading-relaxed font-sans mb-10">
-            Whitely products help you with perfect moisturization nourishing your skin without harming the skin barrier. We deliver results with perfectly formulated products. We stand out in the crowd and provide you <span className="font-bold text-brand-periwinkle border-b-2 border-violet-200">best skin care products in India</span>, they help you achieve flawless skin. Are you someone looking for even-toned skin? Our best-selling whitening cream helps you achieve exactly that.
+          <p className="text-base lg:text-lg text-brand-ink/80 leading-relaxed font-sans">
+            Whitely products provide perfect moisturization, nourishing your skin without harming the skin barrier. We stand out in the crowd and provide you <span className="font-semibold text-brand-ink border-b border-brand-ink/30 pb-0.5">the best skin care products in India</span> to help you achieve flawless skin.
           </p>
+        </div>
 
-          {/* Key Ingredients Badges */}
-          <div className="mb-12">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-4 font-sans">
-              Key Ingredients
-            </h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {ingredients.map((ingredient, idx) => (
-                <span 
-                  key={idx}
-                  className="px-4 py-2 rounded-full text-sm font-medium bg-white border border-brand-navy text-brand-periwinkle shadow-sm font-sans"
-                >
-                  {ingredient}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Stats Highlight */}
-          <div className="grid grid-cols-2 gap-8 max-w-2xl mx-auto pt-8 border-t border-brand-lavender">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold font-serif text-brand-periwinkle mb-2">
-                  {stat.number}
+        {/* Horizontal Scroll-Snap Cards */}
+        <div className="relative -mx-4 sm:mx-0 px-4 sm:px-0">
+          <div className="flex overflow-x-auto gap-4 pb-8 snap-x snap-mandatory scrollbar-hide">
+            {cards.map((card, idx) => (
+              <div 
+                key={idx} 
+                className="snap-center sm:snap-start shrink-0 w-[260px] sm:w-[280px] bg-brand-base border border-brand-ink/10 rounded-sm p-6 flex flex-col justify-between"
+              >
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-brand-muted mb-2 font-sans">{card.subtitle}</h3>
+                  <div className="text-2xl font-serif text-brand-ink mb-4">{card.title}</div>
                 </div>
-                <div className="text-sm lg:text-base font-medium text-brand-steel font-sans">
-                  {stat.label}
-                </div>
+                <p className="text-sm text-brand-ink/70 font-sans leading-relaxed">
+                  {card.text}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-8">
           <button
             onClick={() => openWhatsAppModal('product details')}
-            className="group inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white transition-all duration-300 bg-gradient-to-r from-brand-navy to-brand-periwinkle hover:from-brand-periwinkle hover:to-brand-navy rounded-none hover:scale-105 hover:shadow-[0_0_25px_rgba(112,145,230,0.4)] cursor-pointer"
+            className="inline-flex items-center justify-center px-10 py-4 text-sm font-bold tracking-wide text-brand-base transition-colors duration-300 bg-brand-deep hover:bg-brand-ink rounded-sm"
           >
             Buy Now
             <svg 
-              className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" 
+              className="w-4 h-4 ml-2" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"

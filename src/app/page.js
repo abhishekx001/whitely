@@ -8,8 +8,7 @@ import TestimonialSection from '../components/TestimonialSection'
 import InstagramFeed from '../components/InstagramFeed'
 import Footer from '../components/Footer'
 import LoadingScreen from '../components/LoadingScreen'
-import WhatsAppButton from '../components/WhatsAppButton'
-import ProductChatWidget from '../components/ProductChatWidget'
+
 
 export default function Home() {
   const testimonials = [
@@ -66,8 +65,6 @@ export default function Home() {
       />
       <InstagramFeed />
       <Footer />
-      <WhatsAppButton />
-      <ProductChatWidget />
     </>
   )
 }

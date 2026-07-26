@@ -202,18 +202,18 @@ export default function ProductChatWidget() {
             animate={{ 
               scale: 1, 
               opacity: 1,
-              y: [0, -8, 0],
+              y: [0, -4, 0],
             }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{
               y: {
-                duration: 2,
+                duration: 2.5,
                 repeat: Infinity,
                 ease: "easeInOut"
               }
             }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-[90px] right-6 z-[80] w-14 h-14 rounded-full flex items-center justify-center shadow-lg bg-brand-periwinkle hover:bg-brand-navy transition-colors duration-300 text-white cursor-pointer group"
+            className="fixed bottom-[96px] right-6 z-[80] w-14 h-14 rounded-full flex items-center justify-center shadow-lg bg-brand-pale border border-brand-ink/10 hover:bg-brand-deep hover:text-brand-base transition-colors duration-300 text-brand-ink cursor-pointer group"
             aria-label="Open product assistant"
           >
             <MessageCircle className="w-6 h-6 absolute transition-opacity duration-300 group-hover:opacity-0" />
@@ -229,37 +229,37 @@ export default function ProductChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className="fixed bottom-0 right-0 sm:bottom-[90px] sm:right-6 z-[90] w-full sm:w-[360px] h-[80vh] sm:h-[480px] bg-white sm:rounded-2xl shadow-2xl flex flex-col border border-brand-periwinkle/20 overflow-hidden font-sans"
+            className="fixed bottom-0 right-0 sm:bottom-[96px] sm:right-6 z-[90] w-full sm:w-[360px] h-[80vh] sm:h-[480px] bg-brand-base sm:rounded-sm shadow-2xl flex flex-col border border-brand-ink/10 overflow-hidden font-sans"
           >
-            <div className="bg-brand-navy p-4 flex items-center justify-between text-white shrink-0">
+            <div className="bg-brand-ink p-4 flex items-center justify-between text-brand-base shrink-0">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-brand-periwinkle flex items-center justify-center">
+                <div className="w-8 h-8 rounded-sm bg-brand-deep flex items-center justify-center">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm">Product Assistant</h3>
-                  <p className="text-xs text-brand-periwinkle/80">We reply instantly</p>
+                  <h3 className="font-semibold text-sm font-serif">Product Assistant</h3>
+                  <p className="text-[10px] text-brand-base/80 uppercase tracking-wider">We reply instantly</p>
                 </div>
               </div>
               <button 
                 onClick={() => setIsOpen(false)}
-                className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                className="p-2 hover:bg-brand-base/10 rounded-sm transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-brand-pale">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-brand-soft">
               {messages.map((msg) => (
                 <div 
                   key={msg.id} 
                   className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div 
-                    className={`max-w-[85%] rounded-2xl p-3 text-sm ${
+                    className={`max-w-[85%] p-3 text-sm rounded-sm ${
                       msg.sender === 'user' 
-                        ? 'bg-brand-periwinkle text-white rounded-br-sm' 
-                        : 'bg-brand-lavender text-brand-navy shadow-sm rounded-bl-sm border border-brand-periwinkle/10'
+                        ? 'bg-brand-ink text-brand-base' 
+                        : 'bg-brand-base text-brand-ink shadow-sm border border-brand-ink/10'
                     }`}
                   >
                     {msg.text && <p className="whitespace-pre-line">{msg.text}</p>}
@@ -270,7 +270,7 @@ export default function ProductChatWidget() {
                           <button
                             key={chip}
                             onClick={() => handleSend(chip)}
-                            className="text-xs px-3 py-1.5 bg-white text-brand-navy rounded-full border border-brand-periwinkle/30 hover:bg-brand-periwinkle hover:text-white transition-colors"
+                            className="text-xs px-3 py-1.5 bg-brand-soft text-brand-ink rounded-sm border border-brand-ink/20 hover:bg-brand-deep hover:text-brand-base hover:border-transparent transition-colors"
                           >
                             {chip}
                           </button>
@@ -280,7 +280,7 @@ export default function ProductChatWidget() {
 
                     {msg.type === 'product' && msg.product && (
                       <div className="mt-2 space-y-3 w-full">
-                        <div className="aspect-[4/3] relative rounded-lg overflow-hidden bg-white">
+                        <div className="aspect-[4/3] relative rounded-sm overflow-hidden bg-brand-soft border border-brand-ink/10">
                           <img 
                             src={msg.product.image} 
                             alt={msg.product.name}
@@ -288,13 +288,13 @@ export default function ProductChatWidget() {
                           />
                         </div>
                         <div>
-                          <h4 className="font-semibold text-brand-navy">{msg.product.name}</h4>
-                          <p className="text-xs font-medium text-brand-periwinkle mt-1">₹{msg.product.price}</p>
+                          <h4 className="font-serif font-bold text-brand-ink">{msg.product.name}</h4>
+                          <p className="text-xs font-semibold text-brand-ink/80 mt-1">₹{msg.product.price}</p>
                         </div>
-                        <div className="space-y-1 pb-2 border-b border-brand-periwinkle/10">
+                        <div className="space-y-1 pb-2 border-b border-brand-ink/10">
                           {msg.product.benefits?.slice(0, 3).map((benefit, i) => (
-                            <div key={i} className="flex items-start gap-1.5 text-xs text-brand-steel">
-                              <span className="text-brand-periwinkle mt-0.5">•</span>
+                            <div key={i} className="flex items-start gap-1.5 text-xs text-brand-muted">
+                              <span className="text-brand-ink mt-0.5">•</span>
                               <span>{benefit}</span>
                             </div>
                           ))}
@@ -302,13 +302,13 @@ export default function ProductChatWidget() {
                         <div className="grid grid-cols-2 gap-2 mt-3">
                           <Link 
                             href={`/products/${msg.product.slug}`}
-                            className="w-full py-2 bg-white border border-brand-periwinkle text-brand-navy hover:bg-brand-periwinkle hover:text-white rounded-lg text-xs font-semibold transition-colors flex items-center justify-center text-center leading-tight"
+                            className="w-full py-2 bg-brand-base border border-brand-ink/20 text-brand-ink hover:bg-brand-soft rounded-sm text-xs font-semibold transition-colors flex items-center justify-center text-center leading-tight"
                           >
                             View Product
                           </Link>
                           <button
                             onClick={() => openWhatsAppModal(`Hi, I'm interested in ordering ${msg.product.name}`)}
-                            className="w-full py-2 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-lg text-xs font-semibold transition-colors flex items-center justify-center text-center leading-tight"
+                            className="w-full py-2 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-sm text-xs font-semibold transition-colors flex items-center justify-center text-center leading-tight"
                           >
                             WhatsApp
                           </button>
@@ -317,19 +317,19 @@ export default function ProductChatWidget() {
                     )}
 
                     {msg.type === 'faq_answer' && msg.recommendations && msg.recommendations.length > 0 && (
-                      <div className="mt-4 pt-3 border-t border-brand-periwinkle/20">
-                        <p className="text-xs font-semibold text-brand-navy mb-2">You might also like:</p>
+                      <div className="mt-4 pt-3 border-t border-brand-ink/10">
+                        <p className="text-xs font-semibold text-brand-ink mb-2 uppercase tracking-wider">You might also like:</p>
                         <div className="space-y-2">
                           {msg.recommendations.map(rec => (
                             <button
                               key={rec.slug}
                               onClick={() => showProductCard(rec)}
-                              className="w-full flex items-center gap-3 p-2 bg-white rounded-lg hover:bg-brand-pale transition-colors border border-transparent hover:border-brand-periwinkle/30 text-left"
+                              className="w-full flex items-center gap-3 p-2 bg-brand-soft rounded-sm hover:bg-brand-pale transition-colors border border-transparent hover:border-brand-ink/10 text-left"
                             >
-                              <div className="w-10 h-10 shrink-0 rounded bg-brand-lavender overflow-hidden">
+                              <div className="w-10 h-10 shrink-0 rounded-sm bg-brand-base border border-brand-ink/10 overflow-hidden">
                                 <img src={rec.image} alt={rec.name} className="w-full h-full object-cover" />
                               </div>
-                              <span className="text-xs font-medium text-brand-navy line-clamp-2">{rec.name}</span>
+                              <span className="text-xs font-medium text-brand-ink line-clamp-2">{rec.name}</span>
                             </button>
                           ))}
                         </div>
@@ -341,7 +341,7 @@ export default function ProductChatWidget() {
               <div ref={messagesEndRef} />
             </div>
 
-            <div className="p-3 bg-white border-t border-brand-periwinkle/20 shrink-0">
+            <div className="p-3 bg-brand-base border-t border-brand-ink/10 shrink-0">
               <div className="relative flex items-center">
                 <input
                   type="text"
@@ -349,12 +349,12 @@ export default function ProductChatWidget() {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Type your message..."
-                  className="w-full pl-4 pr-12 py-3 bg-brand-lavender border-none rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-brand-periwinkle text-brand-navy placeholder:text-brand-steel/60"
+                  className="w-full pl-4 pr-12 py-3 bg-brand-soft border border-brand-ink/10 rounded-sm text-sm focus:outline-none focus:border-brand-ink/30 text-brand-ink placeholder:text-brand-muted"
                 />
                 <button
                   onClick={() => handleSend(inputValue)}
                   disabled={!inputValue.trim()}
-                  className="absolute right-2 p-2 text-brand-periwinkle hover:text-brand-navy disabled:opacity-50 disabled:hover:text-brand-periwinkle transition-colors"
+                  className="absolute right-2 p-2 text-brand-ink hover:text-brand-deep disabled:opacity-30 transition-colors"
                 >
                   <Send className="w-5 h-5" />
                 </button>

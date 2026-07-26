@@ -34,18 +34,18 @@ function SignupContent() {
   }
 
   return (
-    <div className="min-h-screen bg-brand-pale flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-brand-soft flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Link href="/" className="flex flex-col items-center mb-6">
-          <span className="text-3xl font-bold font-serif text-brand-navy tracking-wide">Whitely</span>
-          <span className="text-xs uppercase tracking-[0.2em] font-semibold -mt-1 text-brand-steel font-sans">Beauty</span>
+          <span className="text-3xl font-serif text-brand-ink tracking-tight">Whitely</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] font-semibold -mt-1 text-brand-muted font-sans">Beauty</span>
         </Link>
-        <h2 className="mt-6 text-center text-3xl font-bold font-serif text-brand-navy">
+        <h2 className="mt-6 text-center text-3xl font-serif text-brand-ink font-normal">
           Create an account
         </h2>
-        <p className="mt-2 text-center text-sm text-brand-steel font-sans">
+        <p className="mt-2 text-center text-sm text-brand-ink/70 font-sans">
           Already have an account?{' '}
-          <Link href={`/login?redirect=${redirectTo}`} className="font-medium text-brand-periwinkle hover:text-brand-navy transition-colors">
+          <Link href={`/login?redirect=${redirectTo}`} className="font-semibold text-brand-ink hover:text-brand-deep transition-colors underline decoration-brand-ink/30 underline-offset-4 hover:decoration-brand-deep">
             Sign in
           </Link>
         </p>
@@ -57,9 +57,9 @@ function SignupContent() {
         transition={{ duration: 0.4 }}
         className="mt-8 sm:mx-auto sm:w-full sm:max-w-md"
       >
-        <div className="bg-white py-8 px-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-brand-lavender/50 sm:rounded-3xl sm:px-10">
+        <div className="bg-brand-base py-8 px-4 shadow-sm border border-brand-ink/10 sm:rounded-sm sm:px-10">
           {error && (
-            <div className="text-red-500 text-sm font-sans bg-red-50 p-3 rounded-lg border border-red-100 mb-6">
+            <div className="text-red-500 text-sm font-sans bg-red-50 p-3 rounded-sm border border-red-100 mb-6">
               {error}
             </div>
           )}
@@ -68,9 +68,9 @@ function SignupContent() {
             <button
               onClick={handleGoogleSignup}
               disabled={loading}
-              className="w-full flex justify-center items-center py-3 px-4 border border-brand-lavender rounded-xl shadow-sm bg-white text-sm font-medium text-brand-navy hover:bg-brand-pale transition-colors font-sans disabled:opacity-70"
+              className="w-full flex justify-center items-center py-3 px-4 border border-brand-ink/20 rounded-sm bg-brand-base text-sm font-semibold text-brand-ink hover:bg-brand-soft transition-colors font-sans disabled:opacity-50"
             >
-              <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24">
                 <path
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                   fill="#4285F4"
@@ -88,7 +88,7 @@ function SignupContent() {
                   fill="#EA4335"
                 />
               </svg>
-              Google
+              Continue with Google
             </button>
           </div>
         </div>
@@ -99,7 +99,7 @@ function SignupContent() {
 
 export default function SignupPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-brand-pale flex items-center justify-center">Loading...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-brand-soft flex items-center justify-center font-sans text-brand-ink/50 text-sm">Loading...</div>}>
       <SignupContent />
     </Suspense>
   )
