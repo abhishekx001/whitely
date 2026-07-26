@@ -34,7 +34,7 @@ export default function ProductHero() {
   }, [totalPages])
 
   return (
-    <div className="relative w-full h-[85vh] min-h-[600px] overflow-hidden bg-brand-soft flex items-center">
+    <div className="relative w-full h-[70vh] min-h-[500px] sm:h-[85vh] sm:min-h-[600px] overflow-hidden bg-brand-soft flex items-center">
       <AnimatePresence initial={false}>
         <motion.div
           key={currentPage}
@@ -59,7 +59,7 @@ export default function ProductHero() {
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-brand-ink/60 via-transparent to-transparent sm:hidden" />
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full relative z-20 h-full flex flex-col justify-end sm:justify-center pb-20 sm:pb-0">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full relative z-20 h-full flex flex-col justify-start pt-28 sm:justify-center sm:pt-0 sm:pb-0">
         <div className="w-full sm:w-2/3 lg:w-1/2 max-w-lg flex flex-col items-start gap-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
