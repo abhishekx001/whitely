@@ -138,11 +138,11 @@ export const products = [
       { step: 2, title: 'Dry', description: 'Pat dry gently.', image: '/use2.png' },
       { step: 3, title: 'Apply', description: 'Apply a generous layer to your lips before bed or as needed.', image: '/use3.png' }
     ],
-    ingredients: ['Shea Butter', 'Vitamin E', 'Natural Oils'],
+    ingredients: "DIMER DILINOLEATE, POLYBUTENE, MICROCRYSTALLINE WAX / CREA MICROCRISTALLINA / CIRE MICROCRISTALLINE, BUTYROSPERMUM PARKIL(SHEA) BUTTER, SYNTHETIC WAX, ETHYLENE/PROPYLENE/ STYRENE COPOLYMER, DIISOSTEARYL MALATE, HYDROGENATED POLVISOBUTENE, PHYTOSTERYL ISOSTEARYL/CETYL/STEARYL/ BEHENYL HYDROGENATED POLY(C6-14 OLEFIN)",
     keyIngredients: [
       { name: 'Shea Butter', description: 'Deeply moisturizes and heals chapped lips.' },
-      { name: 'Vitamin E', description: 'Protects and softens the lips.' },
-      { name: 'Natural Oils', description: 'Nourishes and plumps the lip texture.' }
+      { name: 'Microcrystalline Wax', description: 'Forms a protective barrier to lock in moisture.' },
+      { name: 'Hydrogenated Polyisobutene', description: 'Softens and smoothens lip texture.' }
     ],
     reviews: [
       { name: 'Maya P.', rating: 5, text: 'Cured my chapped lips in just two nights. A must-have!' },
@@ -209,11 +209,11 @@ export const products = [
       { step: 2, title: 'Measure', description: 'Take two finger lengths of sunscreen.', image: '/use2.png' },
       { step: 3, title: 'Apply', description: 'Apply evenly on face and neck 15 minutes before sun exposure.', image: '/use3.png' }
     ],
-    ingredients: ['Vitamin C', 'Zinc Oxide', 'Niacinamide'],
+    ingredients: "OCTYL SALICYLATE, ISOPROPYL MYRISTATE, AVOBENZONE, CETOSTEARYL ALCOHOL. CYCLOPENTASILOXANE, DM WATER, ETHYLHEXYL METHOXYCINNAMATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, GLYCERYL MONOSTERATE, GLYCERYL STEARATE (AND) PEG-100 STEARATE, GLYCERINE, C15-19 ALKANE, PHENOXYETHANOL (AND) ETHLHEXYLOLYCERIN, TITANIUM DIOXIDE, XANTHAN GUM, BENZOPHENONE 4, BUTYLATED HYDROXYTOLUENE, POLYACRYLATE-13 (AND) POLYISOBUTENE (AND) POLYSORBATE 20, TRIETHANOLAMINE, PERFUME, SODIUM GLUCONATE, SODIUM ASCORBYL PHOSPHATE, TOCOPHERYL ACETATE. NOTE: THIS FORMULA CONTAINS HERBAL INGREDIENTS THAT MAY TEND TO SLIGHTLY CHANGE IN COLOUR OVER A PERIOD OF TIME, HOWEVER PRODUCT EFFICANCY REMAINS UNCHANGED",
     keyIngredients: [
-      { name: 'Vitamin C', description: 'Brightens and evens out skin tone naturally.' },
-      { name: 'Zinc Oxide', description: 'Provides broad-spectrum UV protection.' },
-      { name: 'Niacinamide', description: 'Strengthens the skin barrier and minimizes pores.' }
+      { name: 'Avobenzone', description: 'Provides broad-spectrum protection against UVA rays.' },
+      { name: 'Titanium Dioxide', description: 'A physical sunscreen that protects against UV radiation.' },
+      { name: 'Vitamin C', description: 'Brightens skin and provides antioxidant protection.' }
     ],
     reviews: [
       { name: 'Isha R.', rating: 5, text: 'Finally a sunscreen that leaves absolutely zero white cast! Love it.' },
