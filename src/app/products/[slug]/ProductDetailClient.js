@@ -434,13 +434,11 @@ export default function ProductDetailClient({ product }) {
         title="Video Testimonials"
         subtitle="See the visible results and hear from our happy customers"
         testimonials={[
-          { id: 7, quote: "Whitely has completely transformed my skincare routine! I am obsessed with the results.", name: "Customer", role: "Customer", videoSrc: "/review-new.mp4" },
-          { id: 6, quote: "Excellent products! Highly satisfied with the results and quality.", name: "Customer", role: "Customer", videoSrc: "/video5.mp4" },
-          { id: 5, quote: "Absolutely love Whitely products! The quality is outstanding and the results speak for themselves.", name: "Customer", role: "Customer", videoSrc: "/video4.mp4" },
-          { id: 3, quote: "Whitely products transformed my skincare routine. Visible results in just weeks!", name: "Sneha Reddy", role: "Customer", videoSrc: "/review4.mp4" },
-          { id: 2, quote: "Love the body lotion! It keeps my skin soft and glowing all day long. Highly recommend!", name: "Anjali Patel", role: "Customer", videoSrc: "/review2.mp4" },
-          { id: 1, quote: "Amazing results! My skin has never looked better. The brightening cream is a game changer.", name: "Priya Sharma", role: "Customer", videoSrc: "/review1.mp4" },
-          { id: 4, quote: "The lip mask is incredible! My lips are so smooth and hydrated. Best product ever!", name: "Riya Mehta", role: "Customer", videoSrc: "/review3.mp4" }
+          { id: 7, quote: "Whitely has completely transformed my skincare routine! I am obsessed with the results.", name: "Customer", role: "Customer", videoSrc: "/videos/vid1.mp4" },
+          { id: 6, quote: "Excellent products! Highly satisfied with the results and quality.", name: "Customer", role: "Customer", videoSrc: "/videos/vid2.mp4" },
+          { id: 5, quote: "Absolutely love Whitely products! The quality is outstanding and the results speak for themselves.", name: "Customer", role: "Customer", videoSrc: "/videos/vid3.mp4" },
+          { id: 3, quote: "Whitely products transformed my skincare routine. Visible results in just weeks!", name: "Sneha Reddy", role: "Customer", videoSrc: "/videos/vid4.mp4" },
+          { id: 2, quote: "Love the body lotion! It keeps my skin soft and glowing all day long. Highly recommend!", name: "Anjali Patel", role: "Customer", videoSrc: "/videos/vid5.mp4" }
         ]}
       />
 
