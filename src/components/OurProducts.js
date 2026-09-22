@@ -14,7 +14,7 @@ export default function OurProducts() {
       indiaPrice: '1,599',
       indiaMRP: '1,800',
       qatarPrice: '90',
-      image: '/beautycream-80g.jpeg'
+      image: '/beauty-cream-new.jpeg'
     },
     {
       id: 6,
@@ -23,16 +23,16 @@ export default function OurProducts() {
       indiaPrice: '999',
       indiaMRP: '1,200',
       qatarPrice: '70',
-      image: '/beauty-cream 40g.jpeg'
+      image: '/beauty-cream-new-40g.jpeg'
     },
     {
       id: 2,
-      name: 'Whitely Beauty Brightening Body Lotion',
+      name: 'Whitely Beauty Brightening Hand Lotion',
       benefit: 'Removes sun tan & reduces uneven skin tone.',
       indiaPrice: '999',
       indiaMRP: '1,200',
       qatarPrice: '70',
-      image: '/bodylotion2.jpg'
+      image: '/handlotion-new.jpeg'
     },
     {
       id: 3,
@@ -49,7 +49,7 @@ export default function OurProducts() {
       benefit: 'Gentle soap for tan removal and brightening glow.',
       indiaPrice: '299',
       indiaMRP: '399',
-      image: '/soap-new.jpeg'
+      image: '/soap-new1.jpeg'
     },
     {
       id: 5,
@@ -58,7 +58,7 @@ export default function OurProducts() {
       indiaPrice: '599',
       indiaMRP: '799',
       qatarPrice: '50',
-      image: '/sunscreen-new.jpeg'
+      image: '/sunscreen-new1.jpeg'
     }
   ]
 

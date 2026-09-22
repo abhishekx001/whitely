@@ -25,12 +25,12 @@ export default function Navbar() {
   }
 
   const productsList = [
-    { name: 'Brightening Cream (80g)', image: '/beautycream-80g.jpeg' },
-    { name: 'Brightening Cream (40g)', image: '/beauty-cream 40g.jpeg' },
-    { name: 'Brightening Body Lotion', image: '/bodylotion2.jpg' },
+    { name: 'Brightening Cream (80g)', image: '/beauty-cream-new.jpeg' },
+    { name: 'Brightening Cream (40g)', image: '/beauty-cream-new-40g.jpeg' },
+    { name: 'Brightening Hand Lotion', image: '/handlotion-new.jpeg' },
     { name: 'Lip Mask', image: '/lipbalm-new.jpeg' },
-    { name: 'Whitely Brightening Soap', image: '/soap-new.jpeg' },
-    { name: 'Sunscreen', image: '/sunscreen-new.jpeg' }
+    { name: 'Whitely Brightening Soap', image: '/soap-new1.jpeg' },
+    { name: 'Sunscreen', image: '/sunscreen-new1.jpeg' }
   ]
 
   const generateId = (name) => `product-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`

@@ -11,10 +11,10 @@ export default function ProductHero() {
   
   // Using images from public folder
   const images = [
-    '/beautycream 4.jpg',
-    '/handlotion.jpg',
+    '/beauty-cream-new.jpeg',
+    '/handlotion-new.jpeg',
     '/lipbalm-new.jpeg',
-    '/sunscreen-new.jpeg'
+    '/sunscreen-new1.jpeg'
   ]
 
   const titles = [

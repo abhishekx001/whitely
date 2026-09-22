@@ -12,7 +12,7 @@ const CHIPS = [
   'Sunscreen',
   'Lip Mask',
   'Soap',
-  'Body Lotion',
+  'Hand Lotion',
   'Beauty Cream'
 ]
 
@@ -23,9 +23,9 @@ const INTENT_MAP = {
   'lip mask': 'whitely-beauty-lip-mask',
   'lip balm': 'whitely-beauty-lip-mask',
   'soap': 'whitely-beauty-brightening-soap',
-  'body': 'whitely-beauty-brightening-body-lotion',
-  'lotion': 'whitely-beauty-brightening-body-lotion',
-  'hand': 'whitely-beauty-brightening-body-lotion',
+  'body': 'whitely-beauty-brightening-hand-lotion',
+  'lotion': 'whitely-beauty-brightening-hand-lotion',
+  'hand': 'whitely-beauty-brightening-hand-lotion',
   'cream': 'whitely-beauty-brightening-cream-80g',
   'beauty cream': 'whitely-beauty-brightening-cream-80g',
   'face cream': 'whitely-beauty-brightening-cream-80g'
