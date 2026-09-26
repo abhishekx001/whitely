@@ -26,11 +26,42 @@ export const products = [
       { step: 2, title: 'Dry', description: 'Pat dry your face with a clean towel.', image: '/use2.png' },
       { step: 3, title: 'Apply', description: 'Take required amount of Whitely Brightening Cream and apply evenly to your face. Massage gently.', image: '/use3.png' }
     ],
-    ingredients: "Vitamin C, Vitamin E Jojoba Oil, Caprylic Triglyceride / Rosmarinús: Officinalis, Hyalauronic Acid Nacinamide, Titanum Dioxide, Gyceryl Strearate, Linoleic Acid, Myristyl Laurate, WILLOW BARK, SALICYLIC ACID, CLOVE BUD OIL, GREEN TEA EXTRACT, ORANGE EXTRACT, ROSEHIP OIL. VITAMIN C MULTOV, CURCUMIN EXT ALOE VERA EXT. LYCOPENE CARROT EXT, FRAGRANCE DIPALMITATE, NIACINAMIDE. HYDROQUINONE, KOJIC TRANEXAMIC.",
+    detailedHowToUse: [
+      {
+        title: 'Night Routine',
+        type: 'list',
+        items: [
+          'Wash your face thoroughly with Whitely Beauty Soap.',
+          'Gently pat your face dry with a clean towel.',
+          'Take a moderate amount of Whitely Beauty Face Cream and apply it evenly over your face.',
+          'Apply a very thin layer around the under-eye area, especially where dark circles are visible. Avoid direct contact with the eyes.',
+          'Leave the cream on overnight while you sleep.'
+        ]
+      },
+      {
+        title: 'Morning Routine',
+        type: 'list',
+        items: [
+          'Wash your face thoroughly with Whitely Beauty Soap.',
+          'Gently pat your face dry with a clean towel.'
+        ]
+      },
+      {
+        title: 'For Best Results',
+        type: 'text',
+        content: 'Use consistently for 2 weeks to observe visible changes. After achieving the desired results, continue using the cream 1–2 times per week to maintain the results.'
+      },
+      {
+        title: 'Important',
+        type: 'text',
+        content: 'For external use only. Avoid direct contact with the eyes.'
+      }
+    ],
+    ingredients: "Aqua, Glycerin, Alcohol Denat., Butyrospermum Parkii Butter, Cetearyl Isononanoate, Squalane, Isopropyl Palmitate, Panthenol, Glycery Stearate Citrate, Cetearyl Alcohol, Hydrogenated Coco-Glycerides, Methy|propanediol, Lauroyl Lysine, Isobutylamido Thiazolyl Resorcinol (Thiamidol®), Glycyrrh inflata Root Extract, Tocopherol, dosylrutin, Pantolactone, Xanthan Gum, isoquercitrin, Distarch Phosphate, Citric Acid, Trisodium Ethylenediamine Disuccinate, Phenoxyethanol",
     keyIngredients: [
-      { name: 'Vitamin C', description: 'Brightens and evens out skin tone naturally.' },
-      { name: 'Niacinamide', description: 'Strengthens the skin barrier and minimizes pores.' },
-      { name: 'Salicylic Acid', description: 'Unclogs pores and reduces acne breakouts.' }
+      { name: 'Thiamidol®', description: 'Effectively reduces dark spots and prevents their re-appearance for an even skin tone.' },
+      { name: 'Butyrospermum Parkii Butter', description: 'Deeply moisturizes and nourishes the skin, leaving it feeling soft and supple.' },
+      { name: 'Panthenol', description: 'Soothes and hydrates the skin while helping to strengthen the natural skin barrier.' }
     ],
     reviews: [
       { name: 'Priya S.', rating: 5, text: 'Absolutely love this cream! It absorbs quickly and leaves my skin glowing all day.' },
@@ -65,11 +96,42 @@ export const products = [
       { step: 2, title: 'Dry', description: 'Pat dry your face with a clean towel.', image: '/use2.png' },
       { step: 3, title: 'Apply', description: 'Take required amount of Whitely Brightening Cream and apply evenly to your face. Massage gently.', image: '/use3.png' }
     ],
-    ingredients: "Vitamin C, Vitamin E Jojoba Oil, Caprylic Triglyceride / Rosmarinús: Officinalis, Hyalauronic Acid Nacinamide, Titanum Dioxide, Gyceryl Strearate, Linoleic Acid, Myristyl Laurate, WILLOW BARK, SALICYLIC ACID, CLOVE BUD OIL, GREEN TEA EXTRACT, ORANGE EXTRACT, ROSEHIP OIL. VITAMIN C MULTOV, CURCUMIN EXT ALOE VERA EXT. LYCOPENE CARROT EXT, FRAGRANCE DIPALMITATE, NIACINAMIDE. HYDROQUINONE, KOJIC TRANEXAMIC.",
+    detailedHowToUse: [
+      {
+        title: 'Night Routine',
+        type: 'list',
+        items: [
+          'Wash your face thoroughly with Whitely Beauty Soap.',
+          'Gently pat your face dry with a clean towel.',
+          'Take a moderate amount of Whitely Beauty Face Cream and apply it evenly over your face.',
+          'Apply a very thin layer around the under-eye area, especially where dark circles are visible. Avoid direct contact with the eyes.',
+          'Leave the cream on overnight while you sleep.'
+        ]
+      },
+      {
+        title: 'Morning Routine',
+        type: 'list',
+        items: [
+          'Wash your face thoroughly with Whitely Beauty Soap.',
+          'Gently pat your face dry with a clean towel.'
+        ]
+      },
+      {
+        title: 'For Best Results',
+        type: 'text',
+        content: 'Use consistently for 2 weeks to observe visible changes. After achieving the desired results, continue using the cream 1–2 times per week to maintain the results.'
+      },
+      {
+        title: 'Important',
+        type: 'text',
+        content: 'For external use only. Avoid direct contact with the eyes.'
+      }
+    ],
+    ingredients: "Aqua, Glycerin, Alcohol Denat., Butyrospermum Parkii Butter, Cetearyl Isononanoate, Squalane, Isopropyl Palmitate, Panthenol, Glycery Stearate Citrate, Cetearyl Alcohol, Hydrogenated Coco-Glycerides, Methy|propanediol, Lauroyl Lysine, Isobutylamido Thiazolyl Resorcinol (Thiamidol®), Glycyrrh inflata Root Extract, Tocopherol, dosylrutin, Pantolactone, Xanthan Gum, isoquercitrin, Distarch Phosphate, Citric Acid, Trisodium Ethylenediamine Disuccinate, Phenoxyethanol",
     keyIngredients: [
-      { name: 'Vitamin C', description: 'Brightens and evens out skin tone naturally.' },
-      { name: 'Niacinamide', description: 'Strengthens the skin barrier and minimizes pores.' },
-      { name: 'Salicylic Acid', description: 'Unclogs pores and reduces acne breakouts.' }
+      { name: 'Thiamidol®', description: 'Effectively reduces dark spots and prevents their re-appearance for an even skin tone.' },
+      { name: 'Butyrospermum Parkii Butter', description: 'Deeply moisturizes and nourishes the skin, leaving it feeling soft and supple.' },
+      { name: 'Panthenol', description: 'Soothes and hydrates the skin while helping to strengthen the natural skin barrier.' }
     ],
     reviews: [
       { name: 'Neha G.', rating: 5, text: 'Perfect size for carrying in my purse. Works like magic on dull skin.' },

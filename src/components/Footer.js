@@ -44,23 +44,23 @@ export default function Footer() {
             <p className="text-brand-muted text-sm leading-relaxed font-sans mb-6 pr-4">
               Premium, nature-infused skincare designed to rejuvenate, protect, and illuminate your skin. Discover your natural glow.
             </p>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-brand-base mb-2 font-sans">Premium Quality</h4>
+            <p className="text-sm text-brand-muted font-sans pr-4">
+              Committed to responsible beauty. 100% results on all skin types.
+            </p>
           </motion.div>
 
-          {/* Quick Links Column */}
+          {/* Links Column */}
           <motion.div variants={fadeInUp}>
             <h3 className="text-lg font-normal mb-6 font-serif text-brand-base">
               Quick Links
             </h3>
-            <ul className="space-y-3 font-sans">
+            <ul className="space-y-3 font-sans mb-8">
               <li><Link href="/search" className="text-sm text-brand-muted hover:text-brand-base transition-colors">Search</Link></li>
               <li><Link href="/about" className="text-sm text-brand-muted hover:text-brand-base transition-colors">About Us</Link></li>
               <li><Link href="/contact" className="text-sm text-brand-muted hover:text-brand-base transition-colors">Contact Us</Link></li>
               <li><Link href="/track-order" className="text-sm text-brand-muted hover:text-brand-base transition-colors">Track Order</Link></li>
             </ul>
-          </motion.div>
-
-          {/* Info Column */}
-          <motion.div variants={fadeInUp}>
             <h3 className="text-lg font-normal mb-6 font-serif text-brand-base">
               Information
             </h3>
@@ -72,11 +72,49 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Social & Promise Column */}
+          {/* Company Column */}
           <motion.div variants={fadeInUp}>
             <h3 className="text-lg font-normal mb-6 font-serif text-brand-base">
-              Connect With Us
+              Company
             </h3>
+            <div className="space-y-6 font-sans text-sm text-brand-muted">
+              <div>
+                <p className="font-semibold text-brand-base mb-1">Manufactured in Italy</p>
+                <p>Zahra Saad Trading LLC</p>
+              </div>
+              <div>
+                <p className="font-semibold text-brand-base mb-1">Marketed by GCC & India</p>
+                <p>WHITELY BEAUTY INDIA</p>
+                <p>Peenya Industrial Area</p>
+                <p>Bengaluru Urban, Karnataka-560058 India</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Contact & Social Column */}
+          <motion.div variants={fadeInUp}>
+            <h3 className="text-lg font-normal mb-6 font-serif text-brand-base">
+              Get in Touch
+            </h3>
+            
+            <div className="space-y-3 font-sans text-sm text-brand-muted mb-8">
+              <p className="flex items-start">
+                <span className="text-brand-base w-16 flex-shrink-0">Call:</span> 
+                <span>+91 73066 33619</span>
+              </p>
+              <p className="flex items-start">
+                <span className="text-brand-base w-16 flex-shrink-0">Email:</span> 
+                <a href="mailto:whitelybeauty@gmail.com" className="hover:text-brand-base transition-colors break-all">whitelybeauty@gmail.com</a>
+              </p>
+              <p className="flex items-start">
+                <span className="text-brand-base w-16 flex-shrink-0">Web:</span> 
+                <a href="https://www.whitelybeauty.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-base transition-colors break-all">www.whitelybeauty.com</a>
+              </p>
+              <p className="flex items-start">
+                <span className="text-brand-base w-16 flex-shrink-0">IG:</span> 
+                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-brand-base transition-colors">@whitely.beauty</a>
+              </p>
+            </div>
             
             {/* Social Icons */}
             <div className="flex items-center gap-3 mb-8">
@@ -93,11 +131,6 @@ export default function Footer() {
                 <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               </a>
             </div>
-
-            <h4 className="text-sm font-bold uppercase tracking-wider text-brand-base mb-2 font-sans">Our Promise</h4>
-            <p className="text-sm text-brand-muted font-sans">
-              Committed to responsible beauty. 100% results on all skin types.
-            </p>
           </motion.div>
         </motion.div>
 

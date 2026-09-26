@@ -387,10 +387,10 @@ export default function ProductDetailClient({ product }) {
         </div>
       </div>
 
-      {/* How To Use Section - Only for Brightening Cream */}
-      {(product.id === 1 || product.id === 6 || product.name.includes('Brightening Cream')) && (
-        <div className="w-full py-16 bg-brand-base relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Detailed Routine Section - for Beauty Creams */}
+      {product.detailedHowToUse ? (
+        <div className="w-full py-20 bg-brand-soft relative overflow-hidden border-t border-brand-ink/5">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               className="text-center mb-16"
               initial="hidden"
@@ -399,10 +399,10 @@ export default function ProductDetailClient({ product }) {
               variants={fadeInUp}
             >
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-muted mb-4 font-sans">
-                Simple Routine
+                Complete Care
               </p>
               <h2 className="text-3xl md:text-4xl font-normal font-serif text-brand-ink">
-                How to Use
+                Recommended Routine
               </h2>
               <div className="flex items-center justify-center mt-6">
                 <div className="h-[1px] w-8 bg-brand-ink/20"></div>
@@ -411,33 +411,95 @@ export default function ProductDetailClient({ product }) {
               </div>
             </motion.div>
 
-            <div className="relative">
-              <div className="hidden lg:block absolute top-[140px] left-[15%] right-[15%] h-[1px] bg-brand-ink/10 z-0"></div>
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 relative z-10"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={staggerContainer}
-              >
-                {product.howToUse.map((step) => (
-                  <motion.div key={step.step} className="flex flex-col items-center text-center group" variants={fadeInUp}>
-                    <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] mb-8 rounded-sm bg-brand-base shadow-sm border border-brand-ink/10 overflow-hidden transition-transform duration-500 group-hover:scale-105 flex items-center justify-center">
-                      <Image src={step.image} alt={step.title} fill className="object-cover p-2 rounded-sm" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              {product.detailedHowToUse.map((section, idx) => (
+                <motion.div 
+                  key={idx} 
+                  className="bg-brand-base p-8 md:p-10 rounded-sm border border-brand-ink/10 shadow-sm hover:shadow-md transition-shadow duration-300"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  variants={fadeInUp}
+                >
+                  <h3 className="text-2xl font-serif text-brand-ink mb-6 flex items-center pb-4 border-b border-brand-ink/10">
+                    {section.title}
+                  </h3>
+                  {section.type === 'list' ? (
+                    <ul className="space-y-5 font-sans">
+                      {section.items.map((item, itemIdx) => (
+                        <li key={itemIdx} className="flex items-start group">
+                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-soft text-brand-ink flex items-center justify-center text-xs mr-4 mt-0.5 border border-brand-ink/20 group-hover:bg-brand-ink group-hover:text-brand-base transition-colors font-bold">
+                            {itemIdx + 1}
+                          </span>
+                          <span className="text-brand-ink/80 leading-relaxed text-sm md:text-base">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="pt-2 h-full flex flex-col justify-center">
+                      <p className="text-brand-ink/80 font-sans leading-relaxed text-sm md:text-base bg-brand-soft/50 p-6 rounded-sm border-l-4 border-brand-ink/30 italic">
+                        "{section.content}"
+                      </p>
                     </div>
-                    <div className="w-8 h-8 rounded-sm bg-brand-ink text-brand-base flex items-center justify-center text-sm font-bold font-serif mb-4 -mt-12 relative z-20 group-hover:bg-brand-deep transition-colors">
-                      {step.step}
-                    </div>
-                    <div className="px-4 py-2 w-full max-w-[280px]">
-                      <h3 className="text-lg font-normal mb-2 font-serif text-brand-ink">{step.title}</h3>
-                      <p className="text-sm leading-relaxed text-brand-ink/70 font-sans">{step.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+                  )}
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
+      ) : (
+        /* How To Use Section - For other products */
+        (product.id === 1 || product.id === 6 || product.name.includes('Brightening Cream') || (product.howToUse && product.howToUse.length > 0)) && (
+          <div className="w-full py-16 bg-brand-base relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.div
+                className="text-center mb-16"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={fadeInUp}
+              >
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-muted mb-4 font-sans">
+                  Simple Routine
+                </p>
+                <h2 className="text-3xl md:text-4xl font-normal font-serif text-brand-ink">
+                  How to Use
+                </h2>
+                <div className="flex items-center justify-center mt-6">
+                  <div className="h-[1px] w-8 bg-brand-ink/20"></div>
+                  <span className="mx-4 text-brand-ink/40 text-sm">✦</span>
+                  <div className="h-[1px] w-8 bg-brand-ink/20"></div>
+                </div>
+              </motion.div>
+
+              <div className="relative">
+                <div className="hidden lg:block absolute top-[140px] left-[15%] right-[15%] h-[1px] bg-brand-ink/10 z-0"></div>
+                <motion.div
+                  className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 relative z-10"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  variants={staggerContainer}
+                >
+                  {product.howToUse && product.howToUse.map((step) => (
+                    <motion.div key={step.step} className="flex flex-col items-center text-center group" variants={fadeInUp}>
+                      <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] mb-8 rounded-sm bg-brand-base shadow-sm border border-brand-ink/10 overflow-hidden transition-transform duration-500 group-hover:scale-105 flex items-center justify-center">
+                        <Image src={step.image} alt={step.title} fill className="object-cover p-2 rounded-sm" />
+                      </div>
+                      <div className="w-8 h-8 rounded-sm bg-brand-ink text-brand-base flex items-center justify-center text-sm font-bold font-serif mb-4 -mt-12 relative z-20 group-hover:bg-brand-deep transition-colors">
+                        {step.step}
+                      </div>
+                      <div className="px-4 py-2 w-full max-w-[280px]">
+                        <h3 className="text-lg font-normal mb-2 font-serif text-brand-ink">{step.title}</h3>
+                        <p className="text-sm leading-relaxed text-brand-ink/70 font-sans">{step.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        )
       )}
 
 
