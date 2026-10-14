@@ -22,9 +22,9 @@ export const products = [
       'Supports clear, healthy glow'
     ],
     howToUse: [
-      { step: 1, title: 'Wash', description: 'Wash Your Face With Whitely Brightening Soap.', image: '/use1.png' },
-      { step: 2, title: 'Dry', description: 'Pat dry your face with a clean towel.', image: '/use2.png' },
-      { step: 3, title: 'Apply', description: 'Take required amount of Whitely Brightening Cream and apply evenly to your face. Massage gently.', image: '/use3.png' }
+      { step: 1, title: 'Wash', description: 'Wash Your Face With Whitely Brightening Soap.', image: '/use1.webp' },
+      { step: 2, title: 'Dry', description: 'Pat dry your face with a clean towel.', image: '/use2.webp' },
+      { step: 3, title: 'Apply', description: 'Take required amount of Whitely Brightening Cream and apply evenly to your face. Massage gently.', image: '/use3.webp' }
     ],
     detailedHowToUse: [
       {
@@ -92,9 +92,9 @@ export const products = [
       'Supports clear, healthy glow'
     ],
     howToUse: [
-      { step: 1, title: 'Wash', description: 'Wash Your Face With Whitely Brightening Soap.', image: '/use1.png' },
-      { step: 2, title: 'Dry', description: 'Pat dry your face with a clean towel.', image: '/use2.png' },
-      { step: 3, title: 'Apply', description: 'Take required amount of Whitely Brightening Cream and apply evenly to your face. Massage gently.', image: '/use3.png' }
+      { step: 1, title: 'Wash', description: 'Wash Your Face With Whitely Brightening Soap.', image: '/use1.webp' },
+      { step: 2, title: 'Dry', description: 'Pat dry your face with a clean towel.', image: '/use2.webp' },
+      { step: 3, title: 'Apply', description: 'Take required amount of Whitely Brightening Cream and apply evenly to your face. Massage gently.', image: '/use3.webp' }
     ],
     detailedHowToUse: [
       {
@@ -159,9 +159,9 @@ export const products = [
       'Gives soft, hydrated, glowing hands'
     ],
     howToUse: [
-      { step: 1, title: 'Wash', description: 'Cleanse your hands with Whitely Brightening Soap.', image: '/use1.png' },
-      { step: 2, title: 'Dry', description: 'Gently pat your skin dry with a towel.', image: '/use2.png' },
-      { step: 3, title: 'Apply', description: 'Massage the lotion generously all over your hands.', image: '/use3.png' }
+      { step: 1, title: 'Wash', description: 'Cleanse your hands with Whitely Brightening Soap.', image: '/use1.webp' },
+      { step: 2, title: 'Dry', description: 'Gently pat your skin dry with a towel.', image: '/use2.webp' },
+      { step: 3, title: 'Apply', description: 'Massage the lotion generously all over your hands.', image: '/use3.webp' }
     ],
     ingredients: "GLYCERYL STREATE, VITAMIN E PANTHENOL AQUA, MINERAL OIL, ISOPROPY PLAMITATE, FRAGRANCE, CARROT OIL, METHYPARABEN, PHENOXYETHANO.",
     keyIngredients: [
@@ -196,9 +196,9 @@ export const products = [
       'Nourishes lips overnight for a healthy glow'
     ],
     howToUse: [
-      { step: 1, title: 'Clean', description: 'Ensure your lips are clean and free of makeup.', image: '/use1.png' },
-      { step: 2, title: 'Dry', description: 'Pat dry gently.', image: '/use2.png' },
-      { step: 3, title: 'Apply', description: 'Apply a generous layer to your lips before bed or as needed.', image: '/use3.png' }
+      { step: 1, title: 'Clean', description: 'Ensure your lips are clean and free of makeup.', image: '/use1.webp' },
+      { step: 2, title: 'Dry', description: 'Pat dry gently.', image: '/use2.webp' },
+      { step: 3, title: 'Apply', description: 'Apply a generous layer to your lips before bed or as needed.', image: '/use3.webp' }
     ],
     ingredients: "DIMER DILINOLEATE, POLYBUTENE, MICROCRYSTALLINE WAX / CREA MICROCRISTALLINA / CIRE MICROCRISTALLINE, BUTYROSPERMUM PARKIL(SHEA) BUTTER, SYNTHETIC WAX, ETHYLENE/PROPYLENE/ STYRENE COPOLYMER, DIISOSTEARYL MALATE, HYDROGENATED POLVISOBUTENE, PHYTOSTERYL ISOSTEARYL/CETYL/STEARYL/ BEHENYL HYDROGENATED POLY(C6-14 OLEFIN)",
     keyIngredients: [
@@ -230,9 +230,9 @@ export const products = [
       'Week 4: Clear & Healthy Skin'
     ],
     howToUse: [
-      { step: 1, title: 'Wet', description: 'Wet your face and body with water.', image: '/use1.png' },
-      { step: 2, title: 'Lather', description: 'Create a rich lather with the soap.', image: '/use2.png' },
-      { step: 3, title: 'Wash', description: 'Massage gently onto skin and rinse thoroughly.', image: '/use3.png' }
+      { step: 1, title: 'Wet', description: 'Wet your face and body with water.', image: '/use1.webp' },
+      { step: 2, title: 'Lather', description: 'Create a rich lather with the soap.', image: '/use2.webp' },
+      { step: 3, title: 'Wash', description: 'Massage gently onto skin and rinse thoroughly.', image: '/use3.webp' }
     ],
     ingredients: "Pure Donkey Milk. Glycerin Sodium Lauryl sarcosinate Coconut oil. olive oil. Titanium dioxide. Dm water. costic soda Donkey milk powder.. Propylene glycol. Citric acid. Fragrance oil",
     keyIngredients: [
@@ -267,9 +267,9 @@ export const products = [
       'Lightweight & Non-Sticky'
     ],
     howToUse: [
-      { step: 1, title: 'Cleanse', description: 'Start with a clean, dry face.', image: '/use1.png' },
-      { step: 2, title: 'Measure', description: 'Take two finger lengths of sunscreen.', image: '/use2.png' },
-      { step: 3, title: 'Apply', description: 'Apply evenly on face and neck 15 minutes before sun exposure.', image: '/use3.png' }
+      { step: 1, title: 'Cleanse', description: 'Start with a clean, dry face.', image: '/use1.webp' },
+      { step: 2, title: 'Measure', description: 'Take two finger lengths of sunscreen.', image: '/use2.webp' },
+      { step: 3, title: 'Apply', description: 'Apply evenly on face and neck 15 minutes before sun exposure.', image: '/use3.webp' }
     ],
     ingredients: "OCTYL SALICYLATE, ISOPROPYL MYRISTATE, AVOBENZONE, CETOSTEARYL ALCOHOL. CYCLOPENTASILOXANE, DM WATER, ETHYLHEXYL METHOXYCINNAMATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, GLYCERYL MONOSTERATE, GLYCERYL STEARATE (AND) PEG-100 STEARATE, GLYCERINE, C15-19 ALKANE, PHENOXYETHANOL (AND) ETHLHEXYLOLYCERIN, TITANIUM DIOXIDE, XANTHAN GUM, BENZOPHENONE 4, BUTYLATED HYDROXYTOLUENE, POLYACRYLATE-13 (AND) POLYISOBUTENE (AND) POLYSORBATE 20, TRIETHANOLAMINE, PERFUME, SODIUM GLUCONATE, SODIUM ASCORBYL PHOSPHATE, TOCOPHERYL ACETATE. NOTE: THIS FORMULA CONTAINS HERBAL INGREDIENTS THAT MAY TEND TO SLIGHTLY CHANGE IN COLOUR OVER A PERIOD OF TIME, HOWEVER PRODUCT EFFICANCY REMAINS UNCHANGED",
     keyIngredients: [

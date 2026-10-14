@@ -9,19 +9,19 @@ export default function HowToUse() {
       id: 1,
       title: "Wash",
       description: "Cleanse with Whitely Brightening Soap.",
-      image: "/use1.png"
+      image: "/use1.webp"
     },
     {
       id: 2,
       title: "Dry",
       description: "Pat dry with a clean towel.",
-      image: "/use2.png"
+      image: "/use2.webp"
     },
     {
       id: 3,
       title: "Apply",
       description: "Massage Whitely Brightening Cream evenly.",
-      image: "/use3.png"
+      image: "/use3.webp"
     }
   ]
 
@@ -97,6 +97,7 @@ export default function HowToUse() {
                    src={step.image}
                    alt={step.title}
                    fill
+                   sizes="(max-width: 640px) 240px, 280px"
                    className="object-cover p-2 rounded-sm"
                  />
                </div>

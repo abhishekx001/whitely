@@ -155,6 +155,7 @@ export default function ProductDetailClient({ product }) {
                 alt={product.name}
                 fill
                 priority
+                sizes="(max-width: 1024px) 100vw, 600px"
                 className="object-cover transition-transform duration-700 lg:group-hover:scale-105"
               />
 
@@ -484,7 +485,7 @@ export default function ProductDetailClient({ product }) {
                   {product.howToUse && product.howToUse.map((step) => (
                     <motion.div key={step.step} className="flex flex-col items-center text-center group" variants={fadeInUp}>
                       <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] mb-8 rounded-sm bg-brand-base shadow-sm border border-brand-ink/10 overflow-hidden transition-transform duration-500 group-hover:scale-105 flex items-center justify-center">
-                        <Image src={step.image} alt={step.title} fill className="object-cover p-2 rounded-sm" />
+                        <Image src={step.image} alt={step.title} fill sizes="(max-width: 640px) 240px, 280px" className="object-cover p-2 rounded-sm" />
                       </div>
                       <div className="w-8 h-8 rounded-sm bg-brand-ink text-brand-base flex items-center justify-center text-sm font-bold font-serif mb-4 -mt-12 relative z-20 group-hover:bg-brand-deep transition-colors">
                         {step.step}
@@ -621,6 +622,7 @@ export default function ProductDetailClient({ product }) {
                     src={recProduct.images[0]}
                     alt={recProduct.name}
                     fill
+                    sizes="(max-width: 640px) 280px, 320px"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </Link>

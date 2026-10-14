@@ -108,7 +108,7 @@ export default function CartPage() {
                   >
                     {/* Product Image */}
                     <Link href={`/products/${item.product_slug}`} className="relative w-24 h-24 sm:w-32 sm:h-32 bg-brand-soft rounded-sm overflow-hidden flex-shrink-0 border border-brand-ink/5">
-                      <Image src={item.image} alt={item.product_name} fill className="object-cover" />
+                      <Image src={item.image} alt={item.product_name} fill sizes="(max-width: 640px) 96px, 128px" className="object-cover" />
                     </Link>
                     
                     {/* Product Details */}

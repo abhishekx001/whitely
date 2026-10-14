@@ -48,6 +48,7 @@ export default function ProductHero() {
             src={images[currentPage]}
             alt="Whitely Premium Skincare"
             fill
+            sizes="100vw"
             className="object-cover object-center"
             priority
           />

@@ -124,7 +124,7 @@ export default function Navbar() {
                         className="flex items-center px-4 py-3 hover:bg-brand-soft transition-colors border-b border-brand-ink/5 last:border-0"
                       >
                         <div className="w-10 h-10 rounded-sm overflow-hidden bg-brand-soft flex-shrink-0 relative border border-brand-ink/5">
-                          <Image src={product.image} alt={product.name} fill className="object-cover" />
+                          <Image src={product.image} alt={product.name} fill sizes="40px" className="object-cover" />
                         </div>
                         <div className="ml-4">
                           <span className="block text-sm text-brand-ink font-serif">{product.name}</span>

@@ -291,6 +291,8 @@ export default function ProductChatWidget() {
                           <img 
                             src={msg.product.image} 
                             alt={msg.product.name}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover"
                           />
                         </div>
