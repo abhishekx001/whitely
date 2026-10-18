@@ -70,7 +70,7 @@ const ROUTINES_DATA = {
         id: 5,
         title: 'Overnight Rest',
         description: 'Leave the cream on overnight while you sleep.',
-        image: '/use5.png',
+        image: '/use-44.png',
         imageAlt: 'Leave Whitely cream on overnight while you sleep',
         type: 'photo',
       },
