@@ -14,7 +14,7 @@ export default function OurProducts() {
       indiaPrice: '1,599',
       indiaMRP: '1,800',
       qatarPrice: '90',
-      image: '/beauty-cream-new.jpeg'
+      image: '/cream-80g-thumbnail.jpeg'
     },
     {
       id: 6,
@@ -23,7 +23,7 @@ export default function OurProducts() {
       indiaPrice: '999',
       indiaMRP: '1,200',
       qatarPrice: '70',
-      image: '/beauty-cream-new-40g.jpeg'
+      image: '/cream-40g-thumbnail.jpeg'
     },
     {
       id: 2,
@@ -49,7 +49,7 @@ export default function OurProducts() {
       benefit: 'Gentle soap for tan removal and brightening glow.',
       indiaPrice: '299',
       indiaMRP: '399',
-      image: '/soap-new1.jpeg'
+      image: '/soap-new.jpeg'
     },
     {
       id: 5,
@@ -58,7 +58,7 @@ export default function OurProducts() {
       indiaPrice: '599',
       indiaMRP: '799',
       qatarPrice: '50',
-      image: '/sunscreen-new1.jpeg'
+      image: '/sunscreen-new2.jpeg'
     }
   ]
 

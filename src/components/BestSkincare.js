@@ -8,10 +8,9 @@ export default function BestSkincare() {
   const cards = [
     { title: '1000+', subtitle: 'Happy Reviews', text: 'Real results from our growing community.' },
     { title: '300+', subtitle: 'Products Sold', text: 'Trusted formulations delivered nationwide.' },
-    { title: 'Turmeric', subtitle: 'Key Ingredient', text: 'Brightens and evens out skin tone naturally.' },
-    { title: 'Sandalwood', subtitle: 'Key Ingredient', text: 'Soothes inflammation and reduces acne.' },
-    { title: 'Niacinamide', subtitle: 'Key Ingredient', text: 'Strengthens the skin barrier and minimizes pores.' },
-    { title: 'Cruelty Free', subtitle: 'Our Promise', text: 'Never tested on animals. Always ethical.' }
+    { title: 'Thiamidol', subtitle: 'Key Ingredient', text: 'Effectively reduces dark spots and prevents their re-appearance.' },
+    { title: 'Retinol (0.2%)', subtitle: 'Key Ingredient', text: 'Promotes cellular renewal and smooths fine lines and texture.' },
+    { title: 'Glycerin', subtitle: 'Key Ingredient', text: 'Provides deep, long-lasting hydration and protects the skin barrier.' }
   ]
 
   return (

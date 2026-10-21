@@ -43,7 +43,7 @@ export default function FeaturedProducts() {
       indiaPrice: '1,599',
       indiaMRP: '1,800',
       qatarPrice: '90',
-      image: '/beauty-cream-new.jpeg'
+      image: '/cream-80g-thumbnail.jpeg'
     },
     {
       id: 5,
@@ -53,7 +53,7 @@ export default function FeaturedProducts() {
       indiaPrice: '999',
       indiaMRP: '1,200',
       qatarPrice: '70',
-      image: '/beauty-cream-new-40g.jpeg'
+      image: '/cream-40g-thumbnail.jpeg'
     },
     {
       id: 2,
@@ -83,7 +83,7 @@ export default function FeaturedProducts() {
       indiaPrice: '599',
       indiaMRP: '799',
       qatarPrice: '50',
-      image: '/sunscreen-new1.jpeg'
+      image: '/sunscreen-new2.jpeg'
     },
     {
       id: 6,
@@ -92,7 +92,7 @@ export default function FeaturedProducts() {
       description: 'Gentle cleansing soap for a brighter complexion.',
       indiaPrice: '299',
       indiaMRP: '399',
-      image: '/soap-new1.jpeg'
+      image: '/soap-new.jpeg'
     }
   ]
   const generateId = (name) => `product-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`

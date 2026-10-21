@@ -4,8 +4,8 @@ export const products = [
     name: 'Whitely Beauty Brightening Cream (80g)',
     category: 'Face Care',
     description: 'Achieve deep hydration and a brighter, even skin tone with our lightweight, non-greasy formula.',
-    image: '/beauty-cream-new.jpeg',
-    images: ['/beauty-cream-new.jpeg', '/beautycream2.jpg', '/beautycream3.jpg'],
+    image: '/cream-80g-thumbnail.jpeg',
+    images: ['/cream-80g-thumbnail.jpeg', '/beautycream2.jpg', '/beautycream3.jpg'],
     price: '1,599',
     mrp: '1,800',
     discountPercent: '11% OFF',
@@ -57,11 +57,11 @@ export const products = [
         content: 'For external use only. Avoid direct contact with the eyes.'
       }
     ],
-    ingredients: "Aqua, Glycerin, Alcohol Denat., Butyrospermum Parkii Butter, Cetearyl Isononanoate, Squalane, Isopropyl Palmitate, Panthenol, Glycery Stearate Citrate, Cetearyl Alcohol, Hydrogenated Coco-Glycerides, Methy|propanediol, Lauroyl Lysine, Isobutylamido Thiazolyl Resorcinol (Thiamidol®), Glycyrrh inflata Root Extract, Tocopherol, dosylrutin, Pantolactone, Xanthan Gum, isoquercitrin, Distarch Phosphate, Citric Acid, Trisodium Ethylenediamine Disuccinate, Phenoxyethanol",
+    ingredients: "Aqua, Glycerin, Alchol Denat, Butyrospermum parkii Butter, Ceteary! Isononanoate, Squalance, Isoproptyl Palmitate, Panthenol, Glycery Stearate Citrate, Cetearyl Alcohol, Hydrogenated Coco-Glycerides, methylpropanediol, Lauroyl Lysine, Isobutylamido Thiazolyl Resorcinol (Thiamido R ), Glycyrrh inflata Root Extract, Tocopherol, dosyIrutin, 0.2% retinol, Pantolactone, Xanthan Gum, isoquercitrin, Distarch phophate, Citric Acid, Trisodium Ethylenediamine Disuccinate, Phenoxyethanol.",
     keyIngredients: [
-      { name: 'Thiamidol®', description: 'Effectively reduces dark spots and prevents their re-appearance for an even skin tone.' },
-      { name: 'Butyrospermum Parkii Butter', description: 'Deeply moisturizes and nourishes the skin, leaving it feeling soft and supple.' },
-      { name: 'Panthenol', description: 'Soothes and hydrates the skin while helping to strengthen the natural skin barrier.' }
+      { name: 'Thiamidol', description: 'Effectively reduces dark spots and prevents their re-appearance for an even skin tone.' },
+      { name: '0.2% Retinol', description: 'Promotes cellular renewal, smooths skin texture, and enhances radiance.' },
+      { name: 'Glycerin', description: 'Deeply hydrates and locks in essential moisture for plump, healthy skin.' }
     ],
     reviews: [
       { name: 'Priya S.', rating: 5, text: 'Absolutely love this cream! It absorbs quickly and leaves my skin glowing all day.' },
@@ -74,8 +74,8 @@ export const products = [
     name: 'Whitely Beauty Brightening Cream (40g)',
     category: 'Face Care',
     description: 'The same powerful brightening formula in a convenient travel-friendly size.',
-    image: '/beauty-cream-new-40g.jpeg',
-    images: ['/beauty-cream-new-40g.jpeg', '/beautycream 4.jpg', '/beautycream3.jpg'],
+    image: '/cream-40g-thumbnail.jpeg',
+    images: ['/cream-40g-thumbnail.jpeg', '/beautycream 4.jpg', '/beautycream3.jpg'],
     price: '999',
     mrp: '1,200',
     discountPercent: '17% OFF',
@@ -127,11 +127,11 @@ export const products = [
         content: 'For external use only. Avoid direct contact with the eyes.'
       }
     ],
-    ingredients: "Aqua, Glycerin, Alcohol Denat., Butyrospermum Parkii Butter, Cetearyl Isononanoate, Squalane, Isopropyl Palmitate, Panthenol, Glycery Stearate Citrate, Cetearyl Alcohol, Hydrogenated Coco-Glycerides, Methy|propanediol, Lauroyl Lysine, Isobutylamido Thiazolyl Resorcinol (Thiamidol®), Glycyrrh inflata Root Extract, Tocopherol, dosylrutin, Pantolactone, Xanthan Gum, isoquercitrin, Distarch Phosphate, Citric Acid, Trisodium Ethylenediamine Disuccinate, Phenoxyethanol",
+    ingredients: "Aqua, Glycerin, Alchol Denat, Butyrospermum parkii Butter, Ceteary! Isononanoate, Squalance, Isoproptyl Palmitate, Panthenol, Glycery Stearate Citrate, Cetearyl Alcohol, Hydrogenated Coco-Glycerides, methylpropanediol, Lauroyl Lysine, Isobutylamido Thiazolyl Resorcinol (Thiamido R ), Glycyrrh inflata Root Extract, Tocopherol, dosyIrutin, 0.2% retinol, Pantolactone, Xanthan Gum, isoquercitrin, Distarch phophate, Citric Acid, Trisodium Ethylenediamine Disuccinate, Phenoxyethanol.",
     keyIngredients: [
-      { name: 'Thiamidol®', description: 'Effectively reduces dark spots and prevents their re-appearance for an even skin tone.' },
-      { name: 'Butyrospermum Parkii Butter', description: 'Deeply moisturizes and nourishes the skin, leaving it feeling soft and supple.' },
-      { name: 'Panthenol', description: 'Soothes and hydrates the skin while helping to strengthen the natural skin barrier.' }
+      { name: 'Thiamidol', description: 'Effectively reduces dark spots and prevents their re-appearance for an even skin tone.' },
+      { name: '0.2% Retinol', description: 'Promotes cellular renewal, smooths skin texture, and enhances radiance.' },
+      { name: 'Glycerin', description: 'Deeply hydrates and locks in essential moisture for plump, healthy skin.' }
     ],
     reviews: [
       { name: 'Neha G.', rating: 5, text: 'Perfect size for carrying in my purse. Works like magic on dull skin.' },
@@ -216,8 +216,8 @@ export const products = [
     name: 'Whitely Beauty Brightening Soap',
     category: 'Body Care',
     description: 'Deep cleansing for brighter, clearer skin. Gentle exfoliation removes dead skin cells and evens out skin tone.',
-    image: '/soap-new1.jpeg',
-    images: ['/soap-new1.jpeg', '/soap-new.jpeg', '/soap-new2.jpeg'],
+    image: '/soap-new.jpeg',
+    images: ['/soap-new.jpeg', '/soap-new1.jpeg', '/soap-new2.jpeg'],
     price: '299',
     mrp: '399',
     discountPercent: '25% OFF',
@@ -251,8 +251,8 @@ export const products = [
     name: 'Whitely Beauty Sunscreen',
     category: 'Face Care',
     description: 'SPF 50 ++++ for maximum UV protection. Enriched with Vitamin C for radiant skin with an ultra-hydrating formula.',
-    image: '/sunscreen-new1.jpeg',
-    images: ['/sunscreen-new1.jpeg', '/sunscreen-new.jpeg', '/sunscreen-new2.jpeg'],
+    image: '/sunscreen-new2.jpeg',
+    images: ['/sunscreen-new2.jpeg', '/sunscreen-new1.jpeg', '/sunscreen-new.jpeg'],
     price: '599',
     mrp: '799',
     discountPercent: '25% OFF',

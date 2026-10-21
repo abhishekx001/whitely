@@ -14,11 +14,17 @@ import { useRouter } from 'next/navigation'
 
 export default function ProductDetailClient({ product }) {
   const { openWhatsAppModal } = useWhatsApp()
-  const [selectedImage, setSelectedImage] = useState(product.images[0])
+  const [selectedImage, setSelectedImage] = useState(product?.image || product?.images?.[0])
   const [isScrolled, setIsScrolled] = useState(false)
   const scrollRef = useRef(null)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(true)
+
+  useEffect(() => {
+    if (product) {
+      setSelectedImage(product.image || product.images?.[0])
+    }
+  }, [product])
 
   const { user } = useAuth()
   const { addToCart } = useCart()
