@@ -27,8 +27,8 @@ export default function Navbar() {
   const productsList = [
     { name: 'Brightening Cream (80g)', image: '/cream-80g-thumbnail.jpeg' },
     { name: 'Brightening Cream (40g)', image: '/cream-40g-thumbnail.jpeg' },
-    { name: 'Brightening Hand Lotion', image: '/handlotion-new.jpeg' },
-    { name: 'Lip Mask', image: '/lipbalm-new.jpeg' },
+    { name: 'Brightening Hand Lotion', image: '/handlotion-thumb.jpeg' },
+    { name: 'Lip Mask', image: '/lipbalm-thumb.jpeg' },
     { name: 'Whitely Brightening Soap', image: '/soap-new.jpeg' },
     { name: 'Sunscreen', image: '/sunscreen-new2.jpeg' }
   ]

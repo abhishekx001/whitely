@@ -63,7 +63,7 @@ export default function FeaturedProducts() {
       indiaPrice: '999',
       indiaMRP: '1,200',
       qatarPrice: '70',
-      image: '/handlotion-new.jpeg'
+      image: '/handlotion-thumb.jpeg'
     },
     {
       id: 3,
@@ -73,7 +73,7 @@ export default function FeaturedProducts() {
       indiaPrice: '599',
       indiaMRP: '799',
       qatarPrice: '50',
-      image: '/lipbalm-new.jpeg'
+      image: '/lipbalm-thumb.jpeg'
     },
     {
       id: 4,

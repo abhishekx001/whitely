@@ -226,7 +226,9 @@ export default function TestimonialSection({
                   {/* Testimonial text overlay */}
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none flex flex-col justify-end min-h-[140px]">
                     <p className="text-white font-serif italic text-sm mb-2 line-clamp-3">"{testimonial.quote}"</p>
-                    <p className="text-white/80 font-sans text-xs font-bold uppercase tracking-wider">{testimonial.name}</p>
+                    {testimonial.name && (
+                      <p className="text-white/80 font-sans text-xs font-bold uppercase tracking-wider">{testimonial.name}</p>
+                    )}
                   </div>
                 </div>
               </motion.div>

@@ -574,11 +574,11 @@ export default function ProductDetailClient({ product }) {
         title="Video Testimonials"
         subtitle="See the visible results and hear from our happy customers"
         testimonials={[
-          { id: 7, quote: "Whitely has completely transformed my skincare routine! I am obsessed with the results.", name: "Customer", role: "Customer", videoSrc: "/videos/vid1.mp4" },
-          { id: 6, quote: "Excellent products! Highly satisfied with the results and quality.", name: "Customer", role: "Customer", videoSrc: "/videos/vid2.mp4" },
-          { id: 5, quote: "Absolutely love Whitely products! The quality is outstanding and the results speak for themselves.", name: "Customer", role: "Customer", videoSrc: "/videos/vid3.mp4" },
-          { id: 3, quote: "Whitely products transformed my skincare routine. Visible results in just weeks!", name: "Sneha Reddy", role: "Customer", videoSrc: "/videos/vid4.mp4" },
-          { id: 2, quote: "I'm in love with Whitely! It keeps my skin soft and glowing all day long. Highly recommend!", name: "Anjali Patel", role: "Customer", videoSrc: "/videos/vid5.mp4" }
+          { id: 7, quote: "Whitely has completely transformed my skincare routine! I am obsessed with the results.", videoSrc: "/videos/vid1.mp4" },
+          { id: 6, quote: "Excellent products! Highly satisfied with the results and quality.", videoSrc: "/videos/vid2.mp4" },
+          { id: 5, quote: "Absolutely love Whitely products! The quality is outstanding and the results speak for themselves.", videoSrc: "/videos/vid3.mp4" },
+          { id: 3, quote: "Whitely products transformed my skincare routine. Visible results in just weeks!", videoSrc: "/videos/vid4.mp4" },
+          { id: 2, quote: "I'm in love with Whitely! It keeps my skin soft and glowing all day long. Highly recommend!", videoSrc: "/videos/vid5.mp4" }
         ]}
       />
 
