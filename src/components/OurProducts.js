@@ -11,8 +11,8 @@ export default function OurProducts() {
       id: 1,
       name: 'Whitely Beauty Brightening Cream (80g)',
       benefit: 'Fades dark spots & acne marks for a brighter, smoother skin.',
-      indiaPrice: '1,599',
-      indiaMRP: '1,800',
+      indiaPrice: '1599',
+      indiaMRP: '1800',
       qatarPrice: '90',
       image: '/cream-80g-thumbnail.jpeg'
     },

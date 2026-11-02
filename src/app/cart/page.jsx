@@ -15,16 +15,104 @@ export default function CartPage() {
   const { user } = useAuth()
   const { openWhatsAppModal } = useWhatsApp()
   
-  const generateId = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+  const generateId = (name) => (name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+
+  const resolveProduct = (item) => {
+    const name = (item.product_name || '').toLowerCase()
+    const slug = (item.product_slug || '').toLowerCase()
+
+    // 1. 80g Cream (any cream not 40g, or mentioning 80)
+    if ((name.includes('cream') && !name.includes('40')) || slug.includes('80g') || name.includes('80') || slug.includes('80')) {
+      const p = products.find(p => p.slug?.includes('80g')) || products[0]
+      return {
+        ...p,
+        resolvedPrice: 1599,
+        resolvedMrp: 1800,
+        image: p?.images?.[0] || p?.image || '/cream-80g-thumbnail.jpeg'
+      }
+    }
+
+    // 2. 40g Cream
+    if (name.includes('40') || slug.includes('40')) {
+      const p = products.find(p => p.slug?.includes('40g')) || products[1]
+      return {
+        ...p,
+        resolvedPrice: 999,
+        resolvedMrp: 1200,
+        image: p?.images?.[0] || p?.image || '/cream-40g-thumbnail.jpeg'
+      }
+    }
+
+    // 3. Hand Lotion
+    if (name.includes('lotion') || slug.includes('lotion') || name.includes('hand')) {
+      const p = products.find(p => p.slug?.includes('lotion'))
+      return {
+        ...p,
+        resolvedPrice: 999,
+        resolvedMrp: 1200,
+        image: p?.images?.[0] || p?.image || '/handlotion-thumb.jpeg'
+      }
+    }
+
+    // 4. Lip Mask
+    if (name.includes('lip') || slug.includes('lip')) {
+      const p = products.find(p => p.slug?.includes('lip'))
+      return {
+        ...p,
+        resolvedPrice: 599,
+        resolvedMrp: 799,
+        image: p?.images?.[0] || p?.image || '/lipbalm-thumb.jpeg'
+      }
+    }
+
+    // 5. Sunscreen
+    if (name.includes('sunscreen') || slug.includes('sunscreen') || name.includes('sun')) {
+      const p = products.find(p => p.slug?.includes('sunscreen'))
+      return {
+        ...p,
+        resolvedPrice: 599,
+        resolvedMrp: 799,
+        image: p?.images?.[0] || p?.image || '/sunscreen-new2.jpeg'
+      }
+    }
+
+    // 6. Soap
+    if (name.includes('soap') || slug.includes('soap')) {
+      const p = products.find(p => p.slug?.includes('soap'))
+      return {
+        ...p,
+        resolvedPrice: 299,
+        resolvedMrp: 399,
+        image: p?.images?.[0] || p?.image || '/soap-new.jpeg'
+      }
+    }
+
+    // Fallback matching
+    const matched = products.find(p => 
+      p.name?.toLowerCase() === name || 
+      p.slug === slug ||
+      generateId(p.name) === slug
+    ) || products[0]
+
+    const numPrice = parseInt(String(matched?.price || item.price || 0).replace(/[^0-9]/g, ''), 10) || 0
+    const numMrp = parseInt(String(matched?.mrp || item.mrp || 0).replace(/[^0-9]/g, ''), 10) || 0
+
+    return {
+      ...matched,
+      resolvedPrice: numPrice <= 1 ? 1599 : numPrice,
+      resolvedMrp: numMrp <= 1 ? 1800 : numMrp,
+      image: matched?.images?.[0] || matched?.image || '/cream-80g-thumbnail.jpeg'
+    }
+  }
 
   // Hydrate cart items with product details from static data
   const cartItems = cart.map(item => {
-    const productDetail = products.find(p => p.name === item.product_name || generateId(p.name) === item.product_slug)
+    const details = resolveProduct(item)
     return {
       ...item,
-      image: productDetail?.images?.[0] || productDetail?.image || '/placeholder.png', // Adjust based on data structure
-      price: productDetail ? parseInt(productDetail.price || productDetail.indiaPrice?.replace(/,/g, '') || 0) : 0,
-      mrp: productDetail ? parseInt(productDetail.mrp || productDetail.indiaMRP?.replace(/,/g, '') || 0) : 0,
+      image: details.image,
+      price: details.resolvedPrice,
+      mrp: details.resolvedMrp,
     }
   })
 
@@ -139,9 +227,9 @@ export default function CartPage() {
                         </div>
                         
                         <div className="text-center sm:text-right">
-                          <p className="text-xl font-normal font-serif text-brand-ink">₹{item.price * item.quantity}</p>
+                          <p className="text-xl font-normal font-serif text-brand-ink">₹{(item.price * item.quantity).toLocaleString('en-IN')}</p>
                           {item.mrp > item.price && (
-                            <p className="text-xs text-brand-muted line-through">₹{item.mrp * item.quantity}</p>
+                            <p className="text-xs text-brand-muted line-through">₹{(item.mrp * item.quantity).toLocaleString('en-IN')}</p>
                           )}
                         </div>
                       </div>
@@ -168,7 +256,7 @@ export default function CartPage() {
                 <div className="space-y-4 font-sans text-sm mb-6 pb-6 border-b border-brand-ink/10">
                   <div className="flex justify-between text-brand-ink/80">
                     <span>Subtotal</span>
-                    <span className="font-semibold text-brand-ink">₹{subtotal}</span>
+                    <span className="font-semibold text-brand-ink">₹{subtotal.toLocaleString('en-IN')}</span>
                   </div>
                   <div className="flex justify-between text-brand-ink/80">
                     <span>Shipping</span>
@@ -178,7 +266,7 @@ export default function CartPage() {
                 
                 <div className="flex justify-between font-normal text-xl text-brand-ink mb-8 font-serif">
                   <span>Total</span>
-                  <span>₹{subtotal}</span>
+                  <span>₹{subtotal.toLocaleString('en-IN')}</span>
                 </div>
                 
                 <button 

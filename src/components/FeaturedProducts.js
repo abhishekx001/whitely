@@ -40,8 +40,8 @@ export default function FeaturedProducts() {
       name: 'Whitely Beauty Brightening Cream (80g)',
       category: 'Beauty Cream',
       description: 'Vitamin C cream for visibly brighter, more even-toned skin.',
-      indiaPrice: '1,599',
-      indiaMRP: '1,800',
+      indiaPrice: '1599',
+      indiaMRP: '1800',
       qatarPrice: '90',
       image: '/cream-80g-thumbnail.jpeg'
     },
